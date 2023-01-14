@@ -73,7 +73,6 @@
 			isa = PBXGroup;
 			children = (
 				202CC5C92972F883003990A4 /* LaunchScreen.storyboard */,
-				202CC5C42972F87D003990A4 /* GameBox.xcdatamodeld */,
 				202CC5BB2972F87D003990A4 /* AppDelegate.swift */,
 				202CC5BD2972F87D003990A4 /* SceneDelegate.swift */,
 				202CC5C72972F883003990A4 /* Assets.xcassets */,
@@ -99,6 +98,7 @@
 		202CC5D62972F98C003990A4 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				202CC5C42972F87D003990A4 /* GameBox.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
