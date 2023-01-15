@@ -11,7 +11,7 @@ class GameListVCHelper: NSObject {
     
     typealias RowItem = GameListCellModel
     
-    private let cellIdentifier = ""
+    private let cellIdentifier = "GameListCell"
     
     weak var tableView: UITableView?
     weak var viewModel: GameListViewModel?
@@ -27,12 +27,12 @@ class GameListVCHelper: NSObject {
     }
     
     private func setupTableView() {
-        tableView?.register(.init(nibName: "", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        tableView?.register(.init(nibName: "GameListCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
         tableView?.delegate = self
         tableView?.dataSource = self
     }
     
-    func setItem(_ items: [RowItem]){
+    func setItems(_ items: [RowItem]){
         self.items = items
         tableView?.reloadData()
     }
@@ -51,14 +51,10 @@ extension GameListVCHelper: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! GameListCell
+        cell.configure(with: items[indexPath.row])
+        
+        return cell
     }
     
-}
-
-struct GameListCellModel {
-    let background_image: String
-    let name: String
-    let rating: Double
-    let released: String
 }

@@ -23,11 +23,11 @@ class GameListModel {
     weak var delegate: GameListModelProtocol?
     
     func fetchData() {
-        if Internet.isOnline() {
-            
-        } else {
-            
-        }
+//        if Internet.isOnline() {
+//            
+//        } else {
+//
+//        }
     }
     
     private func saveToCoreData() {

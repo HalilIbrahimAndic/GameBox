@@ -13,7 +13,7 @@ class GameListViewModel {
     private let model = GameListModel()
     
     var onErrorOccured: ((String) -> ())?
-    var refreshItems: (([Any]) -> ())? // TODO:
+    var refreshItems: (([GameListCellModel]) -> ())?
     
     
     init() {

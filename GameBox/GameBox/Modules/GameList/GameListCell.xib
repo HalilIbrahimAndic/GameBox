@@ -116,6 +116,16 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="contentImageView" destination="yjl-8G-hqJ" id="xJ4-R2-Gqg"/>
+                <outlet property="gameNameLabel" destination="BfB-a8-bbx" id="m7f-y0-yQj"/>
+                <outlet property="genreTitleLabel" destination="in0-9P-Mb9" id="guc-Ew-Mqg"/>
+                <outlet property="genreValueLabel" destination="Q7j-sW-FLl" id="psH-Cg-JeN"/>
+                <outlet property="platformTitleLabel" destination="18L-1z-Q5j" id="n9k-Em-oiO"/>
+                <outlet property="platformValueLabel" destination="8px-rK-VFB" id="YPv-wa-dhQ"/>
+                <outlet property="releasedTitleLabel" destination="E1f-BN-cUR" id="k8v-L3-262"/>
+                <outlet property="releasedValueLabel" destination="uem-Lw-rL2" id="27S-Cf-JVI"/>
+            </connections>
             <point key="canvasLocation" x="439.85507246376812" y="114.50892857142857"/>
         </tableViewCell>
     </objects>
