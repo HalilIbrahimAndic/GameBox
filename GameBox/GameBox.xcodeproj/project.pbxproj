@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		202CC5BC2972F87D003990A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5BB2972F87D003990A4 /* AppDelegate.swift */; };
 		202CC5BE2972F87D003990A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5BD2972F87D003990A4 /* SceneDelegate.swift */; };
-		202CC5C02972F87D003990A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5BF2972F87D003990A4 /* ViewController.swift */; };
+		202CC5C02972F87D003990A4 /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5BF2972F87D003990A4 /* GameListViewController.swift */; };
 		202CC5C32972F87D003990A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 202CC5C12972F87D003990A4 /* Main.storyboard */; };
 		202CC5C62972F87D003990A4 /* GameBox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5C42972F87D003990A4 /* GameBox.xcdatamodeld */; };
 		202CC5C82972F883003990A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 202CC5C72972F883003990A4 /* Assets.xcassets */; };
@@ -20,7 +20,7 @@
 		202CC5B82972F87D003990A4 /* GameBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		202CC5BB2972F87D003990A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		202CC5BD2972F87D003990A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		202CC5BF2972F87D003990A4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		202CC5BF2972F87D003990A4 /* GameListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewController.swift; sourceTree = "<group>"; };
 		202CC5C22972F87D003990A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		202CC5C52972F87D003990A4 /* GameBox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GameBox.xcdatamodel; sourceTree = "<group>"; };
 		202CC5C72972F883003990A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,8 +62,7 @@
 				202CC5D42972F95A003990A4 /* LocalNotification */,
 				202CC5D72972F9A0003990A4 /* Model */,
 				202CC5D62972F98C003990A4 /* CoreData */,
-				202CC5D52972F985003990A4 /* Scene */,
-				202CC5BF2972F87D003990A4 /* ViewController.swift */,
+				202CC5D52972F985003990A4 /* Modules */,
 				202CC5C12972F87D003990A4 /* Main.storyboard */,
 			);
 			path = GameBox;
@@ -88,11 +87,12 @@
 			path = LocalNotification;
 			sourceTree = "<group>";
 		};
-		202CC5D52972F985003990A4 /* Scene */ = {
+		202CC5D52972F985003990A4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				202CC5DB2974594F003990A4 /* GameList */,
 			);
-			path = Scene;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		202CC5D62972F98C003990A4 /* CoreData */ = {
@@ -108,6 +108,14 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		202CC5DB2974594F003990A4 /* GameList */ = {
+			isa = PBXGroup;
+			children = (
+				202CC5BF2972F87D003990A4 /* GameListViewController.swift */,
+			);
+			path = GameList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,7 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				202CC5C02972F87D003990A4 /* ViewController.swift in Sources */,
+				202CC5C02972F87D003990A4 /* GameListViewController.swift in Sources */,
 				202CC5BC2972F87D003990A4 /* AppDelegate.swift in Sources */,
 				202CC5BE2972F87D003990A4 /* SceneDelegate.swift in Sources */,
 				202CC5C62972F87D003990A4 /* GameBox.xcdatamodeld in Sources */,
