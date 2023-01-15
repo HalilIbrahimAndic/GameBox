@@ -10,7 +10,8 @@ import Foundation
 //MARK: - Protocol
 protocol GameListModelProtocol: AnyObject {
     
-    func didDataFetch()
+    func didLiveDataFetch()
+    func didCacheDataFetch()
     func didDataCouldntFetch()
 }
 
@@ -22,8 +23,18 @@ class GameListModel {
     weak var delegate: GameListModelProtocol?
     
     func fetchData() {
+        if Internet.isOnline() {
+            
+        } else {
+            
+        }
+    }
+    
+    private func saveToCoreData() {
         
     }
     
-    
+    private func retrieveFromCoreData() {
+        
+    }
 }

@@ -21,7 +21,7 @@ class GameListViewModel {
     }
     
     func didViewLoad() {
-        // TODO:
+        model.fetchData()
     }
     
     func itemPressed(_ index: Int){
@@ -31,7 +31,11 @@ class GameListViewModel {
 
 //MARK: - Extensions
 extension GameListViewModel: GameListModelProtocol {
-    func didDataFetch() {
+    func didLiveDataFetch() {
+        // TODO:
+    }
+    
+    func didCacheDataFetch() {
         // TODO:
     }
     
