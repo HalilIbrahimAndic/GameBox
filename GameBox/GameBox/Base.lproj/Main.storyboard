@@ -8,33 +8,33 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Favorites-->
         <scene sceneID="heL-Ou-ofw">
             <objects>
-                <viewController id="XaC-tV-SOU" sceneMemberID="viewController">
+                <viewController id="XaC-tV-SOU" userLabel="Favorites" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lwo-XB-6QT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="b6I-LU-PM7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Xmg-qW-P5l"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" selectedImage="heart.fill" catalog="system" id="Xmg-qW-P5l" userLabel="Favorites"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="168-Og-fWe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="235" y="447"/>
         </scene>
-        <!--View Controller-->
+        <!--Game Box-->
         <scene sceneID="Qic-vq-vPV">
             <objects>
-                <viewController id="5IA-0V-D1h" sceneMemberID="viewController">
+                <viewController id="5IA-0V-D1h" customClass="GameListViewController" customModule="GameBox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5be-8J-rEp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="beW-q9-Mss"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="i3b-zV-KQt"/>
+                    <navigationItem key="navigationItem" title="Game Box" id="i3b-zV-KQt"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JYy-i8-SNI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -52,35 +52,37 @@
                     <connections>
                         <segue destination="Xy9-GS-vCJ" kind="relationship" relationship="viewControllers" id="SRg-QH-Kba"/>
                         <segue destination="XaC-tV-SOU" kind="relationship" relationship="viewControllers" id="wdo-ft-f56"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="K9c-CN-CG4"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LrR-qU-ISB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-652" y="82"/>
+            <point key="canvasLocation" x="-584" y="447"/>
         </scene>
-        <!--Game List View Controller-->
+        <!--Notes-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="GameListViewController" customModule="GameBox" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Notes" customClass="UITableViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Notes" selectedImage="book.fill" catalog="system" id="uUH-EP-S1M" userLabel="Notes"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="235" y="1100"/>
+            <point key="canvasLocation" x="235" y="1158"/>
         </scene>
-        <!--Item 1-->
+        <!--Games-->
         <scene sceneID="GfJ-Yi-w8x">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xy9-GS-vCJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="RJi-84-8Ra"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xy9-GS-vCJ" userLabel="Games" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Games" selectedImage="gamecontroller.fill" catalog="system" id="RJi-84-8Ra" userLabel="Games"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xNW-AH-kSb">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="xNW-AH-kSb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -90,10 +92,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aaf-aj-y0J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="234.78260869565219" y="-219.64285714285714"/>
+            <point key="canvasLocation" x="235" y="-220"/>
         </scene>
     </scenes>
     <resources>
+        <image name="book.fill" catalog="system" width="128" height="102"/>
+        <image name="gamecontroller.fill" catalog="system" width="128" height="80"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
