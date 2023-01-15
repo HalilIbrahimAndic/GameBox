@@ -16,6 +16,7 @@
 		202CC5CB2972F883003990A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 202CC5C92972F883003990A4 /* LaunchScreen.storyboard */; };
 		202CC5E1297488E8003990A4 /* GameListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5E0297488E8003990A4 /* GameListViewModel.swift */; };
 		202CC5E4297489C0003990A4 /* GameListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5E3297489C0003990A4 /* GameListModel.swift */; };
+		202CC5E729749915003990A4 /* GameListVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5E629749915003990A4 /* GameListVCHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		202CC5CC2972F883003990A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		202CC5E0297488E8003990A4 /* GameListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewModel.swift; sourceTree = "<group>"; };
 		202CC5E3297489C0003990A4 /* GameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListModel.swift; sourceTree = "<group>"; };
+		202CC5E629749915003990A4 /* GameListVCHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListVCHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,9 +119,10 @@
 		202CC5DB2974594F003990A4 /* GameList */ = {
 			isa = PBXGroup;
 			children = (
-				202CC5BF2972F87D003990A4 /* GameListViewController.swift */,
-				202CC5E0297488E8003990A4 /* GameListViewModel.swift */,
 				202CC5E3297489C0003990A4 /* GameListModel.swift */,
+				202CC5BF2972F87D003990A4 /* GameListViewController.swift */,
+				202CC5E629749915003990A4 /* GameListVCHelper.swift */,
+				202CC5E0297488E8003990A4 /* GameListViewModel.swift */,
 			);
 			path = GameList;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				202CC5E1297488E8003990A4 /* GameListViewModel.swift in Sources */,
+				202CC5E729749915003990A4 /* GameListVCHelper.swift in Sources */,
 				202CC5C02972F87D003990A4 /* GameListViewController.swift in Sources */,
 				202CC5BC2972F87D003990A4 /* AppDelegate.swift in Sources */,
 				202CC5E4297489C0003990A4 /* GameListModel.swift in Sources */,
