@@ -14,6 +14,11 @@
 		202CC5C62972F87D003990A4 /* GameBox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5C42972F87D003990A4 /* GameBox.xcdatamodeld */; };
 		202CC5C82972F883003990A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 202CC5C72972F883003990A4 /* Assets.xcassets */; };
 		202CC5CB2972F883003990A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 202CC5C92972F883003990A4 /* LaunchScreen.storyboard */; };
+		202CC5E1297488E8003990A4 /* GameListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5E0297488E8003990A4 /* GameListViewModel.swift */; };
+		202CC5E4297489C0003990A4 /* GameListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5E3297489C0003990A4 /* GameListModel.swift */; };
+		202CC5E729749915003990A4 /* GameListVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5E629749915003990A4 /* GameListVCHelper.swift */; };
+		202CC5EC2974A112003990A4 /* GameListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5EA2974A112003990A4 /* GameListCell.swift */; };
+		202CC5ED2974A112003990A4 /* GameListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 202CC5EB2974A112003990A4 /* GameListCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		202CC5C72972F883003990A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		202CC5CA2972F883003990A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		202CC5CC2972F883003990A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		202CC5E0297488E8003990A4 /* GameListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewModel.swift; sourceTree = "<group>"; };
+		202CC5E3297489C0003990A4 /* GameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListModel.swift; sourceTree = "<group>"; };
+		202CC5E629749915003990A4 /* GameListVCHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListVCHelper.swift; sourceTree = "<group>"; };
+		202CC5EA2974A112003990A4 /* GameListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListCell.swift; sourceTree = "<group>"; };
+		202CC5EB2974A112003990A4 /* GameListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameListCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				202CC5D32972F952003990A4 /* App */,
+				202CC5EF2974A130003990A4 /* Helper */,
 				202CC5D42972F95A003990A4 /* LocalNotification */,
 				202CC5D72972F9A0003990A4 /* Model */,
 				202CC5D62972F98C003990A4 /* CoreData */,
@@ -113,9 +124,21 @@
 		202CC5DB2974594F003990A4 /* GameList */ = {
 			isa = PBXGroup;
 			children = (
+				202CC5E3297489C0003990A4 /* GameListModel.swift */,
 				202CC5BF2972F87D003990A4 /* GameListViewController.swift */,
+				202CC5E0297488E8003990A4 /* GameListViewModel.swift */,
+				202CC5EA2974A112003990A4 /* GameListCell.swift */,
+				202CC5EB2974A112003990A4 /* GameListCell.xib */,
 			);
 			path = GameList;
+			sourceTree = "<group>";
+		};
+		202CC5EF2974A130003990A4 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				202CC5E629749915003990A4 /* GameListVCHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +201,7 @@
 				202CC5CB2972F883003990A4 /* LaunchScreen.storyboard in Resources */,
 				202CC5C82972F883003990A4 /* Assets.xcassets in Resources */,
 				202CC5C32972F87D003990A4 /* Main.storyboard in Resources */,
+				202CC5ED2974A112003990A4 /* GameListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,8 +212,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				202CC5E1297488E8003990A4 /* GameListViewModel.swift in Sources */,
+				202CC5E729749915003990A4 /* GameListVCHelper.swift in Sources */,
 				202CC5C02972F87D003990A4 /* GameListViewController.swift in Sources */,
+				202CC5EC2974A112003990A4 /* GameListCell.swift in Sources */,
 				202CC5BC2972F87D003990A4 /* AppDelegate.swift in Sources */,
+				202CC5E4297489C0003990A4 /* GameListModel.swift in Sources */,
 				202CC5BE2972F87D003990A4 /* SceneDelegate.swift in Sources */,
 				202CC5C62972F87D003990A4 /* GameBox.xcdatamodeld in Sources */,
 			);

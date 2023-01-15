@@ -31,10 +31,36 @@
                     <view key="view" contentMode="scaleToFill" id="5be-8J-rEp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kxO-WH-dkP">
+                                <rect key="frame" x="0.0" y="200" width="414" height="613"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="hxA-l4-OLf">
+                                <rect key="frame" x="0.0" y="140" width="414" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="bp1-rv-1MF"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="beW-q9-Mss"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kxO-WH-dkP" firstAttribute="leading" secondItem="beW-q9-Mss" secondAttribute="leading" id="0AX-ww-TlF"/>
+                            <constraint firstItem="hxA-l4-OLf" firstAttribute="leading" secondItem="beW-q9-Mss" secondAttribute="leading" id="8hT-FD-JBW"/>
+                            <constraint firstItem="kxO-WH-dkP" firstAttribute="top" secondItem="hxA-l4-OLf" secondAttribute="bottom" id="XOS-EA-bfh"/>
+                            <constraint firstItem="beW-q9-Mss" firstAttribute="bottom" secondItem="kxO-WH-dkP" secondAttribute="bottom" id="iKs-Q9-v6b"/>
+                            <constraint firstItem="hxA-l4-OLf" firstAttribute="top" secondItem="beW-q9-Mss" secondAttribute="top" id="l8q-Es-vaF"/>
+                            <constraint firstItem="hxA-l4-OLf" firstAttribute="trailing" secondItem="beW-q9-Mss" secondAttribute="trailing" id="qE0-eY-IAk"/>
+                            <constraint firstItem="beW-q9-Mss" firstAttribute="trailing" secondItem="kxO-WH-dkP" secondAttribute="trailing" id="r0K-3e-LPZ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Game Box" id="i3b-zV-KQt"/>
+                    <connections>
+                        <outlet property="gameSearchBar" destination="hxA-l4-OLf" id="gBp-FN-jhS"/>
+                        <outlet property="gameTableView" destination="kxO-WH-dkP" id="Cyf-LD-NoM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JYy-i8-SNI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
