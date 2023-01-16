@@ -34,7 +34,9 @@ private extension GameListViewController {
     
     func setupBinding() {
         viewModel.onErrorOccured = { [weak self] message in
-            
+            let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+            alertController.addAction(.init(title: "Ok", style: .default))
+            self?.present(alertController, animated: true)
         }
         
         viewModel.refreshItems = { [weak self] items in

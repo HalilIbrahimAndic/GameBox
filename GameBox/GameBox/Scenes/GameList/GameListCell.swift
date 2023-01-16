@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class GameListCell: UITableViewCell {
 
@@ -25,6 +26,7 @@ class GameListCell: UITableViewCell {
     }
     
     func configure(with model: GameListCellModel) {
+        contentImageView.kf.setImage(with: URL.init(string: model.background_image))
         gameNameLabel.text = model.name
         releasedValueLabel.text = model.released
     }
@@ -43,5 +45,5 @@ struct GameListCellModel {
     let name: String
     let released: String
     //let rating: Double
-    //let background_image: String
+    let background_image: String
 }
