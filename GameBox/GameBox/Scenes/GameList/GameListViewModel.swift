@@ -32,15 +32,17 @@ class GameListViewModel {
 //MARK: - Extensions
 extension GameListViewModel: GameListModelProtocol {
     func didLiveDataFetch() {
-        // TODO:
+        let cellModels: [GameListCellModel] = model.data.map{ .init(name: $0.name ?? "", released: $0.released ?? "", rating: $0.rating ?? 0.0, background_image: $0.background_image ?? "") }
+        refreshItems?(cellModels)
     }
     
     func didCacheDataFetch() {
-        // TODO:
+        let cellModels: [GameListCellModel] = model.databaseData.map{ .init(name: $0.name ?? "", released: $0.released ?? "", rating: $0.rating, background_image: $0.background_image ?? "") }
+        refreshItems?(cellModels)
     }
     
     func didDataCouldntFetch() {
-        // TODO:
+        onErrorOccured?("Data Couldn't Fetched. Try Again Later!")
     }
     
 }

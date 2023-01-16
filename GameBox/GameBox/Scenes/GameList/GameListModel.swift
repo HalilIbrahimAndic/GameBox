@@ -27,7 +27,7 @@ class GameListModel {
     
     weak var delegate: GameListModelProtocol?
     
-    func fetchData() {
+    func fetchData() { //First check CoreData, if nil -> fetch from internet
       if InternetManager.shared.isInternetActive() {
         AF.request("https://api.rawg.io/api/games?key=d04a8d582093458f9cc979cd66f2d71d").responseDecodable(of: ApiData.self) { (res) in
           guard
@@ -50,14 +50,14 @@ class GameListModel {
     
     private func saveToCoreData(_ data: RAWGModel) {
         let context = appDelegate.persistentContainer.viewContext
-        if let entity = NSEntityDescription.entity(forEntityName:"ListEntity", in: context) {
-            let listObject = NSManagedObject(entity: entity, insertInto: context)
+        if let entity = NSEntityDescription.entity(forEntityName: "ListEntity", in: context) {
+          let listObject = NSManagedObject(entity: entity, insertInto: context)
             
-            listObject.setValue(data.background_image, forKey: "background_image")
-            listObject.setValue(data.id, forKey: "id")
-            listObject.setValue(data.name, forKey: "name")
-            listObject.setValue(data.rating, forKey: "rating")
-            listObject.setValue(data.released, forKey: "released")
+            listObject.setValue(data.background_image ?? "", forKey: "background_image")
+            listObject.setValue(data.id ?? 0, forKey: "id")
+            listObject.setValue(data.name ?? "", forKey: "name")
+            listObject.setValue(data.rating ?? 0.0, forKey: "rating")
+            listObject.setValue(data.released ?? "", forKey: "released")
             
             do {
                 try context.save()
@@ -65,7 +65,6 @@ class GameListModel {
                 print("Error: CoreData saving")
             }
         }
-        
     }
     
     private func retrieveFromCoreData() {
@@ -76,10 +75,11 @@ class GameListModel {
             let fetchedCD = try context.fetch(request)
             print("\(fetchedCD.count)")
             self.databaseData = fetchedCD
+            delegate?.didCacheDataFetch()
         } catch {
             print("Error: Coredata fetching")
+            delegate?.didDataCouldntFetch()
         }
-        
         // we can limit fetchedCD request with "Predicate?"
     }
 }

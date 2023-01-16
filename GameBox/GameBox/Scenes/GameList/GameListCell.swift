@@ -40,10 +40,3 @@ private extension GameListCell {
 //        platformTitleLabel.text = "Platforms:"
     }
 }
-
-struct GameListCellModel {
-    let name: String
-    let released: String
-    //let rating: Double
-    let background_image: String
-}

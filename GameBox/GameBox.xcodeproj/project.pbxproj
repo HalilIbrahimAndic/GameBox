@@ -10,6 +10,7 @@
 		200DA3792975CEA4004B037A /* RAWGModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200DA3782975CEA4004B037A /* RAWGModel.swift */; };
 		200DA37D2975D64C004B037A /* InternetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200DA37C2975D64C004B037A /* InternetManager.swift */; };
 		200DA3832975E007004B037A /* GameListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5E3297489C0003990A4 /* GameListModel.swift */; };
+		200DA3862975E776004B037A /* GameListCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200DA3852975E776004B037A /* GameListCellModel.swift */; };
 		202CC5BC2972F87D003990A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5BB2972F87D003990A4 /* AppDelegate.swift */; };
 		202CC5BE2972F87D003990A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5BD2972F87D003990A4 /* SceneDelegate.swift */; };
 		202CC5C02972F87D003990A4 /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5BF2972F87D003990A4 /* GameListViewController.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		200DA3782975CEA4004B037A /* RAWGModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAWGModel.swift; sourceTree = "<group>"; };
 		200DA37C2975D64C004B037A /* InternetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetManager.swift; sourceTree = "<group>"; };
+		200DA3852975E776004B037A /* GameListCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListCellModel.swift; sourceTree = "<group>"; };
 		202CC5B82972F87D003990A4 /* GameBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		202CC5BB2972F87D003990A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		202CC5BD2972F87D003990A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				200DA3782975CEA4004B037A /* RAWGModel.swift */,
+				200DA3852975E776004B037A /* GameListCellModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				202CC5E729749915003990A4 /* GameListVCHelper.swift in Sources */,
 				202CC5C02972F87D003990A4 /* GameListViewController.swift in Sources */,
 				200DA3792975CEA4004B037A /* RAWGModel.swift in Sources */,
+				200DA3862975E776004B037A /* GameListCellModel.swift in Sources */,
 				202CC5EC2974A112003990A4 /* GameListCell.swift in Sources */,
 				202CC5BC2972F87D003990A4 /* AppDelegate.swift in Sources */,
 				202CC5BE2972F87D003990A4 /* SceneDelegate.swift in Sources */,
