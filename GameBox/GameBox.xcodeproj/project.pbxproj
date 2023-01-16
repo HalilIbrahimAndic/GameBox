@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		200DA3792975CEA4004B037A /* RAWGModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200DA3782975CEA4004B037A /* RAWGModel.swift */; };
 		202CC5BC2972F87D003990A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5BB2972F87D003990A4 /* AppDelegate.swift */; };
 		202CC5BE2972F87D003990A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5BD2972F87D003990A4 /* SceneDelegate.swift */; };
 		202CC5C02972F87D003990A4 /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5BF2972F87D003990A4 /* GameListViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		200DA3782975CEA4004B037A /* RAWGModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAWGModel.swift; sourceTree = "<group>"; };
 		202CC5B82972F87D003990A4 /* GameBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		202CC5BB2972F87D003990A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		202CC5BD2972F87D003990A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		202CC5D52972F985003990A4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				200DA3782975CEA4004B037A /* RAWGModel.swift */,
 				202CC5DB2974594F003990A4 /* GameList */,
 			);
 			path = Scenes;
@@ -154,7 +157,6 @@
 				4A3115F9C7B8739A135EEF80 /* Pods-GameBox.debug.xcconfig */,
 				EED2EBAB5D523B1BE4C1BE47 /* Pods-GameBox.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -284,6 +286,7 @@
 				202CC5E1297488E8003990A4 /* GameListViewModel.swift in Sources */,
 				202CC5E729749915003990A4 /* GameListVCHelper.swift in Sources */,
 				202CC5C02972F87D003990A4 /* GameListViewController.swift in Sources */,
+				200DA3792975CEA4004B037A /* RAWGModel.swift in Sources */,
 				202CC5EC2974A112003990A4 /* GameListCell.swift in Sources */,
 				202CC5BC2972F87D003990A4 /* AppDelegate.swift in Sources */,
 				202CC5E4297489C0003990A4 /* GameListModel.swift in Sources */,

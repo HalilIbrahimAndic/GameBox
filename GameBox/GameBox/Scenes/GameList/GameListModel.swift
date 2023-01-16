@@ -18,7 +18,7 @@ protocol GameListModelProtocol: AnyObject {
 //MARK: - Delegator
 class GameListModel {
     
-    private(set) var data: [Any] = []
+    private var data: [RAWGModel] = []
     
     weak var delegate: GameListModelProtocol?
     
