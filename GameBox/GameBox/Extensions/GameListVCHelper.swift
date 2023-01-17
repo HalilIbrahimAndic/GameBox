@@ -40,6 +40,10 @@ class GameListVCHelper: NSObject {
 
 //MARK: - Extensions
 extension GameListVCHelper: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel?.itemPressed(indexPath.row)
     }
