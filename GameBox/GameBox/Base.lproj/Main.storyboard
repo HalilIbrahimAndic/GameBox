@@ -43,12 +43,17 @@
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="fjA-QH-ayD">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="beW-q9-Mss"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="kxO-WH-dkP" firstAttribute="leading" secondItem="beW-q9-Mss" secondAttribute="leading" id="0AX-ww-TlF"/>
+                            <constraint firstItem="fjA-QH-ayD" firstAttribute="centerY" secondItem="5be-8J-rEp" secondAttribute="centerY" id="2Uq-9s-bvH"/>
                             <constraint firstItem="hxA-l4-OLf" firstAttribute="leading" secondItem="beW-q9-Mss" secondAttribute="leading" id="8hT-FD-JBW"/>
+                            <constraint firstItem="fjA-QH-ayD" firstAttribute="centerX" secondItem="5be-8J-rEp" secondAttribute="centerX" id="V91-JZ-81x"/>
                             <constraint firstItem="kxO-WH-dkP" firstAttribute="top" secondItem="hxA-l4-OLf" secondAttribute="bottom" id="XOS-EA-bfh"/>
                             <constraint firstItem="beW-q9-Mss" firstAttribute="bottom" secondItem="kxO-WH-dkP" secondAttribute="bottom" id="iKs-Q9-v6b"/>
                             <constraint firstItem="hxA-l4-OLf" firstAttribute="top" secondItem="beW-q9-Mss" secondAttribute="top" id="l8q-Es-vaF"/>
@@ -58,6 +63,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Game Box" id="i3b-zV-KQt"/>
                     <connections>
+                        <outlet property="gameActivityIndicator" destination="fjA-QH-ayD" id="MCg-Ro-L53"/>
                         <outlet property="gameSearchBar" destination="hxA-l4-OLf" id="gBp-FN-jhS"/>
                         <outlet property="gameTableView" destination="kxO-WH-dkP" id="Cyf-LD-NoM"/>
                     </connections>

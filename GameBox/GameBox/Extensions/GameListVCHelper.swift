@@ -14,13 +14,15 @@ class GameListVCHelper: NSObject {
     private let cellIdentifier = "GameListCell"
     
     weak var tableView: UITableView?
+    weak var searchBar: UISearchBar?
     weak var viewModel: GameListViewModel?
     
     private var items: [RowItem] = []
     
-    init(tableView: UITableView, viewModel: GameListViewModel) {
+    init(tableView: UITableView, viewModel: GameListViewModel, searchBar: UISearchBar) {
         self.tableView = tableView
         self.viewModel = viewModel
+        self.searchBar = searchBar
         super.init()
         
         setupTableView()
@@ -30,11 +32,14 @@ class GameListVCHelper: NSObject {
         tableView?.register(.init(nibName: "GameListCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
         tableView?.delegate = self
         tableView?.dataSource = self
+        tableView?.separatorStyle = .none
+        searchBar?.delegate = self
     }
     
     func setItems(_ items: [RowItem]){
         self.items = items
         tableView?.reloadData()
+        tableView?.separatorStyle = .singleLine
     }
 }
 
@@ -61,4 +66,10 @@ extension GameListVCHelper: UITableViewDataSource {
         return cell
     }
     
+}
+
+extension GameListVCHelper: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // TODO:
+    }
 }
