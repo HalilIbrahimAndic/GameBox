@@ -18,6 +18,7 @@ class GameListVCHelper: NSObject {
     weak var viewModel: GameListViewModel?
     
     private var items: [RowItem] = []
+    private var filteredItems: [RowItem] = []
     
     init(tableView: UITableView, viewModel: GameListViewModel, searchBar: UISearchBar) {
         self.tableView = tableView
@@ -38,6 +39,7 @@ class GameListVCHelper: NSObject {
     
     func setItems(_ items: [RowItem]){
         self.items = items
+        filteredItems = items
         tableView?.reloadData()
         tableView?.separatorStyle = .singleLine
     }
@@ -56,20 +58,25 @@ extension GameListVCHelper: UITableViewDelegate {
 
 extension GameListVCHelper: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return filteredItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! GameListCell
-        cell.configure(with: items[indexPath.row])
+        cell.configure(with: filteredItems[indexPath.row])
         
         return cell
     }
-    
 }
 
 extension GameListVCHelper: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        // TODO:
+        if searchText == "" {
+            filteredItems = items
+        } else {
+            filteredItems = items.filter{ ($0.name).localizedCaseInsensitiveContains(searchText) }
+        }
+        
+        tableView?.reloadData()
     }
 }

@@ -61,7 +61,7 @@ class GameListModel {
             
             do {
                 try context.save()
-                print("saved in CoreData")
+                //print("saved in CoreData")
             } catch  {
                 print("Hata: \(error)")
             }
