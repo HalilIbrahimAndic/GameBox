@@ -17,7 +17,7 @@ protocol GameListModelProtocol: AnyObject {
     func didDataCouldntFetch()
 }
 
-//MARK: - Delegator
+//MARK: - Delegator of GameListModelProtocol
 class GameListModel {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate

@@ -7,7 +7,7 @@
 
 import Foundation
 
-//MARK: - Delegate
+//MARK: - Delegate of GameListModelProtocol
 class GameListViewModel {
     
     private let model = GameListModel()
