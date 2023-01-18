@@ -11,6 +11,7 @@ class GameListViewController: UIViewController {
 
     @IBOutlet private weak var gameSearchBar: UISearchBar!
     @IBOutlet private weak var gameTableView: UITableView!
+    @IBOutlet private weak var gameActivityIndicator: UIActivityIndicatorView!
     
     private let viewModel = GameListViewModel()
     private var tableHelper: GameListVCHelper!
@@ -29,7 +30,7 @@ class GameListViewController: UIViewController {
 private extension GameListViewController {
     
     private func setupUI() {
-        tableHelper = .init(tableView: gameTableView, viewModel: viewModel)
+        tableHelper = .init(tableView: gameTableView, viewModel: viewModel, searchBar: gameSearchBar)
     }
     
     func setupBinding() {
@@ -41,6 +42,7 @@ private extension GameListViewController {
         
         viewModel.refreshItems = { [weak self] items in
             self?.tableHelper.setItems(items)
+            self?.gameActivityIndicator.stopAnimating()
         }
     }
 }
