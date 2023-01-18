@@ -65,7 +65,6 @@ class GameListModel {
             } catch  {
                 print("Hata: \(error)")
             }
-            
         }
     }
     

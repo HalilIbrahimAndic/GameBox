@@ -18,19 +18,17 @@ class GameListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
         setupBinding()
         viewModel.didViewLoad()
     }
-
 }
 
 //MARK: - Extension
-private extension GameListViewController {
+extension GameListViewController {
     
     private func setupUI() {
-        tableHelper = .init(tableView: gameTableView, viewModel: viewModel, searchBar: gameSearchBar)
+        tableHelper = .init(tableView: gameTableView, viewModel: viewModel, searchBar: gameSearchBar, navigationController: navigationController!)
     }
     
     func setupBinding() {

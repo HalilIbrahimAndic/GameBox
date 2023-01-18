@@ -9,35 +9,47 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    var detailViewModel = DetailViewModel()
+    typealias RowItem = DetailPageModel
+    
+    @IBOutlet weak var gameImage: UIImageView!
+    @IBOutlet weak var gameTitle: UILabel!
+    @IBOutlet weak var gameDescription: UILabel!
+    
+    private var viewModel = DetailViewModel()
+    private var items: [RowItem] = []
+    var gameID: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        setupUI()
-//        setupBinding()
-        detailViewModel.didViewLoad()
+        setupUI()
+        setupBinding()
+        viewModel.didViewLoad()
+        gameTitle.text = "\(gameID)"
     }
-
+    
+    func setItems(_ items: [RowItem]){
+        self.items = items
+        print(items)
+    }
 }
 
 //MARK: - Extension
 private extension DetailViewController {
     
-//    private func setupUI() {
-//        detailTableHelper = .init(tableView: gameTableView, viewModel: viewModel, searchBar: gameSearchBar)
-//    }
-//
-//    func setupBinding() {
-//        viewModel.onErrorOccured = { [weak self] message in
-//            let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
-//            alertController.addAction(.init(title: "Ok", style: .default))
-//            self?.present(alertController, animated: true)
-//        }
-//
-//        viewModel.refreshItems = { [weak self] items in
-//            self?.tableHelper.setItems(items)
-//            self?.gameActivityIndicator.stopAnimating()
-//        }
-//    }
+    func setupUI() {
+        // TODO:
+    }
+    
+    func setupBinding() {
+        viewModel.onErrorOccured = { [weak self] message in
+            let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+            alertController.addAction(.init(title: "Ok", style: .default))
+            self?.present(alertController, animated: true)
+        }
+        
+        viewModel.refreshItems = { [weak self] items in
+            self?.setItems(items)
+        }
+    }
 }

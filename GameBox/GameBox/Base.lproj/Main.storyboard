@@ -27,7 +27,7 @@
         <!--Game Box-->
         <scene sceneID="Qic-vq-vPV">
             <objects>
-                <viewController id="5IA-0V-D1h" customClass="GameListViewController" customModule="GameBox" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameListViewController" id="5IA-0V-D1h" customClass="GameListViewController" customModule="GameBox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5be-8J-rEp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,20 +72,61 @@
             </objects>
             <point key="canvasLocation" x="1144.9275362318842" y="-219.64285714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="Vtw-4W-CvG">
             <objects>
-                <viewController id="d9z-UP-RrA" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="d9z-UP-RrA" customClass="DetailViewController" customModule="GameBox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Fa-5R-bTg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fhc-4D-BaK">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jc2-le-Izl">
+                                        <rect key="frame" x="8" y="0.0" width="398" height="266"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IQy-qW-kBa">
+                                        <rect key="frame" x="8" y="276" width="398" height="266"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhN-xN-Chk">
+                                        <rect key="frame" x="8" y="552" width="398" height="266"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="IQy-qW-kBa" firstAttribute="leading" secondItem="fhc-4D-BaK" secondAttribute="leading" constant="8" id="1VF-Qg-QB5"/>
+                                    <constraint firstAttribute="trailing" secondItem="IQy-qW-kBa" secondAttribute="trailing" constant="8" id="BbE-df-qfj"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jc2-le-Izl" secondAttribute="trailing" constant="8" id="LMU-30-OCy"/>
+                                    <constraint firstItem="OhN-xN-Chk" firstAttribute="leading" secondItem="fhc-4D-BaK" secondAttribute="leading" constant="8" id="Xku-S9-cGq"/>
+                                    <constraint firstAttribute="trailing" secondItem="OhN-xN-Chk" secondAttribute="trailing" constant="8" id="gaS-6L-5E8"/>
+                                    <constraint firstItem="Jc2-le-Izl" firstAttribute="leading" secondItem="fhc-4D-BaK" secondAttribute="leading" constant="8" id="jGo-LX-iAU"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="VPJ-k4-pGo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fhc-4D-BaK" firstAttribute="top" secondItem="VPJ-k4-pGo" secondAttribute="top" id="0T8-Xa-OrL"/>
+                            <constraint firstItem="VPJ-k4-pGo" firstAttribute="bottom" secondItem="fhc-4D-BaK" secondAttribute="bottom" id="5vP-FG-frx"/>
+                            <constraint firstItem="VPJ-k4-pGo" firstAttribute="trailing" secondItem="fhc-4D-BaK" secondAttribute="trailing" id="uap-U1-5DY"/>
+                            <constraint firstItem="fhc-4D-BaK" firstAttribute="leading" secondItem="VPJ-k4-pGo" secondAttribute="leading" id="x4P-Ol-4s8"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="gameDescription" destination="OhN-xN-Chk" id="SEd-Cq-X8C"/>
+                        <outlet property="gameImage" destination="IQy-qW-kBa" id="vMP-JG-8Yg"/>
+                        <outlet property="gameTitle" destination="Jc2-le-Izl" id="GuN-gn-lcB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SkC-H1-DZF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1923" y="-220"/>
+            <point key="canvasLocation" x="1921.7391304347827" y="-220.3125"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="s6t-rk-Csy">

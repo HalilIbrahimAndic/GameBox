@@ -8,6 +8,7 @@
 import Foundation
 
 struct GameListCellModel {
+    let id: Int
     let name: String
     let released: String
     let rating: Double

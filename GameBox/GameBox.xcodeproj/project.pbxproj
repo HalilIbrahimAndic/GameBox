@@ -14,6 +14,7 @@
 		201AACE929781FF8008A2231 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201AACE829781FF8008A2231 /* DetailModel.swift */; };
 		201AACEE29782030008A2231 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201AACED29782030008A2231 /* DetailViewModel.swift */; };
 		201AACF12978203D008A2231 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201AACF02978203D008A2231 /* DetailViewController.swift */; };
+		201AACF82978B43D008A2231 /* DetailPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201AACF72978B43D008A2231 /* DetailPageModel.swift */; };
 		202CC5BC2972F87D003990A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5BB2972F87D003990A4 /* AppDelegate.swift */; };
 		202CC5BE2972F87D003990A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5BD2972F87D003990A4 /* SceneDelegate.swift */; };
 		202CC5C02972F87D003990A4 /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5BF2972F87D003990A4 /* GameListViewController.swift */; };
@@ -35,6 +36,7 @@
 		201AACE829781FF8008A2231 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 		201AACED29782030008A2231 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		201AACF02978203D008A2231 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		201AACF72978B43D008A2231 /* DetailPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageModel.swift; sourceTree = "<group>"; };
 		202CC5B82972F87D003990A4 /* GameBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		202CC5BB2972F87D003990A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		202CC5BD2972F87D003990A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			children = (
 				200DA3782975CEA4004B037A /* RAWGModel.swift */,
 				200DA3852975E776004B037A /* GameListCellModel.swift */,
+				201AACF72978B43D008A2231 /* DetailPageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				202CC5E729749915003990A4 /* GameListVCHelper.swift in Sources */,
 				202CC5C02972F87D003990A4 /* GameListViewController.swift in Sources */,
 				200DA3792975CEA4004B037A /* RAWGModel.swift in Sources */,
+				201AACF82978B43D008A2231 /* DetailPageModel.swift in Sources */,
 				200DA3862975E776004B037A /* GameListCellModel.swift in Sources */,
 				202CC5EC2974A112003990A4 /* GameListCell.swift in Sources */,
 				202CC5BC2972F87D003990A4 /* AppDelegate.swift in Sources */,
