@@ -56,7 +56,6 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
         else { return }
         
         detailVC.gameID = gameId
-        detailVC.title = filteredItems[indexPath.row].name
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

@@ -63,7 +63,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Game Box" id="i3b-zV-KQt">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="2Av-bY-UIw"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="2Av-bY-UIw"/>
                     </navigationItem>
                     <connections>
                         <outlet property="gameActivityIndicator" destination="fjA-QH-ayD" id="MCg-Ro-L53"/>
@@ -278,9 +278,15 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="commentLabel" destination="c2i-mY-g6u" id="wVd-45-FAL"/>
                         <outlet property="descriptionLabel" destination="2zy-Fm-9Ti" id="z3i-1w-7jL"/>
                         <outlet property="gameImage" destination="Bd2-Y8-tRq" id="HOz-eR-vDW"/>
+                        <outlet property="gameNameLabel" destination="p49-Ok-grO" id="s4a-bs-lHQ"/>
                         <outlet property="genreLabel" destination="9ch-zJ-YqE" id="6Mz-cZ-1cG"/>
+                        <outlet property="platformLabel" destination="QZi-th-bQy" id="YUW-em-Phb"/>
+                        <outlet property="ratingLabel" destination="BLI-P6-Icc" id="fwa-oV-leu"/>
+                        <outlet property="tagLabel" destination="aC7-FT-C6A" id="cKR-Da-WYP"/>
+                        <outlet property="timeLabel" destination="vtS-Ux-MZm" id="2un-QK-ZJF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SkC-H1-DZF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

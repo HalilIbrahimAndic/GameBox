@@ -28,8 +28,8 @@ class DetailViewModel {
 extension DetailViewModel: DetailModelProtocol {
     func didLiveDataFetch() {
         //let DPModel: DetailPageModel = model.data.map{ .init(id: $0.id , name: $0.name , background_image: $0.background_image , description: $0.description) }
-        
-        let DPModel = DetailPageModel(id: model.data.id, name: model.data.name, description: model.data.description, metacritic: model.data.metacritic, released: model.data.released, backgroundImage: model.data.backgroundImage, rating: model.data.rating, ratingTop: model.data.ratingTop, playtime: model.data.playtime, ratingsCount: model.data.ratingsCount, genres: model.data.genres)
+
+        let DPModel = DetailPageModel(name: model.data.name ?? "", backgroundImage: model.data.backgroundImage ?? "", rating: model.data.rating ?? 0.0, playtime: model.data.playtime ?? 0, reviewsCount: model.data.reviewsCount ?? 0, platforms: model.data.platforms ?? [], genres: model.data.genres, tags: model.data.genres, descriptionRaw: model.data.descriptionRaw ?? "")
         
         refreshItems?(DPModel)
     }
