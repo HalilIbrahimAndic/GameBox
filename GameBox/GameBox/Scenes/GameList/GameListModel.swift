@@ -58,6 +58,7 @@ class GameListModel {
             listObject.setValue(data.id ?? 0, forKey: "id")
             listObject.setValue(data.name ?? "", forKey: "name")
             listObject.setValue(data.rating ?? 0.0, forKey: "rating")
+            listObject.setValue(data.rating_top ?? 0, forKey: "rating_top")
             listObject.setValue(data.released ?? "", forKey: "released")
             
             do {

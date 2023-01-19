@@ -12,5 +12,6 @@ struct GameListCellModel {
     let name: String
     let released: String
     let rating: Double
+    let rating_top: Int
     let background_image: String
 }

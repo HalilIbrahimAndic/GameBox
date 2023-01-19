@@ -13,18 +13,18 @@
         <!--Favorites-->
         <scene sceneID="heL-Ou-ofw">
             <objects>
-                <viewController id="XaC-tV-SOU" userLabel="Favorites" sceneMemberID="viewController">
+                <viewController id="XaC-tV-SOU" userLabel="Favorites" customClass="FavoriteViewController" customModule="GameBox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lwo-XB-6QT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="b6I-LU-PM7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="heart.fill" catalog="system" selectedImage="heart.fill" id="Xmg-qW-P5l" userLabel="Favorites"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="z7A-gl-VhC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="168-Og-fWe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="235" y="447"/>
+            <point key="canvasLocation" x="1144.9275362318842" y="446.65178571428567"/>
         </scene>
         <!--Game Box-->
         <scene sceneID="Qic-vq-vPV">
@@ -308,7 +308,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SkC-H1-DZF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1921.7391304347827" y="-220.3125"/>
+            <point key="canvasLocation" x="2030" y="96"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="s6t-rk-Csy">
@@ -321,8 +321,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="Xy9-GS-vCJ" kind="relationship" relationship="viewControllers" id="SRg-QH-Kba"/>
-                        <segue destination="XaC-tV-SOU" kind="relationship" relationship="viewControllers" id="wdo-ft-f56"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="K9c-CN-CG4"/>
+                        <segue destination="Fne-3p-uXF" kind="relationship" relationship="viewControllers" id="wdo-ft-f56"/>
+                        <segue destination="HRH-rB-Hhl" kind="relationship" relationship="viewControllers" id="K9c-CN-CG4"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LrR-qU-ISB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -332,18 +332,18 @@
         <!--Notes-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Notes" customClass="UITableViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Notes" customClass="NoteViewController" customModule="GameBox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Notes" image="book.fill" catalog="system" selectedImage="book.fill" id="uUH-EP-S1M" userLabel="Notes"/>
+                    <navigationItem key="navigationItem" title="Notes" id="wuK-iS-oaA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="235" y="1158"/>
+            <point key="canvasLocation" x="1144.9275362318842" y="1157.8125"/>
         </scene>
         <!--Games-->
         <scene sceneID="GfJ-Yi-w8x">
@@ -364,6 +364,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aaf-aj-y0J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="235" y="-220"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="X0n-Vz-igm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fne-3p-uXF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart.fill" catalog="system" selectedImage="heart.fill" id="Xmg-qW-P5l" userLabel="Favorites"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="6Iv-kG-NAD">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XaC-tV-SOU" kind="relationship" relationship="rootViewController" id="NUp-AJ-awN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tfe-Uc-kcK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="234.78260869565219" y="446.65178571428567"/>
+        </scene>
+        <!--Notes-->
+        <scene sceneID="v6Z-WK-Xxv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HRH-rB-Hhl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Notes" image="book.fill" catalog="system" selectedImage="book.fill" id="uUH-EP-S1M" userLabel="Notes"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="fUV-4I-Wgc">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="uOQ-F3-kSF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="346-yc-his" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="234.78260869565219" y="1157.8125"/>
         </scene>
     </scenes>
     <resources>

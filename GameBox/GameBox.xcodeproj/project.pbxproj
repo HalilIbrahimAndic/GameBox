@@ -27,6 +27,8 @@
 		202CC5EC2974A112003990A4 /* GameListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5EA2974A112003990A4 /* GameListCell.swift */; };
 		202CC5ED2974A112003990A4 /* GameListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 202CC5EB2974A112003990A4 /* GameListCell.xib */; };
 		203139E829793B2600481803 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203139E729793B2600481803 /* UIViewController+extension.swift */; };
+		203139ED2979E48000481803 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203139EC2979E48000481803 /* NoteViewController.swift */; };
+		203139F12979E4F600481803 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203139F02979E4F600481803 /* FavoriteViewController.swift */; };
 		98E49BB4426221342DC5C5FA /* Pods_GameBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 647F0983EB442ABBCB3D24C7 /* Pods_GameBox.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,8 @@
 		202CC5EA2974A112003990A4 /* GameListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListCell.swift; sourceTree = "<group>"; };
 		202CC5EB2974A112003990A4 /* GameListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameListCell.xib; sourceTree = "<group>"; };
 		203139E729793B2600481803 /* UIViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
+		203139EC2979E48000481803 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		203139F02979E4F600481803 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		4A3115F9C7B8739A135EEF80 /* Pods-GameBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.debug.xcconfig"; path = "Target Support Files/Pods-GameBox/Pods-GameBox.debug.xcconfig"; sourceTree = "<group>"; };
 		647F0983EB442ABBCB3D24C7 /* Pods_GameBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EED2EBAB5D523B1BE4C1BE47 /* Pods-GameBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.release.xcconfig"; path = "Target Support Files/Pods-GameBox/Pods-GameBox.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +138,8 @@
 		202CC5D52972F985003990A4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				203139EB2979E47400481803 /* Note */,
+				203139EA2979E45700481803 /* Favorite */,
 				202CC5DB2974594F003990A4 /* GameList */,
 				201AACEB29781FFC008A2231 /* Detail */,
 			);
@@ -178,6 +184,22 @@
 				203139E729793B2600481803 /* UIViewController+extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		203139EA2979E45700481803 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				203139F02979E4F600481803 /* FavoriteViewController.swift */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		203139EB2979E47400481803 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				203139EC2979E48000481803 /* NoteViewController.swift */,
+			);
+			path = Note;
 			sourceTree = "<group>";
 		};
 		2EA2E9100C5D0574EF20D844 /* Pods */ = {
@@ -316,11 +338,13 @@
 				201AACE929781FF8008A2231 /* DetailModel.swift in Sources */,
 				202CC5E1297488E8003990A4 /* GameListViewModel.swift in Sources */,
 				200DA3832975E007004B037A /* GameListModel.swift in Sources */,
+				203139F12979E4F600481803 /* FavoriteViewController.swift in Sources */,
 				202CC5E729749915003990A4 /* GameListVCHelper.swift in Sources */,
 				202CC5C02972F87D003990A4 /* GameListViewController.swift in Sources */,
 				200DA3792975CEA4004B037A /* RAWGModel.swift in Sources */,
 				201AACF82978B43D008A2231 /* DetailPageModel.swift in Sources */,
 				200DA3862975E776004B037A /* GameListCellModel.swift in Sources */,
+				203139ED2979E48000481803 /* NoteViewController.swift in Sources */,
 				202CC5EC2974A112003990A4 /* GameListCell.swift in Sources */,
 				202CC5BC2972F87D003990A4 /* AppDelegate.swift in Sources */,
 				201AACEE29782030008A2231 /* DetailViewModel.swift in Sources */,

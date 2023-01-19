@@ -20,4 +20,5 @@ struct RAWGModel: Decodable {
     let name, released: String?
     let background_image: String?
     let rating: Double?
+    let rating_top: Int?
 }
