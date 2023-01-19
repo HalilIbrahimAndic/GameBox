@@ -19,6 +19,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var favButton: UIButton!
     
     private var viewModel = DetailViewModel()
     private var items = DetailPageModel(name: "", backgroundImage: "", rating: 0.0, playtime: 0, reviewsCount: 0, platforms: [], genres: [], tags: [], descriptionRaw: "")
@@ -36,6 +37,11 @@ class DetailViewController: UIViewController {
         self.items = items
         setupUI()
     }
+    
+    @IBAction func favButtonPressed(_ sender: Any) {
+        // TODO:
+    }
+    
 }
 
 //MARK: - Extension
@@ -51,8 +57,12 @@ private extension DetailViewController {
         ratingLabel.text = String(items.rating ?? 0.0)
         descriptionLabel.text = items.descriptionRaw
         
-        let genreString = items.genres.map{$0.name}.joined(separator: ",")
+        let genreString = items.genres.map{$0.name}.joined(separator: ", ")
+        let tagString = items.tags.map{$0.name}.joined(separator: ", ")
+        let platformString = items.platforms.map{($0.platform?.name ?? "")}.joined(separator: ", ")
         genreLabel.text = genreString
+        tagLabel.text = tagString
+        platformLabel.text = platformString
     }
     
     func setupBinding() {

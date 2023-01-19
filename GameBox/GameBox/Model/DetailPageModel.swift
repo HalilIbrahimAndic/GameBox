@@ -13,7 +13,7 @@ struct DetailPageModel: Codable {
     let backgroundImage: String?
     let rating: Double?
     let playtime, reviewsCount: Int?
-    let platforms: [Platform]?
+    let platforms: [Platform]
     let genres, tags: [Genre]
     let descriptionRaw: String?
 
@@ -36,34 +36,3 @@ struct Genre: Codable {
 struct Platform: Codable {
     let platform: Genre?
 }
-
-
-
-//// MARK: - DetailPageModel
-//struct DetailPageModel: Codable {
-//    let id: Int?
-//    let name, description: String?
-//    let metacritic: Int?
-//    let released: String?
-//    let backgroundImage: String?
-//    let rating: Double?
-//    let ratingTop, playtime, ratingsCount: Int?
-//    let genres: [Genre]?
-//
-//    enum CodingKeys: String, CodingKey {
-//        case id, name, description, metacritic, released
-//        case backgroundImage = "background_image"
-//        case rating
-//        case ratingTop = "rating_top"
-//        case playtime
-//        case ratingsCount = "ratings_count"
-//        case genres
-//    }
-//}
-//
-//// MARK: - Genre
-//struct Genre: Codable {
-//    let id: Int?
-//    let name: String?
-//}
-
