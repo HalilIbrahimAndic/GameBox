@@ -17,19 +17,20 @@ protocol GameListModelProtocol: AnyObject {
     func didDataCouldntFetch()
 }
 
-//MARK: - Delegator
+//MARK: - Delegator of GameListModelProtocol
 class GameListModel {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     private(set) var data: [RAWGModel] = []
     private(set) var databaseData: [ListEntity] = []
+    private let apiKey = "d04a8d582093458f9cc979cd66f2d71d"
     
     weak var delegate: GameListModelProtocol?
     
     func fetchData() { //First check CoreData, if nil -> fetch from internet
       if InternetManager.shared.isInternetActive() {
-        AF.request("https://api.rawg.io/api/games?key=d04a8d582093458f9cc979cd66f2d71d").responseDecodable(of: ApiData.self) { (res) in
+        AF.request("https://api.rawg.io/api/games?key=\(apiKey)").responseDecodable(of: ApiData.self) { (res) in
           guard
             let response = res.value
           else {
@@ -57,12 +58,14 @@ class GameListModel {
             listObject.setValue(data.id ?? 0, forKey: "id")
             listObject.setValue(data.name ?? "", forKey: "name")
             listObject.setValue(data.rating ?? 0.0, forKey: "rating")
+            listObject.setValue(data.rating_top ?? 0, forKey: "rating_top")
             listObject.setValue(data.released ?? "", forKey: "released")
             
             do {
                 try context.save()
+                //print("saved in CoreData")
             } catch  {
-                print("Error: CoreData saving")
+                print("Hata: \(error)")
             }
         }
     }
