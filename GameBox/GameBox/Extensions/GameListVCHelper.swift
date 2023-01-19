@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GameListVCHelper: NSObject {
+class GameListVCHelper: NSObject, UITableViewDelegate{
     
     typealias RowItem = GameListCellModel
     
@@ -16,16 +16,17 @@ class GameListVCHelper: NSObject {
     weak var tableView: UITableView?
     weak var searchBar: UISearchBar?
     weak var viewModel: GameListViewModel?
+    weak var navigationController: UINavigationController?
     
     private var items: [RowItem] = []
     private var filteredItems: [RowItem] = []
     
-    init(tableView: UITableView, viewModel: GameListViewModel, searchBar: UISearchBar) {
+    init(tableView: UITableView, viewModel: GameListViewModel, searchBar: UISearchBar, navigationController: UINavigationController) {
         self.tableView = tableView
         self.viewModel = viewModel
         self.searchBar = searchBar
+        self.navigationController = navigationController
         super.init()
-        
         setupTableView()
     }
     
@@ -43,16 +44,19 @@ class GameListVCHelper: NSObject {
         tableView?.reloadData()
         tableView?.separatorStyle = .singleLine
     }
-}
 
-//MARK: - Extensions
-extension GameListVCHelper: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel?.itemPressed(indexPath.row)
+        let gameId = filteredItems[indexPath.row].id
+
+        guard let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as? DetailViewController
+        else { return }
+        
+        detailVC.gameID = gameId
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
