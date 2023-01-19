@@ -6,31 +6,29 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DetailViewController: UIViewController {
-    
-    typealias RowItem = DetailPageModel
     
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var gameTitle: UILabel!
     @IBOutlet weak var gameDescription: UILabel!
     
     private var viewModel = DetailViewModel()
-    private var items: [RowItem] = []
+    private var items = DetailPageModel(id: 0, name: "", description: "", metacritic: 0, released: "", backgroundImage: "", rating: 0.0, ratingTop: 0, playtime: 0, ratingsCount: 0, genres: [])
     var gameID: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupUI()
+        //setupUI()
         setupBinding()
-        viewModel.didViewLoad()
-        gameTitle.text = "\(gameID)"
+        viewModel.didViewLoad(gameID)
     }
     
-    func setItems(_ items: [RowItem]){
+    func setItems(_ items: DetailPageModel){
         self.items = items
-        print(items)
+        setupUI()
     }
 }
 
@@ -38,7 +36,12 @@ class DetailViewController: UIViewController {
 private extension DetailViewController {
     
     func setupUI() {
-        // TODO:
+        
+        let description = items.description ?? "a"
+        let str = description.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+        gameDescription.text = str
+        gameTitle.text = items.name
+        gameImage.kf.setImage(with: URL.init(string: items.backgroundImage ?? ""))
     }
     
     func setupBinding() {

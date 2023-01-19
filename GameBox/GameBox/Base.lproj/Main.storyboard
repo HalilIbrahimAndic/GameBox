@@ -80,42 +80,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fhc-4D-BaK">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jc2-le-Izl">
-                                        <rect key="frame" x="8" y="0.0" width="398" height="266"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IQy-qW-kBa">
-                                        <rect key="frame" x="8" y="276" width="398" height="266"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhN-xN-Chk">
-                                        <rect key="frame" x="8" y="552" width="398" height="266"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jc2-le-Izl">
+                                <rect key="frame" x="8" y="52" width="398" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IQy-qW-kBa">
+                                <rect key="frame" x="8" y="89" width="398" height="200"/>
                                 <constraints>
-                                    <constraint firstItem="IQy-qW-kBa" firstAttribute="leading" secondItem="fhc-4D-BaK" secondAttribute="leading" constant="8" id="1VF-Qg-QB5"/>
-                                    <constraint firstAttribute="trailing" secondItem="IQy-qW-kBa" secondAttribute="trailing" constant="8" id="BbE-df-qfj"/>
-                                    <constraint firstAttribute="trailing" secondItem="Jc2-le-Izl" secondAttribute="trailing" constant="8" id="LMU-30-OCy"/>
-                                    <constraint firstItem="OhN-xN-Chk" firstAttribute="leading" secondItem="fhc-4D-BaK" secondAttribute="leading" constant="8" id="Xku-S9-cGq"/>
-                                    <constraint firstAttribute="trailing" secondItem="OhN-xN-Chk" secondAttribute="trailing" constant="8" id="gaS-6L-5E8"/>
-                                    <constraint firstItem="Jc2-le-Izl" firstAttribute="leading" secondItem="fhc-4D-BaK" secondAttribute="leading" constant="8" id="jGo-LX-iAU"/>
+                                    <constraint firstAttribute="height" constant="200" id="trm-2g-rRo"/>
                                 </constraints>
-                            </stackView>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhN-xN-Chk">
+                                <rect key="frame" x="8" y="297" width="398" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VPJ-k4-pGo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="fhc-4D-BaK" firstAttribute="top" secondItem="VPJ-k4-pGo" secondAttribute="top" id="0T8-Xa-OrL"/>
-                            <constraint firstItem="VPJ-k4-pGo" firstAttribute="bottom" secondItem="fhc-4D-BaK" secondAttribute="bottom" id="5vP-FG-frx"/>
-                            <constraint firstItem="VPJ-k4-pGo" firstAttribute="trailing" secondItem="fhc-4D-BaK" secondAttribute="trailing" id="uap-U1-5DY"/>
-                            <constraint firstItem="fhc-4D-BaK" firstAttribute="leading" secondItem="VPJ-k4-pGo" secondAttribute="leading" id="x4P-Ol-4s8"/>
+                            <constraint firstItem="VPJ-k4-pGo" firstAttribute="trailing" secondItem="IQy-qW-kBa" secondAttribute="trailing" constant="8" id="3EL-8R-M7K"/>
+                            <constraint firstItem="VPJ-k4-pGo" firstAttribute="trailing" secondItem="Jc2-le-Izl" secondAttribute="trailing" constant="8" id="5NQ-KB-zvP"/>
+                            <constraint firstItem="OhN-xN-Chk" firstAttribute="leading" secondItem="VPJ-k4-pGo" secondAttribute="leading" constant="8" id="5Os-A7-rQn"/>
+                            <constraint firstItem="IQy-qW-kBa" firstAttribute="top" secondItem="Jc2-le-Izl" secondAttribute="bottom" constant="8" id="OD2-4F-HMn"/>
+                            <constraint firstItem="IQy-qW-kBa" firstAttribute="leading" secondItem="VPJ-k4-pGo" secondAttribute="leading" constant="8" id="TZe-hW-En9"/>
+                            <constraint firstItem="Jc2-le-Izl" firstAttribute="leading" secondItem="VPJ-k4-pGo" secondAttribute="leading" constant="8" id="aiN-Lp-UbY"/>
+                            <constraint firstItem="OhN-xN-Chk" firstAttribute="top" secondItem="IQy-qW-kBa" secondAttribute="bottom" constant="8" id="b6J-oD-So6"/>
+                            <constraint firstItem="VPJ-k4-pGo" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="OhN-xN-Chk" secondAttribute="bottom" constant="8" id="iSu-sC-mlC"/>
+                            <constraint firstItem="VPJ-k4-pGo" firstAttribute="trailing" secondItem="OhN-xN-Chk" secondAttribute="trailing" constant="8" id="qWc-mX-bDr"/>
+                            <constraint firstItem="Jc2-le-Izl" firstAttribute="top" secondItem="VPJ-k4-pGo" secondAttribute="top" constant="8" id="wKd-hC-W1x"/>
                         </constraints>
                     </view>
                     <connections>
