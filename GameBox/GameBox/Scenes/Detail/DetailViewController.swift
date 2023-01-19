@@ -11,8 +11,8 @@ import Kingfisher
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var gameImage: UIImageView!
-    @IBOutlet weak var gameTitle: UILabel!
-    @IBOutlet weak var gameDescription: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var genreLabel: UILabel!
     
     private var viewModel = DetailViewModel()
     private var items = DetailPageModel(id: 0, name: "", description: "", metacritic: 0, released: "", backgroundImage: "", rating: 0.0, ratingTop: 0, playtime: 0, ratingsCount: 0, genres: [])
@@ -39,8 +39,7 @@ private extension DetailViewController {
         
         let description = items.description ?? "a"
         let str = description.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
-        gameDescription.text = str
-        gameTitle.text = items.name
+        descriptionLabel.text = str
         gameImage.kf.setImage(with: URL.init(string: items.backgroundImage ?? ""))
     }
     
