@@ -22,7 +22,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var favButton: UIButton!
     
     private var viewModel = DetailViewModel()
-    private var items = DetailPageModel(name: "", backgroundImage: "", rating: 0.0, playtime: 0, reviewsCount: 0, platforms: [], genres: [], tags: [], descriptionRaw: "")
+    private var items = DetailPageModel(name: "", background_image: "", rating: 0.0, playtime: 0, reviews_count: 0, platforms: [], genres: [], tags: [], description_raw: "")
     
     var gameID: Int = 0
     
@@ -50,16 +50,16 @@ private extension DetailViewController {
     func setupUI() {
         self.title = items.name
         
-        gameImage.kf.setImage(with: URL.init(string: items.backgroundImage ?? ""))
+        gameImage.kf.setImage(with: URL.init(string: items.background_image ))
         gameNameLabel.text = items.name
-        timeLabel.text = String(items.playtime ?? 0)
-        commentLabel.text = String(items.reviewsCount ?? 0)
-        ratingLabel.text = String(items.rating ?? 0.0)
-        descriptionLabel.text = items.descriptionRaw
+        timeLabel.text = String(items.playtime)
+        commentLabel.text = String(items.reviews_count)
+        ratingLabel.text = String(items.rating)
+        descriptionLabel.text = items.description_raw
         
         let genreString = items.genres.map{$0.name}.joined(separator: ", ")
         let tagString = items.tags.map{$0.name}.joined(separator: ", ")
-        let platformString = items.platforms.map{($0.platform?.name ?? "")}.joined(separator: ", ")
+        let platformString = items.platforms.map{($0.platform.name)}.joined(separator: ", ")
         genreLabel.text = genreString
         tagLabel.text = tagString
         platformLabel.text = platformString

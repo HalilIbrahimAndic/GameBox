@@ -23,13 +23,10 @@ class DetailModel {
     weak var detailDelegate: DetailModelProtocol?
     private let apiKey = "d04a8d582093458f9cc979cd66f2d71d"
     
-    //let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-//    private(set) var data = DetailPageModel(id: 0, name: "", description: "", metacritic: 0, released: "", backgroundImage: "", rating: 0.0, ratingTop: 0, playtime: 0, ratingsCount: 0, genres: [])
-    
-    private(set) var data = DetailPageModel(name: "", backgroundImage: "", rating: 0.0, playtime: 0, reviewsCount: 0, platforms: [], genres: [], tags: [], descriptionRaw: "")
-    
-    //private(set) var databaseData: [ListEntity] = []
+    private(set) var data = DetailPageModel(id: 0, name: "", background_image: "", rating: 0.0, playtime: 0, reviews_count: 0, platforms: [], genres: [], tags: [], description_raw: "")
+    private(set) var databaseData: [DetailEntity] = []
     
     func fetchData(_ gameID: Int) { //First check CoreData, if nil -> fetch from internet
         let api = "https://api.rawg.io/api/games/\(gameID)?key=\(apiKey)"
@@ -45,9 +42,9 @@ class DetailModel {
                 self.data = response
                 self.detailDelegate?.didLiveDataFetch()
                 
-                //          for item in self.data {
-                //            self.saveToCoreData(item)
-                //          }
+//                for item in self.data {
+//                    self.saveToCoreData(item)
+//                }
             }
         } else {
             //retrieveFromCoreData()

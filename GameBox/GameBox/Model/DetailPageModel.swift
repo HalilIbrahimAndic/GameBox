@@ -9,22 +9,14 @@ import Foundation
 
 // MARK: - DetailPageModel
 struct DetailPageModel: Codable {
-    let name: String?
-    let backgroundImage: String?
-    let rating: Double?
-    let playtime, reviewsCount: Int?
+    let id: Int
+    let name: String
+    let background_image: String
+    let rating: Double
+    let playtime, reviews_count: Int
     let platforms: [Platform]
     let genres, tags: [Genre]
-    let descriptionRaw: String?
-
-    enum CodingKeys: String, CodingKey {
-        case name
-        case backgroundImage = "background_image"
-        case rating, playtime
-        case reviewsCount = "reviews_count"
-        case platforms, genres, tags
-        case descriptionRaw = "description_raw"
-    }
+    let description_raw: String
 }
 
 // MARK: - Genre
@@ -34,5 +26,5 @@ struct Genre: Codable {
 
 // MARK: - Platform
 struct Platform: Codable {
-    let platform: Genre?
+    let platform: Genre
 }
