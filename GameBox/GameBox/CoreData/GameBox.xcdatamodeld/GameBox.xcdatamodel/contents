@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H2026" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="DetailEntity" representedClassName="DetailEntity" syncable="YES" codeGenerationType="class">
+    <entity name="DetailEntity" representedClassName=".DetailEntity" syncable="YES" codeGenerationType="class">
         <attribute name="background_image" attributeType="String"/>
+        <attribute name="description_raw" attributeType="String"/>
         <attribute name="genre_name" attributeType="String"/>
         <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
@@ -30,7 +31,7 @@
         </uniquenessConstraints>
     </entity>
     <elements>
+        <element name="DetailEntity" positionX="-54" positionY="99" width="128" height="193"/>
         <element name="GameEntity" positionX="-63" positionY="36" width="128" height="133"/>
-        <element name="DetailEntity" positionX="-54" positionY="99" width="128" height="178"/>
     </elements>
 </model>

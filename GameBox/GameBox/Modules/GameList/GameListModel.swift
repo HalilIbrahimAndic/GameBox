@@ -56,7 +56,6 @@ class GameListModel {
         if let entity = NSEntityDescription.entity(forEntityName: "GameEntity", in: context) {
             let listObject = NSManagedObject(entity: entity, insertInto: context)
             
-            print(data.id)
             listObject.setValue(data.background_image, forKey: "background_image")
             listObject.setValue(data.id, forKey: "id")
             listObject.setValue(data.name, forKey: "name")

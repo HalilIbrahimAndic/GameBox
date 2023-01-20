@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - DetailPageModel
-struct DetailPageModel: Codable {
+struct DetailPageModel: Decodable {
     let id: Int
     let name: String
     let background_image: String
@@ -20,11 +20,11 @@ struct DetailPageModel: Codable {
 }
 
 // MARK: - Genre
-struct Genre: Codable {
+struct Genre: Decodable {
     let name: String
 }
 
 // MARK: - Platform
-struct Platform: Codable {
+struct Platform: Decodable {
     let platform: Genre
 }

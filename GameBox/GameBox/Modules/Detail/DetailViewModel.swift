@@ -14,6 +14,7 @@ class DetailViewModel {
     
     var onErrorOccured: ((String) -> ())?
     var refreshItems: ((DetailPageModel) -> ())?
+    var refreshCacheItems: (([DetailCacheModel]) -> ())?
     
     init() {
         model.detailDelegate = self
@@ -27,16 +28,15 @@ class DetailViewModel {
 //MARK: - Extensions
 extension DetailViewModel: DetailModelProtocol {
     func didLiveDataFetch() {
-        //let DPModel: DetailPageModel = model.data.map{ .init(id: $0.id , name: $0.name , background_image: $0.background_image , description: $0.description) }
-
         let DPModel = DetailPageModel(id: model.data.id, name: model.data.name, background_image: model.data.background_image , rating: model.data.rating , playtime: model.data.playtime , reviews_count: model.data.reviews_count , platforms: model.data.platforms, genres: model.data.genres, tags: model.data.tags, description_raw: model.data.description_raw )
-        
         refreshItems?(DPModel)
     }
     
-    func didCacheDataFetch() {
-//        let cellModels: [GameListCellModel] = model.databaseData.map{ .init(name: $0.name ?? "", released: $0.released ?? "", rating: $0.rating, background_image: $0.background_image ?? "") }
-//        refreshItems?(cellModels)
+    func didCacheDataFetch() {      
+        let DCModel: [DetailCacheModel] = model.databaseData.map{.init(id: Int($0.id), name: $0.name ?? "", background_image: $0.background_image ?? "", rating: $0.rating, playtime: Int($0.playtime), reviews_count: Int($0.reviews_count), platform_name: $0.platform_name ?? "", genre_name: $0.genre_name ?? "", tag_name: $0.tag_name ?? "", description_raw: $0.description_raw ?? "")}
+        refreshCacheItems?(DCModel)
+        
+        //let DCModel2: DetailCacheModel(
     }
     
     func didDataCouldntFetch() {
