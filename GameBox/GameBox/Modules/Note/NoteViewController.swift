@@ -10,8 +10,17 @@ import UIKit
 class NoteViewController: UIViewController {
     
     
+    @IBOutlet weak var noteTableView: UITableView!
+    
+    private let viewModel = NoteViewModel()
+    private var tableHelper: NoteVCHelper!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
+    
+    @IBAction func addNoteButtonPressed(_ sender: UIButton) {
+    }
+    
 }

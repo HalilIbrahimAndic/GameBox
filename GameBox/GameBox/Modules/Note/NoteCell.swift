@@ -17,11 +17,10 @@ class NoteCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    func configure(with model: GameListCellModel) {
-        contentImageView.kf.setImage(with: URL.init(string: model.background_image))
-        gameNameLabel.text = model.name
-        releasedValueLabel.text = model.released
-        ratingLabel.text = "\(model.rating) / \(model.rating_top)"
+    func configure(with model: NoteCellModel) {
+        noteTitle.text = model.title
+        noteDescription.text = model.description
+        //noteDate.text = "\(model.date)"
     }
 }
 

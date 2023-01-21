@@ -375,6 +375,9 @@
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
                                 </state>
+                                <connections>
+                                    <action selector="addNoteButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Sn-Ua-Fyo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -389,6 +392,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Notes" id="wuK-iS-oaA"/>
+                    <connections>
+                        <outlet property="addNoteButton" destination="eJx-od-03I" id="mNb-nN-bTb"/>
+                        <outlet property="noteTableView" destination="IuF-QC-YBK" id="TPo-bc-A2g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
