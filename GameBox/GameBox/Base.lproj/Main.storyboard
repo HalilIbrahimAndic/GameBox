@@ -102,11 +102,12 @@
                                                                     <constraint firstAttribute="height" constant="250" id="CHe-A7-HoY"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfa-4f-CRm">
+                                                            <button opaque="NO" contentMode="right" selected="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfa-4f-CRm">
                                                                 <rect key="frame" x="0.0" y="250" width="374" height="21.5"/>
                                                                 <color key="tintColor" red="0.97647058819999999" green="0.1100559024" blue="0.1654836354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <state key="normal" title=" Favorite">
                                                                     <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="favButtonPressed:" destination="d9z-UP-RrA" eventType="touchUpInside" id="lXw-Gc-FVF"/>
