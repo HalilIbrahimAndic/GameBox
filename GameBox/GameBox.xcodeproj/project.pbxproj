@@ -42,6 +42,8 @@
 		20DEB0A2297C9D3D002F7140 /* NoteVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DEB0A1297C9D3D002F7140 /* NoteVCHelper.swift */; };
 		20DEB0A5297CA3A9002F7140 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DEB09A297C9B77002F7140 /* NoteModel.swift */; };
 		20F11DD5297CAE1200C82131 /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F11DD4297CAE1200C82131 /* NoteDetailViewController.swift */; };
+		20F11DDA297CAE8500C82131 /* NoteDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F11DD9297CAE8500C82131 /* NoteDetailViewModel.swift */; };
+		20F11DDF297CAE9A00C82131 /* NoteDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F11DDE297CAE9A00C82131 /* NoteDetailModel.swift */; };
 		98E49BB4426221342DC5C5FA /* Pods_GameBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 647F0983EB442ABBCB3D24C7 /* Pods_GameBox.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +85,8 @@
 		20DEB09A297C9B77002F7140 /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		20DEB0A1297C9D3D002F7140 /* NoteVCHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteVCHelper.swift; sourceTree = "<group>"; };
 		20F11DD4297CAE1200C82131 /* NoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
+		20F11DD9297CAE8500C82131 /* NoteDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailViewModel.swift; sourceTree = "<group>"; };
+		20F11DDE297CAE9A00C82131 /* NoteDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailModel.swift; sourceTree = "<group>"; };
 		4A3115F9C7B8739A135EEF80 /* Pods-GameBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.debug.xcconfig"; path = "Target Support Files/Pods-GameBox/Pods-GameBox.debug.xcconfig"; sourceTree = "<group>"; };
 		647F0983EB442ABBCB3D24C7 /* Pods_GameBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EED2EBAB5D523B1BE4C1BE47 /* Pods-GameBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.release.xcconfig"; path = "Target Support Files/Pods-GameBox/Pods-GameBox.release.xcconfig"; sourceTree = "<group>"; };
@@ -244,6 +248,8 @@
 		20F11DD7297CAE3800C82131 /* NoteDetail */ = {
 			isa = PBXGroup;
 			children = (
+				20F11DDE297CAE9A00C82131 /* NoteDetailModel.swift */,
+				20F11DD9297CAE8500C82131 /* NoteDetailViewModel.swift */,
 				20F11DD4297CAE1200C82131 /* NoteDetailViewController.swift */,
 			);
 			path = NoteDetail;
@@ -384,6 +390,7 @@
 			files = (
 				20DEB09F297C9CCD002F7140 /* NoteViewController.swift in Sources */,
 				203139E829793B2600481803 /* UIViewController+extension.swift in Sources */,
+				20F11DDA297CAE8500C82131 /* NoteDetailViewModel.swift in Sources */,
 				20313A08297BCB3B00481803 /* FavoriteVCHelper.swift in Sources */,
 				201AACE929781FF8008A2231 /* DetailModel.swift in Sources */,
 				202CC5E1297488E8003990A4 /* GameListViewModel.swift in Sources */,
@@ -391,6 +398,7 @@
 				20313A0B297BD62A00481803 /* FavoriteModel.swift in Sources */,
 				20DEB085297C321A002F7140 /* SecretKeys.swift in Sources */,
 				200DA3832975E007004B037A /* GameListModel.swift in Sources */,
+				20F11DDF297CAE9A00C82131 /* NoteDetailModel.swift in Sources */,
 				203139F12979E4F600481803 /* FavoriteViewController.swift in Sources */,
 				203139F8297B1E7100481803 /* DetailCacheModel.swift in Sources */,
 				202CC5E729749915003990A4 /* GameListVCHelper.swift in Sources */,

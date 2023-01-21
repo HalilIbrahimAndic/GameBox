@@ -29,7 +29,12 @@ class NoteViewController: UIViewController {
     }
     
     @IBAction func addNote(_ sender: UIBarButtonItem) {
-        print("note added")
+        guard let noteDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: NoteDetailViewController.self)) as? NoteDetailViewController
+        else { return }
+        
+        present(noteDetailVC, animated: true)
+        
+        //self.navigationController?.pushViewController(noteDetailVC, animated: true)
     }
 }
 

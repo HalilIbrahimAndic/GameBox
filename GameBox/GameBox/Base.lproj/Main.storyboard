@@ -45,7 +45,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="168-Og-fWe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1144.9275362318842" y="446.65178571428567"/>
+            <point key="canvasLocation" x="1035" y="447"/>
         </scene>
         <!--Game Box-->
         <scene sceneID="Qic-vq-vPV">
@@ -95,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JYy-i8-SNI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1144.9275362318842" y="-219.64285714285714"/>
+            <point key="canvasLocation" x="1036" y="-220"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Vtw-4W-CvG">
@@ -330,7 +330,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SkC-H1-DZF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2046" y="107"/>
+            <point key="canvasLocation" x="1833" y="102"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="s6t-rk-Csy">
@@ -387,7 +387,52 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1144.9275362318842" y="1157.8125"/>
+            <point key="canvasLocation" x="1035" y="1158"/>
+        </scene>
+        <!--Note Detail View Controller-->
+        <scene sceneID="acd-4H-tML">
+            <objects>
+                <viewController storyboardIdentifier="NoteDetailViewController" id="RHY-VN-y1G" customClass="NoteDetailViewController" customModule="GameBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B5B-eN-2NV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X5x-SA-8uK">
+                                <rect key="frame" x="0.0" y="113" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Dg-EP-AzQ">
+                                <rect key="frame" x="0.0" y="189" width="414" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2j0-wC-o5r">
+                                <rect key="frame" x="34" y="378" width="235" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygn-iK-tkc">
+                                <rect key="frame" x="187" y="756" width="46" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum " borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iln-g5-gzn">
+                                <rect key="frame" x="34" y="463" width="330" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nEa-ve-6XE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Si9-Nt-1Ah" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1831.8840579710147" y="1157.8125"/>
         </scene>
         <!--Games-->
         <scene sceneID="GfJ-Yi-w8x">
