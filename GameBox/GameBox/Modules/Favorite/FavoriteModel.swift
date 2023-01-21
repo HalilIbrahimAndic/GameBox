@@ -31,6 +31,18 @@ class FavoriteModel {
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<GameEntity>(entityName: "FavoriteEntity")
         request.predicate = NSPredicate(format: "id = %@", favoriteID)
+        
+        do {
+            let test = try context.fetch(request)
+            let objectToDelete = test[0] as! NSManagedObject
+            context.delete(objectToDelete)
+            
+            do {
+                try context.save()
+            } catch {
+                print("delete error: \(error)")
+            }
+        }
     }
     
     func retrieveFromFavoriteEntity() {

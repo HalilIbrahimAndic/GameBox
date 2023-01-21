@@ -24,13 +24,12 @@ class GameListModel {
     
     private(set) var data: [RAWGModel] = []
     private(set) var databaseData: [GameEntity] = []
-    private let apiKey = "d04a8d582093458f9cc979cd66f2d71d"
     
     weak var delegate: GameListModelProtocol?
     
     func fetchData() { //First check CoreData, if nil -> fetch from internet
         if InternetManager.shared.isInternetActive() {
-            AF.request("https://api.rawg.io/api/games?key=\(apiKey)").responseDecodable(of: ApiData.self) { (res) in
+            AF.request("https://api.rawg.io/api/games?key=\(Constants.apiKey)").responseDecodable(of: ApiData.self) { (res) in
                 guard
                     let response = res.value
                 else {
