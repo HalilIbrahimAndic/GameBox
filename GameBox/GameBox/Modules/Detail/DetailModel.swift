@@ -26,7 +26,6 @@ class DetailModel {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     private(set) var data = DetailPageModel(id: 0, name: "", background_image: "", rating: 0.0, playtime: 0, reviews_count: 0, platforms: [], genres: [], tags: [], description_raw: "")
-    //private(set) var data: [DetailPageModel] = []
     private(set) var databaseData: [DetailEntity] = []
     
     func fetchData(_ gameID: Int) { //First check CoreData, if nil -> fetch from internet
@@ -87,7 +86,6 @@ class DetailModel {
                 print("Error: Coredata fetching")
                 detailDelegate?.didDataCouldntFetch()
             }
-            // we can limit result request with "Predicate?"
         }
     
     func saveToFavData(_ gameID: Int) {

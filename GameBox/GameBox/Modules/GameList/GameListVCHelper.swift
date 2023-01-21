@@ -60,18 +60,17 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
         // Favorite Action
         let favoriteAction = UIContextualAction(style: .normal, title: "Favorite") { [self]  (contextualAction, view, boolValue) in
             favID = filteredItems[indexPath.row].id
             goToFavoritePage(favID)
         }
+        favoriteAction.image = UIImage(systemName: "heart.fill")
+        favoriteAction.backgroundColor = .red
         
         // Note Action
         // TODO:
-        
-        favoriteAction.image = UIImage(systemName: "heart.fill")
-        favoriteAction.backgroundColor = .red
+
         
         let swipeActions = UISwipeActionsConfiguration(actions: [favoriteAction])
         return swipeActions
@@ -93,7 +92,6 @@ extension GameListVCHelper: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        //print(indexPath.row+1)
         if indexPath.row == filteredItems.count - 1 {
             viewModel?.pageNumber += 1
             viewModel?.didViewLoad()
@@ -114,7 +112,6 @@ extension GameListVCHelper: UISearchBarDelegate {
 }
 
 extension GameListVCHelper {
-    
     func goToDetailPage(_ gameID: Int) {
         guard let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as? DetailViewController
         else { return }

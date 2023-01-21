@@ -85,7 +85,6 @@ class GameListModel {
             print("Error: Coredata fetching")
             delegate?.didDataCouldntFetch()
         }
-        // we can limit fetchedCD request with "Predicate?"
     }
     
     func saveToFavData(_ gameID: Int) {
