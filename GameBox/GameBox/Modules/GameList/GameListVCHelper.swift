@@ -12,6 +12,7 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
     typealias RowItem = GameListCellModel
     
     private let cellIdentifier = "GameListCell"
+    var gameID: Int = 0
     
     weak var tableView: UITableView?
     weak var searchBar: UISearchBar?
@@ -50,13 +51,21 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let gameId = filteredItems[indexPath.row].id
+        gameID = filteredItems[indexPath.row].id
 
-        guard let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as? DetailViewController
-        else { return }
+        goToDetailPage(gameID)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let item = UIContextualAction(style: .normal, title: "Favorite") {  (contextualAction, view, boolValue) in
+            print("Hello")
+        }
+        item.image = UIImage(systemName: "heart.fill")
+        item.backgroundColor = .red
         
-        detailVC.gameID = gameId
-        self.navigationController?.pushViewController(detailVC, animated: true)
+        let swipeActions = UISwipeActionsConfiguration(actions: [item])
+        
+        return swipeActions
     }
 }
 
@@ -82,5 +91,24 @@ extension GameListVCHelper: UISearchBarDelegate {
         }
         
         tableView?.reloadData()
+    }
+}
+
+extension GameListVCHelper {
+    
+    func goToDetailPage(_ gameID: Int) {
+        guard let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as? DetailViewController
+        else { return }
+        
+        detailVC.gameID = gameID
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    func goToFavoritePage(_ gameID: Int) {
+        guard let favoriteVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: FavoriteViewController.self)) as? DetailViewController
+        else { return }
+        
+        detailVC.gameID = gameID
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

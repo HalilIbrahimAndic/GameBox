@@ -21,6 +21,11 @@ class FavoriteViewController: UIViewController {
         setupBinding()
         viewModel.didViewLoad()
     }
+    
+//     override func viewWillAppear() {
+//        super.viewWillAppear(true)
+//        viewModel.didViewLoad()
+//    }
 }
 
 //MARK: - FavoriteVC Extension

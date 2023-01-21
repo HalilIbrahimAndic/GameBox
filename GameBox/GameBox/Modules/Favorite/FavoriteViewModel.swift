@@ -20,6 +20,7 @@ class FavoriteViewModel{
     }
     
     func didViewLoad() {
+        model.retrieveFromFavoriteEntity()
         model.retrieveFromCoreData()
     }
 }

@@ -45,14 +45,14 @@ class FavoriteVCHelper: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let gameId = items[indexPath.row].id
-
+        
         guard let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as? DetailViewController
         else { return }
         
         detailVC.gameID = gameId
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -62,5 +62,17 @@ class FavoriteVCHelper: NSObject, UITableViewDelegate, UITableViewDataSource {
         cell.configure(with: items[indexPath.row])
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let item = UIContextualAction(style: .normal, title: "Favorite") {  (contextualAction, view, boolValue) in
+            print("Hello")
+        }
+        item.image = UIImage(systemName: "heart.fill")
+        item.backgroundColor = .red
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [item])
+        
+        return swipeActions
     }
 }
