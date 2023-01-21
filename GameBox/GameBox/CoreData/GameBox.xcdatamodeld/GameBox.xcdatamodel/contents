@@ -1,14 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H2026" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="ListEntity" representedClassName="ListEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="background_image" optional="YES" attributeType="String"/>
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="rating" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="rating_top" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="released" optional="YES" attributeType="String"/>
+    <entity name="DetailEntity" representedClassName=".DetailEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="background_image" attributeType="String"/>
+        <attribute name="description_raw" attributeType="String"/>
+        <attribute name="genre_name" attributeType="String"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="platform_name" attributeType="String"/>
+        <attribute name="playtime" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rating" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="reviews_count" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="tag_name" attributeType="String"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="FavoriteEntity" representedClassName=".FavoriteEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="GameEntity" representedClassName=".GameEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="background_image" attributeType="String"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="rating" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="rating_top" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="released" attributeType="String"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="ListEntity" positionX="-63" positionY="-18" width="128" height="133"/>
+        <element name="DetailEntity" positionX="-54" positionY="99" width="128" height="193"/>
+        <element name="FavoriteEntity" positionX="-36" positionY="162" width="128" height="58"/>
+        <element name="GameEntity" positionX="-63" positionY="36" width="128" height="133"/>
     </elements>
 </model>

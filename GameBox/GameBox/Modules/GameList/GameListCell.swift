@@ -15,11 +15,8 @@ class GameListCell: UITableViewCell {
     @IBOutlet private weak var releasedValueLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        //setupUI()
     }
     
     func configure(with model: GameListCellModel) {
@@ -29,10 +26,3 @@ class GameListCell: UITableViewCell {
         ratingLabel.text = "\(model.rating) / \(model.rating_top)"
     }
 }
-
-//private extension GameListCell {
-//
-//    private func setupUI() {
-//
-//    }
-//}

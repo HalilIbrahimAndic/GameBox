@@ -9,16 +9,15 @@ import Foundation
 
 // MARK: - GameModel
 struct ApiData: Decodable {
-    //let next: String?
-    let results: [RAWGModel]?
+    let results: [RAWGModel]
 
 }
 
 // MARK: - Result
 struct RAWGModel: Decodable {
-    let id: Int?
-    let name, released: String?
-    let background_image: String?
-    let rating: Double?
-    let rating_top: Int?
+    let id: Int
+    let name, released: String
+    let background_image: String
+    let rating: Double
+    let rating_top: Int
 }
