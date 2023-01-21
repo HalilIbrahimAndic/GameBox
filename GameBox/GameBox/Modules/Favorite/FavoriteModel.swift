@@ -5,7 +5,8 @@
 //  Created by Halil Ibrahim Andic on 21.01.2023.
 //
 
-import Foundation
+import UIKit
+import CoreData
 
 //MARK: - Protocol
 protocol FavoriteModelProtocol: AnyObject {
@@ -22,14 +23,10 @@ class FavoriteModel {
     private(set) var databaseData: [GameEntity] = []
     
     weak var delegate: FavoriteModelProtocol?
-    
-    func fetchData() { //No need to check internet, only fetched data can be faved.
-            retrieveFromCoreData()
-        }
 
     // favorilenen oyunun detay bilgilerini burada
     // we can limit fetchedCD request with "Predicate?"
-    private func retrieveFromCoreData() {
+    func retrieveFromCoreData() {
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<GameEntity>(entityName: "GameEntity")
         

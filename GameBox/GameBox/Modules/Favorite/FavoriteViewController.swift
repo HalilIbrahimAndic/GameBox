@@ -38,7 +38,7 @@ extension FavoriteViewController {
 
         viewModel.refreshItems = { [weak self] items in
             self?.tableHelper.setItems(items)
-            self?.gameActivityIndicator.stopAnimating()
+            self?.activityIndicator.stopAnimating()
         }
     }
 }

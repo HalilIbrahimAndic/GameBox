@@ -89,5 +89,21 @@ class DetailModel {
             }
             // we can limit result request with "Predicate?"
         }
+    
+    func saveToFavData(_ gameID: Int) {
+        let context = appDelegate.persistentContainer.viewContext
+        if let entity = NSEntityDescription.entity(forEntityName: "FavoriteEntity", in: context) {
+            let listObject = NSManagedObject(entity: entity, insertInto: context)
+            
+            listObject.setValue(gameID, forKey: "id")
+            
+            do {
+                try context.save()
+                print("saved in FavData")
+            } catch  {
+                print("Hata: \(error)")
+            }
+        }
+    }
 }
 

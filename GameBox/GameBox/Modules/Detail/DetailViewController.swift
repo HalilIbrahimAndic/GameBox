@@ -50,15 +50,11 @@ class DetailViewController: UIViewController {
 //
 //        favButton.title = "Title of the UIButton"
 //        favButton.image = UIImage(systemName: "heart.filled",
-//                                           withConfiguration: UIImage.SymbolConfiguration(scale: .small)) // Change the scale here
-//        config.imagePadding = 4 // Padding between image and title
-//
-//        let menuButton = UIButton()
-//        menuButton.configuration = config
-//
+//                                           withConfiguration: UIImage.SymbolConfiguration(scale: .small))
+        
         sender.isSelected = !sender.isSelected //By default sender.isSelected is false
-
                 if sender.isSelected {
+                    viewModel.didFavPressed(gameID)
                     //sender.setTitle("Favorited", for: .selected)
                     sender.setImage(UIImage(systemName: "heart.fill"), for: .selected)
                 } else {
