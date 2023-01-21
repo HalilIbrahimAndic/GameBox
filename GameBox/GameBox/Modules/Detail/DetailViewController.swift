@@ -108,10 +108,10 @@ private extension DetailViewController {
                 self?.setItems(items)
             }
         } else {
-            viewModel.refreshCacheItems = { [weak self] items2 in
-                //self?.setCacheItems(items2)
-                print(items2)
-            }
+//            viewModel.refreshCacheItems = { [weak self] items2 in
+//                //self?.setCacheItems(items2)
+//                print(items2)
+//            }
         }
     }
 }

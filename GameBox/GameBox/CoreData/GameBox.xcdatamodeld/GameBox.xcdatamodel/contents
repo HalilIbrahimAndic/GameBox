@@ -17,6 +17,14 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
+    <entity name="FavoriteEntity" representedClassName="FavoriteEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="String"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
     <entity name="GameEntity" representedClassName=".GameEntity" syncable="YES" codeGenerationType="class">
         <attribute name="background_image" attributeType="String"/>
         <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -33,5 +41,6 @@
     <elements>
         <element name="DetailEntity" positionX="-54" positionY="99" width="128" height="193"/>
         <element name="GameEntity" positionX="-63" positionY="36" width="128" height="133"/>
+        <element name="FavoriteEntity" positionX="-36" positionY="162" width="128" height="58"/>
     </elements>
 </model>

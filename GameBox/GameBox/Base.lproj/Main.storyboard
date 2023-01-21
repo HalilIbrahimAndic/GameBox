@@ -17,10 +17,31 @@
                     <view key="view" contentMode="scaleToFill" id="Lwo-XB-6QT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gjk-J2-Hec">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="gQu-3W-AUo">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="b6I-LU-PM7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gQu-3W-AUo" firstAttribute="centerX" secondItem="Lwo-XB-6QT" secondAttribute="centerX" id="4GT-Lk-Wlk"/>
+                            <constraint firstItem="b6I-LU-PM7" firstAttribute="bottom" secondItem="Gjk-J2-Hec" secondAttribute="bottom" id="HNo-xA-ThK"/>
+                            <constraint firstItem="b6I-LU-PM7" firstAttribute="trailing" secondItem="Gjk-J2-Hec" secondAttribute="trailing" id="P6Y-1t-yZv"/>
+                            <constraint firstItem="gQu-3W-AUo" firstAttribute="centerY" secondItem="Lwo-XB-6QT" secondAttribute="centerY" id="oWG-f8-PrK"/>
+                            <constraint firstItem="Gjk-J2-Hec" firstAttribute="top" secondItem="b6I-LU-PM7" secondAttribute="top" id="qjw-N2-haf"/>
+                            <constraint firstItem="Gjk-J2-Hec" firstAttribute="leading" secondItem="b6I-LU-PM7" secondAttribute="leading" id="r0X-Xb-4rA"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="z7A-gl-VhC"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="gQu-3W-AUo" id="0I3-vo-XpZ"/>
+                        <outlet property="tableView" destination="Gjk-J2-Hec" id="fB4-P1-Xks"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="168-Og-fWe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -102,7 +123,7 @@
                                                                     <constraint firstAttribute="height" constant="250" id="CHe-A7-HoY"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <button opaque="NO" contentMode="right" selected="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfa-4f-CRm">
+                                                            <button opaque="NO" contentMode="right" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfa-4f-CRm">
                                                                 <rect key="frame" x="0.0" y="250" width="374" height="21.5"/>
                                                                 <color key="tintColor" red="0.97647058819999999" green="0.1100559024" blue="0.1654836354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <state key="normal" title=" Favorite">
@@ -309,7 +330,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SkC-H1-DZF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2030" y="96"/>
+            <point key="canvasLocation" x="2046" y="107"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="s6t-rk-Csy">
