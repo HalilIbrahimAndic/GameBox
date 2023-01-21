@@ -37,6 +37,7 @@
 		20DEB085297C321A002F7140 /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DEB084297C321A002F7140 /* SecretKeys.swift */; };
 		20DEB08D297C9718002F7140 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DEB08B297C9718002F7140 /* NoteCell.swift */; };
 		20DEB08E297C9718002F7140 /* NoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20DEB08C297C9718002F7140 /* NoteCell.xib */; };
+		20DEB091297C99FB002F7140 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DEB090297C99FB002F7140 /* NoteModel.swift */; };
 		98E49BB4426221342DC5C5FA /* Pods_GameBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 647F0983EB442ABBCB3D24C7 /* Pods_GameBox.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		20DEB084297C321A002F7140 /* SecretKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 		20DEB08B297C9718002F7140 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		20DEB08C297C9718002F7140 /* NoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteCell.xib; sourceTree = "<group>"; };
+		20DEB090297C99FB002F7140 /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		4A3115F9C7B8739A135EEF80 /* Pods-GameBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.debug.xcconfig"; path = "Target Support Files/Pods-GameBox/Pods-GameBox.debug.xcconfig"; sourceTree = "<group>"; };
 		647F0983EB442ABBCB3D24C7 /* Pods_GameBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EED2EBAB5D523B1BE4C1BE47 /* Pods-GameBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameBox.release.xcconfig"; path = "Target Support Files/Pods-GameBox/Pods-GameBox.release.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				203139F4297B1DD200481803 /* DetailCacheModel.swift */,
 				203139FB297B3CE500481803 /* DetailCommonModel.swift */,
 				20DEB084297C321A002F7140 /* SecretKeys.swift */,
+				20DEB090297C99FB002F7140 /* NoteModel.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				201AACE929781FF8008A2231 /* DetailModel.swift in Sources */,
 				202CC5E1297488E8003990A4 /* GameListViewModel.swift in Sources */,
 				20313A0B297BD62A00481803 /* FavoriteModel.swift in Sources */,
+				20DEB091297C99FB002F7140 /* NoteModel.swift in Sources */,
 				20DEB085297C321A002F7140 /* SecretKeys.swift in Sources */,
 				200DA3832975E007004B037A /* GameListModel.swift in Sources */,
 				203139F12979E4F600481803 /* FavoriteViewController.swift in Sources */,
