@@ -42,9 +42,10 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
         searchBar?.delegate = self
     }
     
-    func setItems(_ items: [RowItem]){
-        self.items = items
+    func setItems(_ newItems: [RowItem]){
+        self.items.append(contentsOf: newItems)
         filteredItems = items
+        print(filteredItems.count)
         tableView?.reloadData()
         tableView?.separatorStyle = .singleLine
     }
@@ -55,7 +56,6 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         gameID = filteredItems[indexPath.row].id
-
         goToDetailPage(gameID)
     }
     
@@ -78,6 +78,8 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
     }
 }
 
+// -------------------
+// --- Data Source ---
 extension GameListVCHelper: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredItems.count
@@ -88,6 +90,14 @@ extension GameListVCHelper: UITableViewDataSource {
         cell.configure(with: filteredItems[indexPath.row])
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //print(indexPath.row+1)
+        if indexPath.row == filteredItems.count - 1 {
+            viewModel?.pageNumber += 1
+            viewModel?.didViewLoad()
+        }
     }
 }
 

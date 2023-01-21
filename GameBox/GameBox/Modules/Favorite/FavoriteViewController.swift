@@ -17,21 +17,23 @@ class FavoriteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        tableHelper = .init(tableView: tableView, VC: self, viewModel: viewModel, navigationController: navigationController!)
+        //setupUI()
         setupBinding()
-        viewModel.didViewLoad()
+        //viewModel.didViewLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.didViewLoad()
+        //viewModel.didFavDeleted()
     }
 }
 
 //MARK: - FavoriteVC Extension
 extension FavoriteViewController {
     private func setupUI() {
-        tableHelper = .init(tableView: tableView, viewModel: viewModel, navigationController: navigationController!)
+        //tableHelper = .init(tableView: tableView, VC: self, viewModel: viewModel, navigationController: navigationController!)
     }
     
     func setupBinding() {

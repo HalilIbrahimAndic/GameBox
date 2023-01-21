@@ -27,9 +27,9 @@ class GameListModel {
     
     weak var delegate: GameListModelProtocol?
     
-    func fetchData() { //First check CoreData, if nil -> fetch from internet
+    func fetchData(_ pageNumber: Int) { //First check CoreData, if nil -> fetch from internet
         if InternetManager.shared.isInternetActive() {
-            AF.request("https://api.rawg.io/api/games?key=\(Constants.apiKey)").responseDecodable(of: ApiData.self) { (res) in
+            AF.request("https://api.rawg.io/api/games?key=\(Constants.apiKey)&page=\(pageNumber)").responseDecodable(of: ApiData.self) { (res) in
                 guard
                     let response = res.value
                 else {
@@ -66,7 +66,6 @@ class GameListModel {
             
             do {
                 try context.save()
-                print("saved in CoreData")
             } catch  {
                 print("Hata: \(error)")
             }
@@ -79,7 +78,7 @@ class GameListModel {
         
         do {
             let result = try context.fetch(request)
-            print("\(result.count)")
+            print("gamelistden cache'lenen: \(result.count)")
             self.databaseData = result
             delegate?.didCacheDataFetch()
         } catch {
@@ -87,19 +86,6 @@ class GameListModel {
             delegate?.didDataCouldntFetch()
         }
         // we can limit fetchedCD request with "Predicate?"
-    }
-    
-    func deleteAllRecords(entity : String) {
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
-        
-        do {
-            try managedContext.execute(deleteRequest)
-            try managedContext.save()
-        } catch {
-            print ("There was an error")
-        }
     }
     
     func saveToFavData(_ gameID: Int) {
@@ -115,6 +101,19 @@ class GameListModel {
             } catch  {
                 print("Hata: \(error)")
             }
+        }
+    }
+    
+    func deleteAllRecords(entity : String) {
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        
+        do {
+            try managedContext.execute(deleteRequest)
+            try managedContext.save()
+        } catch {
+            print ("There was an error")
         }
     }
 }

@@ -14,6 +14,7 @@ class FavoriteViewModel{
     
     var onErrorOccured: ((String) -> ())?
     var refreshItems: (([GameListCellModel]) -> ())?
+    var deleteID = 0
     
     init() {
         model.delegate = self
@@ -22,7 +23,12 @@ class FavoriteViewModel{
     func didViewLoad() {
         model.retrieveFromFavoriteEntity()
         model.retrieveFromCoreData()
+        
     }
+    
+//    func didFavDeleted() {
+//        //model.deleteFromFavoriteEntity(deleteID)
+//    }
 }
 
 //MARK: - FavoriteModel Extensions

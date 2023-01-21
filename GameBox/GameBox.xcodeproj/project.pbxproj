@@ -118,7 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				202CC5D32972F952003990A4 /* App */,
-				202CC5EF2974A130003990A4 /* Extensions */,
+				202CC5EF2974A130003990A4 /* Managers */,
 				202CC5D42972F95A003990A4 /* LocalNotification */,
 				202CC5D72972F9A0003990A4 /* Services */,
 				202CC5D62972F98C003990A4 /* CoreData */,
@@ -192,13 +192,13 @@
 			path = GameList;
 			sourceTree = "<group>";
 		};
-		202CC5EF2974A130003990A4 /* Extensions */ = {
+		202CC5EF2974A130003990A4 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				200DA37C2975D64C004B037A /* InternetManager.swift */,
 				203139E729793B2600481803 /* UIViewController+extension.swift */,
 			);
-			path = Extensions;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		203139EA2979E45700481803 /* Favorite */ = {

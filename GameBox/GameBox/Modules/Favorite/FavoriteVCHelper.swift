@@ -12,13 +12,15 @@ class FavoriteVCHelper: NSObject, UITableViewDelegate, UITableViewDataSource {
     typealias RowItem = GameListCellModel
     private let cellIdentifier = "GameListCell"
     
+    weak var VC: UIViewController?
     weak var tableView: UITableView?
     weak var viewModel: FavoriteViewModel?
     weak var navigationController: UINavigationController?
     
     private var items: [RowItem] = []
     
-    init(tableView: UITableView, viewModel: FavoriteViewModel, navigationController: UINavigationController) {
+    init(tableView: UITableView, VC: FavoriteViewController, viewModel: FavoriteViewModel, navigationController: UINavigationController) {
+        self.VC = VC
         self.tableView = tableView
         self.viewModel = viewModel
         self.navigationController = navigationController
@@ -65,10 +67,12 @@ class FavoriteVCHelper: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let item = UIContextualAction(style: .normal, title: "Favorite") {  (contextualAction, view, boolValue) in
-            print("Kaldırıldı")
+        let item = UIContextualAction(style: .normal, title: "Remove") { [self] (contextualAction, view, boolValue) in
+            let deleteID = items[indexPath.row].id
+            viewModel?.deleteID = deleteID
+            //VC?.viewWillAppear(true)
         }
-        item.image = UIImage(systemName: "heart.fill")
+        item.image = UIImage(systemName: "heart")
         item.backgroundColor = .red
         
         let swipeActions = UISwipeActionsConfiguration(actions: [item])

@@ -19,7 +19,6 @@ class FavoriteModel {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var favIDs: [Int32] = []
-    var favoriteID: Int32 = 0
     
     private(set) var data: [RAWGModel] = []
     private(set) var databaseData: [GameEntity] = []
@@ -27,23 +26,26 @@ class FavoriteModel {
     
     weak var delegate: FavoriteModelProtocol?
     
-    func deleteFromFavoriteEntity() {
-        let context = appDelegate.persistentContainer.viewContext
-        let request = NSFetchRequest<GameEntity>(entityName: "FavoriteEntity")
-        request.predicate = NSPredicate(format: "id = %@", favoriteID)
-        
-        do {
-            let test = try context.fetch(request)
-            let objectToDelete = test[0] as! NSManagedObject
-            context.delete(objectToDelete)
-            
-            do {
-                try context.save()
-            } catch {
-                print("delete error: \(error)")
-            }
-        }
-    }
+//    func deleteFromFavoriteEntity(_ deleteID: Int) {
+//        let context = appDelegate.persistentContainer.viewContext
+//        let request = NSFetchRequest<FavoriteEntity>(entityName: "FavoriteEntity")
+//
+//        request.predicate = NSPredicate(format: "id = %@", deleteID)
+//
+//        do {
+//            let test = try context.fetch(request)
+//            let objectToDelete = test[0] as NSManagedObject
+//            context.delete(objectToDelete)
+//
+//            do {
+//                try context.save()
+//            } catch {
+//                print("delete error: \(error)")
+//            }
+//        } catch {
+//            print("Favorite delete error: \(error)")
+//        }
+//    }
     
     func retrieveFromFavoriteEntity() {
         
@@ -53,7 +55,6 @@ class FavoriteModel {
             let request = NSFetchRequest<FavoriteEntity>(entityName: "FavoriteEntity")
             
             let favoriteResults = try context.fetch(request)
-            print("\(favoriteResults.count)")
             self.favoriteData = favoriteResults
             favIDs = favoriteData.map{$0.id}
         } catch {
@@ -72,7 +73,7 @@ class FavoriteModel {
         
         do {
             let result = try context.fetch(request)
-            print("\(result.count)")
+            print("favoriden cache'lnen: \(result.count)")
             self.databaseData = result
             delegate?.didCacheDataFetch()
         } catch {

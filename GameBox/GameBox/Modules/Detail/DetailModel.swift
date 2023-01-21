@@ -80,7 +80,7 @@ class DetailModel {
     
             do {
                 let result = try context.fetch(request)
-                print("\(result.count)")
+                print("detailden cache'lenen: \(result.count)")
                 self.databaseData = result
                 detailDelegate?.didCacheDataFetch()
             } catch {
