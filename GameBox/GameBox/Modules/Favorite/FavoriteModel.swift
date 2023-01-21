@@ -27,6 +27,8 @@ class FavoriteModel {
             retrieveFromCoreData()
         }
 
+    // favorilenen oyunun detay bilgilerini burada
+    // we can limit fetchedCD request with "Predicate?"
     private func retrieveFromCoreData() {
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<GameEntity>(entityName: "GameEntity")
@@ -40,6 +42,5 @@ class FavoriteModel {
             print("Error: Coredata fetching")
             delegate?.didDataCouldntFetch()
         }
-        // we can limit fetchedCD request with "Predicate?"
     }
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK: - Delegate of FavoriteModelProtocol
 class FavoriteViewModel{
     
     private let model = FavoriteModel()
@@ -15,21 +16,18 @@ class FavoriteViewModel{
     var refreshItems: (([GameListCellModel]) -> ())?
     
     init() {
-        //model.delegate = self
+        model.delegate = self
     }
     
     func didViewLoad() {
-        //model.fetchData
+        model.fetchData
     }
 }
 
 //MARK: - FavoriteModel Extensions
-extension FavoriteViewModel: GameListModelProtocol {
-    func didLiveDataFetch() {
-        let cellModels: [GameListCellModel] = model.data.map{ .init(id: $0.id, name: $0.name, released: $0.released, rating: $0.rating, rating_top: $0.rating_top, background_image: $0.background_image)}
-        refreshItems?(cellModels)
-    }
+extension FavoriteViewModel: FavoriteModelProtocol {
     
+    // cache'den gelen veriyi VC'ye yolla
     func didCacheDataFetch() {
         let cellModels: [GameListCellModel] = model.databaseData.map{ .init(id: Int($0.id), name: $0.name ?? "", released: $0.released ?? "", rating: $0.rating , rating_top: Int($0.rating_top), background_image: $0.background_image ?? "") }
         refreshItems?(cellModels)

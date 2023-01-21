@@ -18,8 +18,8 @@ class FavoriteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        //setupBinding()
-        //viewModel.didViewLoad()
+        setupBinding()
+        viewModel.didViewLoad()
     }
 }
 
@@ -29,16 +29,16 @@ extension FavoriteViewController {
         tableHelper = .init(tableView: tableView, viewModel: viewModel, navigationController: navigationController!)
     }
     
-//    func setupBinding() {
-//        viewModel.onErrorOccured = { [weak self] message in
-//            let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
-//            alertController.addAction(.init(title: "Ok", style: .default))
-//            self?.present(alertController, animated: true)
-//        }
-//
-//        viewModel.refreshItems = { [weak self] items in
-//            self?.tableHelper.setItems(items)
-//            self?.gameActivityIndicator.stopAnimating()
-//        }
-//    }
+    func setupBinding() {
+        viewModel.onErrorOccured = { [weak self] message in
+            let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+            alertController.addAction(.init(title: "Ok", style: .default))
+            self?.present(alertController, animated: true)
+        }
+
+        viewModel.refreshItems = { [weak self] items in
+            self?.tableHelper.setItems(items)
+            self?.gameActivityIndicator.stopAnimating()
+        }
+    }
 }
