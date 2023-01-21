@@ -22,10 +22,10 @@ class FavoriteViewController: UIViewController {
         viewModel.didViewLoad()
     }
     
-//     override func viewWillAppear() {
-//        super.viewWillAppear(true)
-//        viewModel.didViewLoad()
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.didViewLoad()
+    }
 }
 
 //MARK: - FavoriteVC Extension

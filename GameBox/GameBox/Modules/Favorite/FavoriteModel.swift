@@ -19,12 +19,19 @@ class FavoriteModel {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var favIDs: [Int32] = []
+    var favoriteID: Int32 = 0
     
     private(set) var data: [RAWGModel] = []
     private(set) var databaseData: [GameEntity] = []
     private(set) var favoriteData: [FavoriteEntity] = []
     
     weak var delegate: FavoriteModelProtocol?
+    
+    func deleteFromFavoriteEntity() {
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<GameEntity>(entityName: "FavoriteEntity")
+        request.predicate = NSPredicate(format: "id = %@", favoriteID)
+    }
     
     func retrieveFromFavoriteEntity() {
         
@@ -48,10 +55,10 @@ class FavoriteModel {
     func retrieveFromCoreData() {
         
         let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<GameEntity>(entityName: "GameEntity")
+        request.predicate = NSPredicate(format: "id IN %@", favIDs)
+        
         do {
-            let request = NSFetchRequest<GameEntity>(entityName: "GameEntity")
-            request.predicate = NSPredicate(format: "id IN %@", favIDs)
-            
             let result = try context.fetch(request)
             print("\(result.count)")
             self.databaseData = result

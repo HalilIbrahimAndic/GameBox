@@ -28,7 +28,7 @@ class GameListViewController: UIViewController {
 extension GameListViewController {
     
     private func setupUI() {
-        tableHelper = .init(tableView: gameTableView, viewModel: viewModel, searchBar: gameSearchBar, navigationController: navigationController!)
+        tableHelper = .init(tableView: gameTableView, viewModel: viewModel, searchBar: gameSearchBar, navigationController: navigationController!, tabbarController: tabBarController!)
     }
     
     func setupBinding() {

@@ -47,7 +47,9 @@ class GameListModel {
         } else {
             retrieveFromCoreData()
         }
-        //deleteAllRecords(entity: "GameEntity")
+//        deleteAllRecords(entity: "GameEntity")
+//        deleteAllRecords(entity: "FavoriteEntity")
+//        deleteAllRecords(entity: "DetailEntity")
     }
     
     private func saveToCoreData(_ data: RAWGModel) {
@@ -98,6 +100,22 @@ class GameListModel {
             try managedContext.save()
         } catch {
             print ("There was an error")
+        }
+    }
+    
+    func saveToFavData(_ gameID: Int) {
+        let context = appDelegate.persistentContainer.viewContext
+        if let entity = NSEntityDescription.entity(forEntityName: "FavoriteEntity", in: context) {
+            let listObject = NSManagedObject(entity: entity, insertInto: context)
+            
+            listObject.setValue(gameID, forKey: "id")
+            
+            do {
+                try context.save()
+                print("saved in FavData from gamelist")
+            } catch  {
+                print("Hata: \(error)")
+            }
         }
     }
 }

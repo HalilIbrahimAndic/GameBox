@@ -99,7 +99,7 @@ class DetailModel {
             
             do {
                 try context.save()
-                print("saved in FavData")
+                print("saved in FavData from detail")
             } catch  {
                 print("Hata: \(error)")
             }

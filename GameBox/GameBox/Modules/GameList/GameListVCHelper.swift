@@ -13,20 +13,23 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
     
     private let cellIdentifier = "GameListCell"
     var gameID: Int = 0
+    var favID = 0
     
     weak var tableView: UITableView?
     weak var searchBar: UISearchBar?
     weak var viewModel: GameListViewModel?
     weak var navigationController: UINavigationController?
+    weak var tabbarController: UITabBarController?
     
     private var items: [RowItem] = []
     private var filteredItems: [RowItem] = []
     
-    init(tableView: UITableView, viewModel: GameListViewModel, searchBar: UISearchBar, navigationController: UINavigationController) {
+    init(tableView: UITableView, viewModel: GameListViewModel, searchBar: UISearchBar, navigationController: UINavigationController, tabbarController: UITabBarController) {
         self.tableView = tableView
         self.viewModel = viewModel
         self.searchBar = searchBar
         self.navigationController = navigationController
+        self.tabbarController = tabbarController
         super.init()
         setupTableView()
     }
@@ -57,14 +60,20 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let item = UIContextualAction(style: .normal, title: "Favorite") {  (contextualAction, view, boolValue) in
-            print("Hello")
+        
+        // Favorite Action
+        let favoriteAction = UIContextualAction(style: .normal, title: "Favorite") { [self]  (contextualAction, view, boolValue) in
+            favID = filteredItems[indexPath.row].id
+            goToFavoritePage(favID)
         }
-        item.image = UIImage(systemName: "heart.fill")
-        item.backgroundColor = .red
         
-        let swipeActions = UISwipeActionsConfiguration(actions: [item])
+        // Note Action
+        // TODO:
         
+        favoriteAction.image = UIImage(systemName: "heart.fill")
+        favoriteAction.backgroundColor = .red
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [favoriteAction])
         return swipeActions
     }
 }
@@ -104,11 +113,8 @@ extension GameListVCHelper {
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
-    func goToFavoritePage(_ gameID: Int) {
-        guard let favoriteVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: FavoriteViewController.self)) as? DetailViewController
-        else { return }
-        
-        detailVC.gameID = gameID
-        self.navigationController?.pushViewController(detailVC, animated: true)
+    func goToFavoritePage(_ favID: Int) {
+        viewModel?.didFavPressed(favID)
+        tabbarController?.selectedIndex = 1
     }
 }

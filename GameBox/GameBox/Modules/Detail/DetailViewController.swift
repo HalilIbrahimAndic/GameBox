@@ -46,24 +46,17 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func favButtonPressed(_ sender: UIButton) {
-//        favButton.isSelected.toggle()
-//
-//        favButton.title = "Title of the UIButton"
-//        favButton.image = UIImage(systemName: "heart.filled",
-//                                           withConfiguration: UIImage.SymbolConfiguration(scale: .small))
-        
         sender.isSelected = !sender.isSelected //By default sender.isSelected is false
-                if sender.isSelected {
-                    viewModel.didFavPressed(gameID)
-                    print(gameID)
-                    //sender.setTitle("Favorited", for: .selected)
-                    sender.setImage(UIImage(systemName: "heart.fill"), for: .selected)
-                } else {
-                    sender.setTitle("Favorite", for: .normal)
-                    sender.setImage(UIImage(systemName: "heart"), for: .normal)
-                }
-            }
+        if sender.isSelected {
+            viewModel.didFavPressed(gameID)
+            //sender.setTitle("Favorited", for: .selected)
+            sender.setImage(UIImage(systemName: "heart.fill"), for: .selected)
+        } else {
+            sender.setTitle("Favorite", for: .normal)
+            sender.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
     }
+}
 
 //MARK: - Extension
 private extension DetailViewController {
@@ -105,10 +98,10 @@ private extension DetailViewController {
                 self?.setItems(items)
             }
         } else {
-//            viewModel.refreshCacheItems = { [weak self] items2 in
-//                //self?.setCacheItems(items2)
-//                print(items2)
-//            }
+            //            viewModel.refreshCacheItems = { [weak self] items2 in
+            //                //self?.setCacheItems(items2)
+            //                print(items2)
+            //            }
         }
     }
 }

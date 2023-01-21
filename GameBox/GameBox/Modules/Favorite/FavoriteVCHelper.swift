@@ -66,7 +66,7 @@ class FavoriteVCHelper: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let item = UIContextualAction(style: .normal, title: "Favorite") {  (contextualAction, view, boolValue) in
-            print("Hello")
+            print("Kaldırıldı")
         }
         item.image = UIImage(systemName: "heart.fill")
         item.backgroundColor = .red
