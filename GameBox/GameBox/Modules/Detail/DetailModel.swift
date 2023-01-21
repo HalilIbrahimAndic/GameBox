@@ -26,11 +26,10 @@ class DetailModel {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     private(set) var data = DetailPageModel(id: 0, name: "", background_image: "", rating: 0.0, playtime: 0, reviews_count: 0, platforms: [], genres: [], tags: [], description_raw: "")
-    //private(set) var data: [DetailPageModel] = []
     private(set) var databaseData: [DetailEntity] = []
     
     func fetchData(_ gameID: Int) { //First check CoreData, if nil -> fetch from internet
-        let api = "https://api.rawg.io/api/games/\(gameID)?key=\(apiKey)"
+        let api = "https://api.rawg.io/api/games/\(gameID)?key=\(Constants.apiKey)"
         
         if InternetManager.shared.isInternetActive() {
             AF.request(api).responseDecodable(of: DetailPageModel.self) { (res) in
@@ -80,14 +79,29 @@ class DetailModel {
     
             do {
                 let result = try context.fetch(request)
-                print("\(result.count)")
+                print("detailden cache'lenen: \(result.count)")
                 self.databaseData = result
                 detailDelegate?.didCacheDataFetch()
             } catch {
                 print("Error: Coredata fetching")
                 detailDelegate?.didDataCouldntFetch()
             }
-            // we can limit result request with "Predicate?"
         }
+    
+    func saveToFavData(_ gameID: Int) {
+        let context = appDelegate.persistentContainer.viewContext
+        if let entity = NSEntityDescription.entity(forEntityName: "FavoriteEntity", in: context) {
+            let listObject = NSManagedObject(entity: entity, insertInto: context)
+            
+            listObject.setValue(gameID, forKey: "id")
+            
+            do {
+                try context.save()
+                print("saved in FavData from detail")
+            } catch  {
+                print("Hata: \(error)")
+            }
+        }
+    }
 }
 

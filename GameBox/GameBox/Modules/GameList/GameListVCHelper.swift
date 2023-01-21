@@ -12,20 +12,24 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
     typealias RowItem = GameListCellModel
     
     private let cellIdentifier = "GameListCell"
+    var gameID: Int = 0
+    var favID = 0
     
     weak var tableView: UITableView?
     weak var searchBar: UISearchBar?
     weak var viewModel: GameListViewModel?
     weak var navigationController: UINavigationController?
+    weak var tabbarController: UITabBarController?
     
     private var items: [RowItem] = []
     private var filteredItems: [RowItem] = []
     
-    init(tableView: UITableView, viewModel: GameListViewModel, searchBar: UISearchBar, navigationController: UINavigationController) {
+    init(tableView: UITableView, viewModel: GameListViewModel, searchBar: UISearchBar, navigationController: UINavigationController, tabbarController: UITabBarController) {
         self.tableView = tableView
         self.viewModel = viewModel
         self.searchBar = searchBar
         self.navigationController = navigationController
+        self.tabbarController = tabbarController
         super.init()
         setupTableView()
     }
@@ -38,9 +42,10 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
         searchBar?.delegate = self
     }
     
-    func setItems(_ items: [RowItem]){
-        self.items = items
+    func setItems(_ newItems: [RowItem]){
+        self.items.append(contentsOf: newItems)
         filteredItems = items
+        print(filteredItems.count)
         tableView?.reloadData()
         tableView?.separatorStyle = .singleLine
     }
@@ -50,16 +55,30 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let gameId = filteredItems[indexPath.row].id
-
-        guard let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as? DetailViewController
-        else { return }
+        gameID = filteredItems[indexPath.row].id
+        goToDetailPage(gameID)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        // Favorite Action
+        let favoriteAction = UIContextualAction(style: .normal, title: "Favorite") { [self]  (contextualAction, view, boolValue) in
+            favID = filteredItems[indexPath.row].id
+            goToFavoritePage(favID)
+        }
+        favoriteAction.image = UIImage(systemName: "heart.fill")
+        favoriteAction.backgroundColor = .red
         
-        detailVC.gameID = gameId
-        self.navigationController?.pushViewController(detailVC, animated: true)
+        // Note Action
+        // TODO:
+
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [favoriteAction])
+        return swipeActions
     }
 }
 
+// -------------------
+// --- Data Source ---
 extension GameListVCHelper: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredItems.count
@@ -70,6 +89,13 @@ extension GameListVCHelper: UITableViewDataSource {
         cell.configure(with: filteredItems[indexPath.row])
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == filteredItems.count - 1 {
+            viewModel?.pageNumber += 1
+            viewModel?.didViewLoad()
+        }
     }
 }
 
@@ -82,5 +108,20 @@ extension GameListVCHelper: UISearchBarDelegate {
         }
         
         tableView?.reloadData()
+    }
+}
+
+extension GameListVCHelper {
+    func goToDetailPage(_ gameID: Int) {
+        guard let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as? DetailViewController
+        else { return }
+        
+        detailVC.gameID = gameID
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    func goToFavoritePage(_ favID: Int) {
+        viewModel?.didFavPressed(favID)
+        tabbarController?.selectedIndex = 1
     }
 }

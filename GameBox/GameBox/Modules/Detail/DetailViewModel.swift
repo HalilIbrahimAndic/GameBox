@@ -23,6 +23,10 @@ class DetailViewModel {
     func didViewLoad(_ gameID: Int) {
         model.fetchData(gameID)
     }
+    
+    func didFavPressed(_ gameID: Int) {
+        model.saveToFavData(gameID)
+    }
 }
 
 //MARK: - Extensions

@@ -14,13 +14,18 @@ class GameListViewModel{
     
     var onErrorOccured: ((String) -> ())?
     var refreshItems: (([GameListCellModel]) -> ())?
+    var pageNumber = 1
     
     init() {
         model.delegate = self
     }
     
     func didViewLoad() {
-        model.fetchData()
+        model.fetchData(pageNumber)
+    }
+    
+    func didFavPressed(_ gameID: Int) {
+        model.saveToFavData(gameID)
     }
 }
 
