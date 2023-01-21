@@ -363,37 +363,25 @@
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJx-od-03I">
-                                <rect key="frame" x="319" y="733" width="80" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="6dH-Wc-975"/>
-                                    <constraint firstAttribute="width" constant="80" id="gcS-a3-e75"/>
-                                </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
-                                </state>
-                                <connections>
-                                    <action selector="addNoteButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Sn-Ua-Fyo"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eJx-od-03I" secondAttribute="bottom" id="0I4-Rn-F4E"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IuF-QC-YBK" secondAttribute="trailing" id="4Id-AM-s2P"/>
                             <constraint firstItem="IuF-QC-YBK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AXR-2R-zVK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eJx-od-03I" secondAttribute="trailing" constant="15" id="L67-OQ-Gmr"/>
                             <constraint firstItem="IuF-QC-YBK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="LPt-t9-F9j"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IuF-QC-YBK" secondAttribute="bottom" id="fJ0-Rn-AWP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Notes" id="wuK-iS-oaA"/>
+                    <navigationItem key="navigationItem" title="Notes" id="wuK-iS-oaA">
+                        <barButtonItem key="rightBarButtonItem" title="Add Note" style="done" id="zZF-6t-sEa">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addNote:" destination="BYZ-38-t0r" id="zPU-uh-xV2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="addNoteButton" destination="eJx-od-03I" id="mNb-nN-bTb"/>
                         <outlet property="noteTableView" destination="IuF-QC-YBK" id="TPo-bc-A2g"/>
                     </connections>
                 </viewController>
@@ -468,7 +456,6 @@
         <image name="gamecontroller.fill" catalog="system" width="128" height="80"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="timer" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">

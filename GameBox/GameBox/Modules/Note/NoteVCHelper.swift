@@ -33,7 +33,7 @@ class NoteVCHelper: NSObject, UITableViewDelegate, UITableViewDataSource {
         tableView?.separatorStyle = .none
     }
     
-    func setItems(_ items: [RowItem]) {
+    func setItems(_ items: [RowItem]) {
         self.items = items
         tableView?.reloadData()
         tableView?.separatorStyle = .singleLine
@@ -65,7 +65,7 @@ class NoteVCHelper: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let item = UIContextualAction(style: .destructive, title: "Delete") { [self] (contextualAction, view, boolValue) in
+        let item = UIContextualAction(style: .destructive, title: "Delete") { (contextualAction, view, boolValue) in
             //let deleteID = items[indexPath.row].id
             //viewModel?.deleteID = deleteID
             //VC?.viewWillAppear(true)

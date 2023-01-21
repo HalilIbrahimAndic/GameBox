@@ -9,4 +9,32 @@ import Foundation
 
 class NoteViewModel{
     
+    private let model = NoteModel()
+    
+    var onErrorOccured: ((String) -> ())?
+    var refreshItems: (([NoteCellModel]) -> ())?
+    var deleteID = 0
+    
+    init() {
+        model.delegate = self
+    }
+    
+    func didViewLoad() {
+//        model.retrieveFromFavoriteEntity()
+//        model.retrieveFromCoreData()
+    }
+}
+
+//MARK: - NoteViewModel Extensions
+extension NoteViewModel: NoteModelProtocol {
+    
+    // cache'den gelen veriyi VC'ye yolla
+    func didCacheDataFetch() {
+        let cellModels: [NoteCellModel] = model.noteData.map{ .init(id: Int($0.id), title: $0.title ?? "", note: $0.note ?? "", date: $0.date ?? Date())}
+        refreshItems?(cellModels)
+    }
+    
+    func didDataCouldntFetch() {
+        onErrorOccured?("Data Couldn't Fetched. Try Again Later!")
+    }
 }

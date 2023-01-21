@@ -31,7 +31,7 @@ class FavoriteViewModel{
 //    }
 }
 
-//MARK: - FavoriteModel Extensions
+//MARK: - FavoriteViewModel Extensions
 extension FavoriteViewModel: FavoriteModelProtocol {
     
     // cache'den gelen veriyi VC'ye yolla
