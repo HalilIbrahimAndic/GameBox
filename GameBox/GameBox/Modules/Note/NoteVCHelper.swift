@@ -7,11 +7,16 @@
 
 import UIKit
 
+protocol canGoNote: AnyObject {
+    func goToNoteDetail(_ noteData: NoteCellModel)
+}
+
 class NoteVCHelper: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     typealias RowItem = NoteCellModel
     private let cellIdentifier = "NoteCell"
     
+    weak var delegate: canGoNote?
     weak var tableView: UITableView?
     weak var viewModel: NoteViewModel?
     weak var navigationController: UINavigationController?
@@ -44,13 +49,10 @@ class NoteVCHelper: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let gameId = items[indexPath.row].id
-//
-//        guard let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as? DetailViewController
-//        else { return }
-//
-//        detailVC.gameID = gameId
-//        self.navigationController?.pushViewController(detailVC, animated: true)
+        let index = items[indexPath.row]
+        let noteData = NoteCellModel(name: index.name, note: index.note, date: index.date)
+        
+        delegate?.goToNoteDetail(noteData)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

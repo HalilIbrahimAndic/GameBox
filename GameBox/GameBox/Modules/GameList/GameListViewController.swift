@@ -53,6 +53,5 @@ extension GameListViewController: canAccessVC {
         present(noteDetailVC, animated: true, completion: {
             noteDetailVC.gameNameField.text = noteName
         })
-
     }
 }

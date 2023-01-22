@@ -46,9 +46,10 @@ class GameListModel {
         } else {
             retrieveFromCoreData()
         }
-//        deleteAllRecords(entity: "GameEntity")
-//        deleteAllRecords(entity: "FavoriteEntity")
-//        deleteAllRecords(entity: "DetailEntity")
+        deleteAllRecords(entity: "GameEntity")
+        deleteAllRecords(entity: "FavoriteEntity")
+        deleteAllRecords(entity: "DetailEntity")
+        deleteAllRecords(entity: "NoteEntity")
     }
     
     private func saveToCoreData(_ data: RAWGModel) {
@@ -101,4 +102,18 @@ class GameListModel {
             }
         }
     }
+    
+    func deleteAllRecords(entity : String) {
+
+                let managedContext = appDelegate.persistentContainer.viewContext
+                let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+                let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+                
+                do {
+                    try managedContext.execute(deleteRequest)
+                    try managedContext.save()
+                } catch {
+                    print ("There was an error")
+                }
+            }
 }
