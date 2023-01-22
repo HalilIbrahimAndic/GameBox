@@ -9,31 +9,41 @@ import UIKit
 
 class NoteDetailViewController: UIViewController {
     
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var gameNameField: UITextField!
+    @IBOutlet weak var gameTextField: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
     
     private let viewModel = NoteDetailViewModel()
-    private var tableHelper: NoteDetailVCHelper!
+    private var items: [NoteCellModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupUI()
         setupBinding()
+        viewModel.didViewLoad()
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        viewModel.didViewLoad()
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+       
+    }
+
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        
+        if gameNameField.text != "" && gameTextField.text != "" {
+            let myNote = NoteCellModel(name: gameNameField.text!, note: gameTextField.text!, date: Date())
+            viewModel.saveNote(myNote)
+            dismiss(animated: true, completion: nil)
+//            dismiss(animated: true, completion: {
+//                firstVC.didClosureArrive(data: self.gatherData())
+//            })
+        } else {
+            showAlert()
+        }
+    }
 }
 
 //MARK: - NoteDetailVC Extension
 extension NoteDetailViewController {
-    private func setupUI() {
-        tableHelper = .init(pickerView: pickerView, viewModel: viewModel, searchBar: searchBar)
-    }
-    
+
     func setupBinding() {
         viewModel.onErrorOccured = { [weak self] message in
             let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
@@ -42,8 +52,17 @@ extension NoteDetailViewController {
         }
 
         viewModel.refreshItems = { [weak self] items in
-            self?.tableHelper.setItems(items)
+            self?.setItems(items)
         }
     }
+    
+    func setItems(_ items: [NoteCellModel]) {
+        self.items = items
+    }
+    
+    func showAlert() {
+        let alertController = UIAlertController(title: "Empty Fields", message: "Please fill all fields before saving.", preferredStyle: .alert)
+        alertController.addAction(.init(title: "Ok", style: .default))
+        present(alertController, animated: true)
+    }
 }
-

@@ -87,7 +87,7 @@
             <connections>
                 <outlet property="contentImageView" destination="yjl-8G-hqJ" id="xJ4-R2-Gqg"/>
                 <outlet property="gameNameLabel" destination="BfB-a8-bbx" id="m7f-y0-yQj"/>
-                <outlet property="ratingLabel" destination="fZ8-Kc-I09" id="Bef-FB-DPa"/>
+                <outlet property="ratingLabel" destination="fZ8-Kc-I09" id="qa1-7J-gD3"/>
                 <outlet property="releasedValueLabel" destination="uem-Lw-rL2" id="27S-Cf-JVI"/>
             </connections>
             <point key="canvasLocation" x="204.34782608695653" y="85.714285714285708"/>

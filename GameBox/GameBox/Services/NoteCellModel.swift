@@ -8,8 +8,7 @@
 import Foundation
 
 struct NoteCellModel {
-    let id: Int
-    let title: String
+    let name: String
     let note: String
     let date: Date
 }

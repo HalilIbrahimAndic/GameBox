@@ -29,8 +29,7 @@ class NoteModel {
         if let entity = NSEntityDescription.entity(forEntityName: "NoteEntity", in: context) {
             let listObject = NSManagedObject(entity: entity, insertInto: context)
             
-            listObject.setValue(data.id, forKey: "id")
-            listObject.setValue(data.title, forKey: "title")
+            listObject.setValue(data.name, forKey: "name")
             listObject.setValue(data.note, forKey: "note")
             listObject.setValue(data.date, forKey: "date")
             

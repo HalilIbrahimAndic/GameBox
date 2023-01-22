@@ -18,7 +18,7 @@ class NoteCell: UITableViewCell {
     }
 
     func configure(with model: NoteCellModel) {
-        noteTitle.text = model.title
+        noteTitle.text = model.name
         noteDescription.text = model.note
         //noteDate.text = "\(model.date)"
     }

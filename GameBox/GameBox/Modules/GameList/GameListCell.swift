@@ -23,6 +23,6 @@ class GameListCell: UITableViewCell {
         contentImageView.kf.setImage(with: URL.init(string: model.background_image))
         gameNameLabel.text = model.name
         releasedValueLabel.text = model.released
-        ratingLabel.text = "\(model.rating) / \(model.rating_top)"
+        ratingLabel.text = "\(model.rating) / 5.0"
     }
 }

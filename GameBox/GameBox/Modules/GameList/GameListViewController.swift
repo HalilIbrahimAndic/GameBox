@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GameListViewController: UIViewController {
+class GameListViewController: UIViewController, canGo {
 
     @IBOutlet private weak var gameSearchBar: UISearchBar!
     @IBOutlet private weak var gameTableView: UITableView!
@@ -18,9 +18,14 @@ class GameListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupUI()
         setupBinding()
         viewModel.didViewLoad()
+    }
+    
+    func goToNote(){
+        print("nota git")
     }
 }
 
@@ -29,6 +34,7 @@ extension GameListViewController {
     
     private func setupUI() {
         tableHelper = .init(tableView: gameTableView, viewModel: viewModel, searchBar: gameSearchBar, navigationController: navigationController!, tabbarController: tabBarController!)
+        tableHelper.goDelegate = self
     }
     
     func setupBinding() {

@@ -30,7 +30,7 @@ extension NoteViewModel: NoteModelProtocol {
     
     // cache'den gelen veriyi VC'ye yolla
     func didCacheDataFetch() {
-        let cellModels: [NoteCellModel] = model.noteData.map{ .init(id: Int($0.id), title: $0.title ?? "", note: $0.note ?? "", date: $0.date ?? Date())}
+        let cellModels: [NoteCellModel] = model.noteData.map{ .init(name: $0.name ?? "", note: $0.note ?? "", date: $0.date ?? Date())}
         refreshItems?(cellModels)
     }
     

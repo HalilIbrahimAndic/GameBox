@@ -30,7 +30,6 @@
         <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="rating" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="rating_top" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="released" attributeType="String"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -40,14 +39,18 @@
     </entity>
     <entity name="NoteEntity" representedClassName="NoteEntity" syncable="YES" codeGenerationType="class">
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
         <attribute name="note" attributeType="String"/>
-        <attribute name="title" attributeType="String"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <elements>
         <element name="DetailEntity" positionX="-54" positionY="99" width="128" height="193"/>
         <element name="FavoriteEntity" positionX="-36" positionY="162" width="128" height="58"/>
-        <element name="GameEntity" positionX="-63" positionY="36" width="128" height="133"/>
-        <element name="NoteEntity" positionX="-45" positionY="144" width="128" height="103"/>
+        <element name="GameEntity" positionX="-63" positionY="36" width="128" height="118"/>
+        <element name="NoteEntity" positionX="-45" positionY="144" width="128" height="88"/>
     </elements>
 </model>
