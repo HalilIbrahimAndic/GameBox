@@ -46,10 +46,10 @@ class GameListModel {
         } else {
             retrieveFromCoreData()
         }
-        deleteAllRecords(entity: "GameEntity")
-        deleteAllRecords(entity: "FavoriteEntity")
-        deleteAllRecords(entity: "DetailEntity")
-        deleteAllRecords(entity: "NoteEntity")
+//        deleteAllRecords(entity: "GameEntity")
+//        deleteAllRecords(entity: "FavoriteEntity")
+//        deleteAllRecords(entity: "DetailEntity")
+//        deleteAllRecords(entity: "NoteEntity")
     }
     
     private func saveToCoreData(_ data: RAWGModel) {

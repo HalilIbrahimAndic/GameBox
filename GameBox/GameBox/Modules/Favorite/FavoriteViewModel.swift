@@ -23,11 +23,12 @@ class FavoriteViewModel{
     func didViewLoad() {
         model.retrieveFromFavoriteEntity()
         model.retrieveFromCoreData()
-        
     }
     
-//    func didFavDeleted() {
-//        //model.deleteFromFavoriteEntity(deleteID)
+//    func deleteFav(_ favID: Int) {
+//        model.deleteSelectedFav(favID)
+//        model.retrieveFromFavoriteEntity()
+//        model.retrieveFromCoreData()
 //    }
 }
 

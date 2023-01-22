@@ -67,15 +67,13 @@ class NoteVCHelper: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let item = UIContextualAction(style: .destructive, title: "Delete") { (contextualAction, view, boolValue) in
-            //let deleteID = items[indexPath.row].id
-            //viewModel?.deleteID = deleteID
-            //VC?.viewWillAppear(true)
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [self] (contextualAction, view, boolValue) in
+            viewModel?.deleteNote(items[indexPath.row].name)
         }
-        //item.image = UIImage(systemName: "heart")
-        item.backgroundColor = .red
         
-        let swipeActions = UISwipeActionsConfiguration(actions: [item])
+        deleteAction.image = UIImage(systemName: "book.fill")
+        deleteAction.backgroundColor = .red
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
         
         return swipeActions
     }

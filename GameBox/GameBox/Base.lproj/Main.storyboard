@@ -59,7 +59,7 @@
                                 <rect key="frame" x="0.0" y="200" width="414" height="613"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="hxA-l4-OLf">
+                            <searchBar contentMode="redraw" placeholder="Write at least 3 characters" translatesAutoresizingMaskIntoConstraints="NO" id="hxA-l4-OLf">
                                 <rect key="frame" x="0.0" y="140" width="414" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="bp1-rv-1MF"/>
@@ -86,6 +86,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Game Box" id="i3b-zV-KQt">
                         <barButtonItem key="backBarButtonItem" title=" " id="2Av-bY-UIw"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="list.bullet.indent" catalog="system" id="zz5-Ya-36E"/>
                     </navigationItem>
                     <connections>
                         <outlet property="gameActivityIndicator" destination="fjA-QH-ayD" id="MCg-Ro-L53"/>
@@ -374,6 +375,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Notes" id="wuK-iS-oaA">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="trash" catalog="system" id="Xuy-W0-hgj">
+                            <connections>
+                                <action selector="deleteAllNotes:" destination="BYZ-38-t0r" id="CUO-KJ-U3E"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add Note" style="done" id="zZF-6t-sEa">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -383,6 +389,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="noteTableView" destination="IuF-QC-YBK" id="TPo-bc-A2g"/>
+                        <segue destination="RHY-VN-y1G" kind="show" identifier="noteSegue" id="8pS-7y-vzh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -398,7 +405,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1wG-lz-DDV" userLabel="Game Name Field">
-                                <rect key="frame" x="20" y="139" width="374" height="50"/>
+                                <rect key="frame" x="20" y="235" width="374" height="50"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="03H-qi-uJB"/>
@@ -407,7 +414,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rR7-1M-m6L">
-                                <rect key="frame" x="20" y="94" width="374" height="30"/>
+                                <rect key="frame" x="20" y="190" width="374" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="wCn-xM-RFr"/>
                                 </constraints>
@@ -416,7 +423,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Write your note here.." textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bpq-57-clD" userLabel="Game Text Field">
-                                <rect key="frame" x="20" y="284" width="374" height="250"/>
+                                <rect key="frame" x="20" y="380" width="374" height="250"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="8eT-WF-axg"/>
@@ -425,7 +432,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGN-1X-XaY">
-                                <rect key="frame" x="20" y="239" width="374" height="30"/>
+                                <rect key="frame" x="20" y="335" width="374" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="lJl-L3-KqQ"/>
                                 </constraints>
@@ -434,7 +441,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8v-a6-324">
-                                <rect key="frame" x="150" y="634" width="114" height="50"/>
+                                <rect key="frame" x="150" y="730" width="114" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="tq7-Qz-ly0"/>
@@ -468,6 +475,7 @@
                             <constraint firstItem="nEa-ve-6XE" firstAttribute="trailing" secondItem="T8v-a6-324" secondAttribute="trailing" constant="150" id="so6-Se-vtj"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="zYy-k7-sWh"/>
                     <connections>
                         <outlet property="gameNameField" destination="1wG-lz-DDV" id="Mp9-6Z-pI3"/>
                         <outlet property="gameTextField" destination="Bpq-57-clD" id="LuE-sk-TR0"/>
@@ -545,8 +553,10 @@
         <image name="gamecontroller.fill" catalog="system" width="128" height="80"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="list.bullet.indent" catalog="system" width="128" height="74"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="timer" catalog="system" width="128" height="121"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

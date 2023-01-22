@@ -84,7 +84,6 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
         noteAction.image = UIImage(systemName: "book.fill")
         noteAction.backgroundColor = .blue
 
-        
         let swipeActions = UISwipeActionsConfiguration(actions: [favoriteAction, noteAction])
         return swipeActions
     }
@@ -105,7 +104,7 @@ extension GameListVCHelper: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == filteredItems.count - 1 {
+        if (indexPath.row == filteredItems.count - 1) && indexPath.row >= 10 {
             viewModel?.pageNumber += 1
             viewModel?.didViewLoad()
         }
@@ -118,8 +117,8 @@ extension GameListVCHelper: UISearchBarDelegate {
             filteredItems = items
         } else {
             filteredItems = items.filter{ ($0.name).localizedCaseInsensitiveContains(searchText) }
+            
         }
-        
         tableView?.reloadData()
     }
 }

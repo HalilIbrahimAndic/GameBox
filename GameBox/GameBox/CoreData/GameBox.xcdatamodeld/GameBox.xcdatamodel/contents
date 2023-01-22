@@ -18,7 +18,6 @@
         </uniquenessConstraints>
     </entity>
     <entity name="FavoriteEntity" representedClassName=".FavoriteEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="condition" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -50,7 +49,7 @@
     </entity>
     <elements>
         <element name="DetailEntity" positionX="-54" positionY="99" width="128" height="193"/>
-        <element name="FavoriteEntity" positionX="-36" positionY="162" width="128" height="73"/>
+        <element name="FavoriteEntity" positionX="-36" positionY="162" width="128" height="58"/>
         <element name="GameEntity" positionX="-63" positionY="36" width="128" height="118"/>
         <element name="NoteEntity" positionX="-45" positionY="144" width="128" height="88"/>
     </elements>

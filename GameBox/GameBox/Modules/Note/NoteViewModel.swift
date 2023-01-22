@@ -22,6 +22,16 @@ class NoteViewModel{
     func didViewLoad() {
         model.retrieveFromNoteEntity()
     }
+    
+    func deleteAll() {
+        model.deleteAllRecords(entity: "NoteEntity")
+        model.retrieveFromNoteEntity()
+    }
+    
+    func deleteNote(_ noteName: String) {
+        model.deleteSelectedNote(noteName)
+        model.retrieveFromNoteEntity()
+    }
 }
 
 //MARK: - NoteViewModel Extensions

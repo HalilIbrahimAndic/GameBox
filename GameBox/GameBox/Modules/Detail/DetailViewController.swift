@@ -49,8 +49,8 @@ class DetailViewController: UIViewController {
         sender.isSelected = !sender.isSelected //By default sender.isSelected is false
         if sender.isSelected {
             viewModel.didFavPressed(gameID)
-            //sender.setTitle("Favorited", for: .selected)
             sender.setImage(UIImage(systemName: "heart.fill"), for: .selected)
+            //tabbarController?.selectedIndex = 1
         } else {
             sender.setTitle("Favorite", for: .normal)
             sender.setImage(UIImage(systemName: "heart"), for: .normal)

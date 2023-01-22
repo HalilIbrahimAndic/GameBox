@@ -20,28 +20,21 @@ class NoteViewController: UIViewController {
         //print("a")
         setupUI()
         setupBinding()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //print("b")
         viewModel.didViewLoad()
         setupBinding()
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        print("c")
-//        viewModel.didViewLoad()
-//        setupUI()
-//        setupBinding()
-//    }
+    @IBAction func deleteAllNotes(_ sender: Any) {
+        showAlert()
+    }
     
     @IBAction func addNote(_ sender: UIBarButtonItem) {
-        guard let noteDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: NoteDetailViewController.self)) as? NoteDetailViewController
-        else { return }
-        
-        //self.navigationController?.pushViewController(noteDetailVC, animated: true)
-        present(noteDetailVC, animated: true)
+        self.performSegue(withIdentifier: "noteSegue", sender: self)
     }
 }
 
@@ -73,5 +66,18 @@ extension NoteViewController: canGoNote {
             noteDetailVC.gameNameField.text = noteData.name
             noteDetailVC.gameTextField.text = noteData.note
         })
+    }
+    
+    func showAlert() {
+        let alertController = UIAlertController(title: "Delete All", message: "All notes will be deleted \n Are you sure?", preferredStyle: .alert)
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) {
+                UIAlertAction in
+            self.viewModel.deleteAll()
+            }
+        
+        alertController.addAction(deleteAction)
+        alertController.addAction(.init(title: "Cancel", style: .default))
+        present(alertController, animated: true)
     }
 }

@@ -23,8 +23,9 @@ class NoteDetailViewController: UIViewController {
         if gameNameField.text != "" && gameTextField.text != "" {
             let myNote = NoteCellModel(name: gameNameField.text!, note: gameTextField.text!, date: Date())
             viewModel.saveNote(myNote)
-//            let noteVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: NoteViewController.self)) as? NoteViewController
+            
             dismiss(animated: true, completion: nil)
+            //navigationController?.popViewController(animated: true)
         } else {
             showAlert()
         }
