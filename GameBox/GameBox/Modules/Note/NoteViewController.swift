@@ -25,7 +25,6 @@ class NoteViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.didViewLoad()
-        //viewModel.didFavDeleted()
     }
     
     @IBAction func addNote(_ sender: UIBarButtonItem) {
@@ -33,15 +32,13 @@ class NoteViewController: UIViewController {
         else { return }
         
         present(noteDetailVC, animated: true)
-        
-        //self.navigationController?.pushViewController(noteDetailVC, animated: true)
     }
 }
 
 //MARK: - NoteVC Extension
 extension NoteViewController {
     private func setupUI() {
-        tableHelper = .init(tableView: noteTableView, viewModel: viewModel, navigationController: navigationController!)
+        tableHelper = .init(tableView: noteTableView, viewModel: viewModel)
     }
     
     func setupBinding() {

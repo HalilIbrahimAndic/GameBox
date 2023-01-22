@@ -20,7 +20,12 @@ class NoteCell: UITableViewCell {
     func configure(with model: NoteCellModel) {
         noteTitle.text = model.name
         noteDescription.text = model.note
-        //noteDate.text = "\(model.date)"
+        
+        let date = model.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.y - HH:mm"
+        
+        noteDate.text = dateFormatter.string(from: date)
     }
 }
 

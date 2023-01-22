@@ -18,10 +18,10 @@ class NoteVCHelper: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     private var items: [RowItem] = []
     
-    init(tableView: UITableView, viewModel: NoteViewModel, navigationController: UINavigationController) {
+    init(tableView: UITableView, viewModel: NoteViewModel) {
         self.tableView = tableView
         self.viewModel = viewModel
-        self.navigationController = navigationController
+        
         super.init()
         setupTableView()
     }
@@ -40,7 +40,7 @@ class NoteVCHelper: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 100
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

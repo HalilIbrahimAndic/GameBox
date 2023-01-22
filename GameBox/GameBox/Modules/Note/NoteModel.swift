@@ -19,29 +19,10 @@ class NoteModel {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     weak var delegate: NoteModelProtocol?
-    var noteIDs: [Int32] = []
 
     private(set) var noteData: [NoteEntity] = []
     
-    private func saveToCoreData(_ data: NoteCellModel) {
-        
-        let context = appDelegate.persistentContainer.viewContext
-        if let entity = NSEntityDescription.entity(forEntityName: "NoteEntity", in: context) {
-            let listObject = NSManagedObject(entity: entity, insertInto: context)
-            
-            listObject.setValue(data.name, forKey: "name")
-            listObject.setValue(data.note, forKey: "note")
-            listObject.setValue(data.date, forKey: "date")
-            
-            do {
-                try context.save()
-            } catch  {
-                print("Note save error: \(error)")
-            }
-        }
-    }
-    
-    private func retrieveFromCoreData() {
+    func retrieveFromNoteEntity() {
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<NoteEntity>(entityName: "NoteEntity")
         

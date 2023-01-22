@@ -20,15 +20,13 @@ class NoteViewModel{
     }
     
     func didViewLoad() {
-//        model.retrieveFromFavoriteEntity()
-//        model.retrieveFromCoreData()
+        model.retrieveFromNoteEntity()
     }
 }
 
 //MARK: - NoteViewModel Extensions
 extension NoteViewModel: NoteModelProtocol {
     
-    // cache'den gelen veriyi VC'ye yolla
     func didCacheDataFetch() {
         let cellModels: [NoteCellModel] = model.noteData.map{ .init(name: $0.name ?? "", note: $0.note ?? "", date: $0.date ?? Date())}
         refreshItems?(cellModels)
