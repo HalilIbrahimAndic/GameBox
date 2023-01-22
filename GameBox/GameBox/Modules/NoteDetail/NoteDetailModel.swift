@@ -7,17 +7,9 @@
 
 import UIKit
 import CoreData
-import Alamofire
-
-//MARK: - Protocol
-protocol NoteDetailModelProtocol: AnyObject {
-    func didCacheDataFetch()
-    func didDataCouldntFetch()
-}
 
 class NoteDetailModel {
     
-    weak var delegate: NoteDetailModelProtocol?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     func saveToCoreData(_ data: NoteCellModel) {
