@@ -6,15 +6,18 @@
 //
 
 import UIKit
+import DropDown
 
 class GameListViewController: UIViewController{
 
     @IBOutlet private weak var gameSearchBar: UISearchBar!
     @IBOutlet private weak var gameTableView: UITableView!
     @IBOutlet private weak var gameActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var sortButton: UIBarButtonItem!
     
     private let viewModel = GameListViewModel()
     private var tableHelper: GameListVCHelper!
+    let dropDown = DropDown()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,27 @@ class GameListViewController: UIViewController{
         setupBinding()
         viewModel.didViewLoad()
     }
+    
+    
+    @IBAction func sortButtonPressed(_ sender: Any) {
+        dropDown.show()
+        dropDown.selectionAction =  { [unowned self] (index: Int, item: String) in
+            switch item {
+            case "Top 20 Highest Rating":
+                print("opsion 1")
+                //viewModel.getHighestRating()
+            case "2022 Games":
+                print("opsion 2")
+                //viewModel.upcomingGames()
+            case "Clear Filter":
+                print("opsion 3")
+                //viewModel.fetchGames(page: 1)
+            default:
+                print("")
+            }
+        }
+    }
+    
 }
 
 //MARK: - Extension
@@ -31,6 +55,9 @@ extension GameListViewController: canAccessVC {
     private func setupUI() {
         tableHelper = .init(tableView: gameTableView, viewModel: viewModel, searchBar: gameSearchBar, navigationController: navigationController!, tabbarController: tabBarController!)
         tableHelper.delegate = self
+        
+        dropDown.anchorView = sortButton
+        dropDown.dataSource = ["Top 20 Highest Rating","2022 Games","Clear Filter"]
     }
     
     func setupBinding() {
