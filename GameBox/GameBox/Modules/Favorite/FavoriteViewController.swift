@@ -17,8 +17,7 @@ class FavoriteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableHelper = .init(tableView: tableView, VC: self, viewModel: viewModel, navigationController: navigationController!)
-        //setupUI()
+        setupUI()
         setupBinding()
         //viewModel.didViewLoad()
     }
@@ -33,7 +32,7 @@ class FavoriteViewController: UIViewController {
 //MARK: - FavoriteVC Extension
 extension FavoriteViewController {
     private func setupUI() {
-        //tableHelper = .init(tableView: tableView, VC: self, viewModel: viewModel, navigationController: navigationController!)
+        tableHelper = .init(tableView: tableView, VC: self, viewModel: viewModel, navigationController: navigationController!)
     }
     
     func setupBinding() {

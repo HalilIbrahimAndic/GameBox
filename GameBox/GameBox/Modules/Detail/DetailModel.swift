@@ -21,7 +21,6 @@ protocol DetailModelProtocol: AnyObject {
 class DetailModel {
     
     weak var detailDelegate: DetailModelProtocol?
-    private let apiKey = "d04a8d582093458f9cc979cd66f2d71d"
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol canAccessVC: AnyObject {
+    func goToNote(_ noteName: String)
+}
+
 class GameListVCHelper: NSObject, UITableViewDelegate{
     
     typealias RowItem = GameListCellModel
@@ -14,6 +18,9 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
     private let cellIdentifier = "GameListCell"
     var gameID: Int = 0
     var favID = 0
+    var noteName = ""
+    
+    weak var delegate: canAccessVC?
     
     weak var tableView: UITableView?
     weak var searchBar: UISearchBar?
@@ -30,6 +37,7 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
         self.searchBar = searchBar
         self.navigationController = navigationController
         self.tabbarController = tabbarController
+        
         super.init()
         setupTableView()
     }
@@ -69,10 +77,15 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
         favoriteAction.backgroundColor = .red
         
         // Note Action
-        // TODO:
+        let noteAction = UIContextualAction(style: .normal, title: "Note") { [self]  (contextualAction, view, boolValue) in
+            noteName = filteredItems[indexPath.row].name
+            goToNotePage(noteName)
+        }
+        noteAction.image = UIImage(systemName: "book.fill")
+        noteAction.backgroundColor = .blue
 
         
-        let swipeActions = UISwipeActionsConfiguration(actions: [favoriteAction])
+        let swipeActions = UISwipeActionsConfiguration(actions: [favoriteAction, noteAction])
         return swipeActions
     }
 }
@@ -123,5 +136,9 @@ extension GameListVCHelper {
     func goToFavoritePage(_ favID: Int) {
         viewModel?.didFavPressed(favID)
         tabbarController?.selectedIndex = 1
+    }
+    
+    func goToNotePage(_ noteName: String) {
+        delegate?.goToNote(noteName)
     }
 }
