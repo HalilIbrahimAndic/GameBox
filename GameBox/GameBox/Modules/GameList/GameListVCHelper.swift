@@ -8,7 +8,7 @@
 import UIKit
 
 protocol canAccessVC: AnyObject {
-    func goToNote()
+    func goToNote(_ noteName: String)
 }
 
 class GameListVCHelper: NSObject, UITableViewDelegate{
@@ -20,7 +20,7 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
     var favID = 0
     var noteName = ""
     
-    weak var goDelegate: canAccessVC?
+    weak var delegate: canAccessVC?
     
     weak var tableView: UITableView?
     weak var searchBar: UISearchBar?
@@ -82,7 +82,7 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
             goToNotePage(noteName)
         }
         noteAction.image = UIImage(systemName: "book.fill")
-        favoriteAction.backgroundColor = .blue
+        noteAction.backgroundColor = .blue
 
         
         let swipeActions = UISwipeActionsConfiguration(actions: [favoriteAction, noteAction])
@@ -139,11 +139,6 @@ extension GameListVCHelper {
     }
     
     func goToNotePage(_ noteName: String) {
-        guard let noteDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: NoteDetailViewController.self)) as? NoteDetailViewController
-        else { return }
-        
-        //viewController.
-        goDelegate?.goToNote()
-        //present(noteDetailVC, animated: true)
+        delegate?.goToNote(noteName)
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GameListViewController: UIViewController, canGo {
+class GameListViewController: UIViewController{
 
     @IBOutlet private weak var gameSearchBar: UISearchBar!
     @IBOutlet private weak var gameTableView: UITableView!
@@ -23,18 +23,14 @@ class GameListViewController: UIViewController, canGo {
         setupBinding()
         viewModel.didViewLoad()
     }
-    
-    func goToNote(){
-        print("nota git")
-    }
 }
 
 //MARK: - Extension
-extension GameListViewController {
+extension GameListViewController: canAccessVC {
     
     private func setupUI() {
         tableHelper = .init(tableView: gameTableView, viewModel: viewModel, searchBar: gameSearchBar, navigationController: navigationController!, tabbarController: tabBarController!)
-        tableHelper.goDelegate = self
+        tableHelper.delegate = self
     }
     
     func setupBinding() {
@@ -48,5 +44,15 @@ extension GameListViewController {
             self?.tableHelper.setItems(items)
             self?.gameActivityIndicator.stopAnimating()
         }
+    }
+    
+    func goToNote(_ noteName: String){
+        guard let noteDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: NoteDetailViewController.self)) as? NoteDetailViewController
+                else { return }
+        
+        present(noteDetailVC, animated: true, completion: {
+            noteDetailVC.gameNameField.text = noteName
+        })
+
     }
 }

@@ -18,7 +18,6 @@ protocol NoteDetailModelProtocol: AnyObject {
 class NoteDetailModel {
     
     weak var delegate: NoteDetailModelProtocol?
-    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     func saveToCoreData(_ data: NoteCellModel) {
@@ -32,25 +31,9 @@ class NoteDetailModel {
 
             do {
                 try context.save()
-                print("noted in CoreData with name: \(data.name)")
             } catch  {
-                print("Hata: \(error)")
+                print(error)
             }
         }
     }
-    
-//    private func retrieveFromCoreData() {
-//        let context = appDelegate.persistentContainer.viewContext
-//        let request = NSFetchRequest<DetailEntity>(entityName: "DetailEntity")
-//
-//        do {
-//            let result = try context.fetch(request)
-//            print("detailden cache'lenen: \(result.count)")
-//            self.databaseData = result
-//            detailDelegate?.didCacheDataFetch()
-//        } catch {
-//            print("Error: Coredata fetching")
-//            detailDelegate?.didDataCouldntFetch()
-//        }
-//    }
 }
