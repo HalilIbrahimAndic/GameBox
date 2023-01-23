@@ -57,6 +57,7 @@ extension GameListViewController: canAccessVC {
             self?.tableHelper.setItems(items)
             self?.gameActivityIndicator.stopAnimating()
             self?.gameTableView.isHidden = false
+            self?.tableHelper.paginationFlag = 0
         }
     }
     
@@ -99,7 +100,8 @@ extension GameListViewController {
             default:
                 viewModel.apiFlag = 0
             }
-            //viewModel.pageNumber = 1
+            viewModel.pageNumber = 1
+            tableHelper.paginationFlag = 1
             viewModel.didViewLoad()
             gameActivityIndicator.startAnimating()
             gameTableView.isHidden = true

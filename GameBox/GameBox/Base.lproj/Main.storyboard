@@ -86,7 +86,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Game Box" id="i3b-zV-KQt">
                         <barButtonItem key="backBarButtonItem" title=" " id="2Av-bY-UIw"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="list.bullet.indent" catalog="system" id="zz5-Ya-36E">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.up.arrow.down" catalog="system" id="zz5-Ya-36E">
                             <connections>
                                 <action selector="sortButtonPressed:" destination="5IA-0V-D1h" id="lLd-O7-E5X"/>
                             </connections>
@@ -560,12 +560,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.up.arrow.down" catalog="system" width="128" height="98"/>
         <image name="book.fill" catalog="system" width="128" height="102"/>
         <image name="bubble.left" catalog="system" width="128" height="110"/>
         <image name="gamecontroller.fill" catalog="system" width="128" height="80"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
-        <image name="list.bullet.indent" catalog="system" width="128" height="74"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="timer" catalog="system" width="128" height="121"/>
         <image name="trash" catalog="system" width="121" height="128"/>

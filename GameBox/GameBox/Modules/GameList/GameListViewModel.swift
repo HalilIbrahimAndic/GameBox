@@ -24,7 +24,7 @@ class GameListViewModel{
     }
     
     func didViewLoad() {
-        model.fetchData(service.sortedAPI(apiFlag))
+        model.fetchData(service.sortedAPI(apiFlag),pageNumber)
     }
     
     func didFavPressed(_ gameID: Int) {

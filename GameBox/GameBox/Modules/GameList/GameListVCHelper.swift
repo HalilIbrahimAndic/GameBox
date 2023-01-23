@@ -19,6 +19,7 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
     var gameID: Int = 0
     var favID = 0
     var noteName = ""
+    var paginationFlag = 0 //To reset pagination setup
     
     weak var delegate: canAccessVC?
     
@@ -51,8 +52,14 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
     }
     
     func setItems(_ newItems: [RowItem]){
-        //self.items.append(contentsOf: newItems)
-        self.items = newItems
+        // add newcomings to the end of the list
+        if paginationFlag == 0 {
+            self.items.append(contentsOf: newItems)
+        } else { // triggers when new sorting requested
+            self.items = newItems
+        }
+        
+        // transfers items for search tool
         filteredItems = items
         print(filteredItems.count)
         tableView?.reloadData()
@@ -104,11 +111,11 @@ extension GameListVCHelper: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        if (indexPath.row == filteredItems.count - 1) && indexPath.row >= 10 {
-//            viewModel?.pageNumber += 1
-//            print("Viewmodel pageNumber: \(viewModel?.pageNumber ?? 10)")
-//            viewModel?.didViewLoad()
-//        }
+        if (indexPath.row == filteredItems.count - 1) && indexPath.row >= 10 {
+            viewModel?.pageNumber += 1
+            print("Viewmodel pageNumber: \(viewModel?.pageNumber ?? 10)")
+            viewModel?.didViewLoad()
+        }
     }
 }
 
