@@ -33,6 +33,7 @@
 		20313A05297BCA9A00481803 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20313A04297BCA9A00481803 /* FavoriteViewModel.swift */; };
 		20313A08297BCB3B00481803 /* FavoriteVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20313A07297BCB3B00481803 /* FavoriteVCHelper.swift */; };
 		20313A0B297BD62A00481803 /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20313A01297BCA8C00481803 /* FavoriteModel.swift */; };
+		204012F5297EE71700C73E1B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 204012F4297EE71700C73E1B /* Localizable.strings */; };
 		204E2503297E7A4300AF802F /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204E2502297E7A4300AF802F /* LocalNotificationManager.swift */; };
 		204E2506297E9D7E00AF802F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204E2505297E9D7E00AF802F /* Service.swift */; };
 		20DEB08D297C9718002F7140 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DEB08B297C9718002F7140 /* NoteCell.swift */; };
@@ -78,6 +79,7 @@
 		20313A01297BCA8C00481803 /* FavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModel.swift; sourceTree = "<group>"; };
 		20313A04297BCA9A00481803 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		20313A07297BCB3B00481803 /* FavoriteVCHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVCHelper.swift; sourceTree = "<group>"; };
+		204012F4297EE71700C73E1B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		204E2502297E7A4300AF802F /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		204E2505297E9D7E00AF802F /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		20DEB08B297C9718002F7140 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
@@ -137,9 +139,9 @@
 		202CC5BA2972F87D003990A4 /* GameBox */ = {
 			isa = PBXGroup;
 			children = (
+				204012F3297EE6E400C73E1B /* Localizable */,
 				202CC5D32972F952003990A4 /* App */,
 				202CC5EF2974A130003990A4 /* Managers */,
-				202CC5D42972F95A003990A4 /* LocalNotification */,
 				202CC5D72972F9A0003990A4 /* Services */,
 				202CC5D62972F98C003990A4 /* CoreData */,
 				202CC5D52972F985003990A4 /* Modules */,
@@ -158,13 +160,6 @@
 				202CC5CC2972F883003990A4 /* Info.plist */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		202CC5D42972F95A003990A4 /* LocalNotification */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = LocalNotification;
 			sourceTree = "<group>";
 		};
 		202CC5D52972F985003990A4 /* Modules */ = {
@@ -246,6 +241,14 @@
 				20DEB08C297C9718002F7140 /* NoteCell.xib */,
 			);
 			path = Note;
+			sourceTree = "<group>";
+		};
+		204012F3297EE6E400C73E1B /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				204012F4297EE71700C73E1B /* Localizable.strings */,
+			);
+			path = Localizable;
 			sourceTree = "<group>";
 		};
 		20F11DD7297CAE3800C82131 /* NoteDetail */ = {
@@ -335,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20DEB08E297C9718002F7140 /* NoteCell.xib in Resources */,
+				204012F5297EE71700C73E1B /* Localizable.strings in Resources */,
 				202CC5CB2972F883003990A4 /* LaunchScreen.storyboard in Resources */,
 				202CC5C82972F883003990A4 /* Assets.xcassets in Resources */,
 				202CC5C32972F87D003990A4 /* Main.storyboard in Resources */,
@@ -500,7 +504,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -555,7 +559,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -574,6 +578,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UKJZQD9WU4;
 				INFOPLIST_FILE = GameBox/App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -594,6 +599,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UKJZQD9WU4;
 				INFOPLIST_FILE = GameBox/App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

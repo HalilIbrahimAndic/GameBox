@@ -59,7 +59,7 @@
                                 <rect key="frame" x="0.0" y="200" width="414" height="613"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Write at least 3 characters" translatesAutoresizingMaskIntoConstraints="NO" id="hxA-l4-OLf">
+                            <searchBar contentMode="redraw" placeholder="What are you looking for?" translatesAutoresizingMaskIntoConstraints="NO" id="hxA-l4-OLf">
                                 <rect key="frame" x="0.0" y="140" width="414" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="bp1-rv-1MF"/>

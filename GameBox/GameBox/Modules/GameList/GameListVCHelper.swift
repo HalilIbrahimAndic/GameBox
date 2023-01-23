@@ -51,7 +51,8 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
     }
     
     func setItems(_ newItems: [RowItem]){
-        self.items.append(contentsOf: newItems)
+        //self.items.append(contentsOf: newItems)
+        self.items = newItems
         filteredItems = items
         print(filteredItems.count)
         tableView?.reloadData()
@@ -89,7 +90,6 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
     }
 }
 
-// -------------------
 // --- Data Source ---
 extension GameListVCHelper: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -104,13 +104,15 @@ extension GameListVCHelper: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if (indexPath.row == filteredItems.count - 1) && indexPath.row >= 10 {
-            viewModel?.pageNumber += 1
-            viewModel?.didViewLoad()
-        }
+//        if (indexPath.row == filteredItems.count - 1) && indexPath.row >= 10 {
+//            viewModel?.pageNumber += 1
+//            print("Viewmodel pageNumber: \(viewModel?.pageNumber ?? 10)")
+//            viewModel?.didViewLoad()
+//        }
     }
 }
 
+// --- Search Bar ---
 extension GameListVCHelper: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
@@ -123,6 +125,7 @@ extension GameListVCHelper: UISearchBarDelegate {
     }
 }
 
+// --- Go Other Pages ---
 extension GameListVCHelper {
     func goToDetailPage(_ gameID: Int) {
         guard let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as? DetailViewController

@@ -21,8 +21,8 @@ class NoteDetailViewController: UIViewController, UNUserNotificationCenterDelega
  
     @IBAction func saveButtonPressed(_ sender: Any) {
         localNotification()
-        UNUserNotificationCenter.current().delegate = self
         
+        UNUserNotificationCenter.current().delegate = self
         if gameNameField.text != "" && gameTextField.text != "" {
             let myNote = NoteCellModel(name: gameNameField.text!, note: gameTextField.text!, date: Date())
             viewModel.saveNote(myNote)

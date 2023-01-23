@@ -27,9 +27,10 @@ class GameListModel {
     
     weak var delegate: GameListModelProtocol?
     
-    func fetchData(_ pageNumber: Int) { //First check CoreData, if nil -> fetch from internet
+    func fetchData(_ api: String,_ pageNumber: Int) { //First check CoreData, if nil -> fetch from internet
         if InternetManager.shared.isInternetActive() {
-            AF.request("\(Service.gamesBaseUrl)&page=\(pageNumber)").responseDecodable(of: ApiData.self) { (res) in
+            AF.request("\(api)").responseDecodable(of: ApiData.self) { (res) in
+                //&page=\(pageNumber)
                 guard
                     let response = res.value
                 else {

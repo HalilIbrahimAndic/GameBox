@@ -11,17 +11,20 @@ import Foundation
 class GameListViewModel{
     
     private let model = GameListModel()
+    private let service = Service()
     
     var onErrorOccured: ((String) -> ())?
     var refreshItems: (([GameListCellModel]) -> ())?
+    
     var pageNumber = 1
+    var apiFlag = 0
     
     init() {
         model.delegate = self
     }
     
     func didViewLoad() {
-        model.fetchData(pageNumber)
+        model.fetchData(service.sortedAPI(apiFlag), pageNumber)
     }
     
     func didFavPressed(_ gameID: Int) {

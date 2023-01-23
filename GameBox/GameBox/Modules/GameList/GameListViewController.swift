@@ -30,27 +30,8 @@ class GameListViewController: UIViewController{
     
     @IBAction func sortButtonPressed(_ sender: Any) {
         dropDown.show()
-        dropDown.selectionAction =  { [unowned self] (index: Int, item: String) in
-            switch item {
-            case "Sort by Name":
-                print("opsion 1")
-                //viewModel.getHighestRating()
-            case "Sort by Rating":
-                print("opsion 2")
-                //viewModel.upcomingGames()
-            case "Filter by year: 2022":
-                print("opsion 3")
-                //viewModel.fetchGames(page: 1)
-            case "Filter by platform: Mac-OS":
-                print("opsion 3")
-            case "Clear filter":
-                print("opsion 3")
-            default:
-                print("")
-            }
-        }
+        dropDownAPI()
     }
-    
 }
 
 //MARK: - Extension
@@ -61,7 +42,7 @@ extension GameListViewController: canAccessVC {
         tableHelper.delegate = self
         
         dropDown.anchorView = sortButton
-        dropDown.dataSource = ["Top 20 Highest Rating","2022 Games","Clear Filter"]
+        dropDown.dataSource = ["Sort by Name","Sort by Rating","Filter by year: 2022","Filter by platform: Mac-OS","Clear filter"]
     }
     
     func setupBinding() {
@@ -84,5 +65,31 @@ extension GameListViewController: canAccessVC {
         present(noteDetailVC, animated: true, completion: {
             noteDetailVC.gameNameField.text = noteName
         })
+    }
+}
+
+//MARK: - Dropdown Function
+extension GameListViewController {
+    
+    func dropDownAPI() {
+        dropDown.selectionAction =  { [unowned self] (index: Int, item: String) in
+            switch item {
+            case "Sort by Name":
+                viewModel.apiFlag = 1
+            case "Sort by Rating":
+                viewModel.apiFlag = 2
+            case "Filter by year: 2022":
+                viewModel.apiFlag = 3
+            case "Filter by platform: Mac-OS":
+                viewModel.apiFlag = 4
+            case "Clear filter":
+                viewModel.apiFlag = 0
+            default:
+                print("default")
+            }
+        }
+        
+        viewModel.pageNumber = 1
+        viewModel.didViewLoad()
     }
 }
