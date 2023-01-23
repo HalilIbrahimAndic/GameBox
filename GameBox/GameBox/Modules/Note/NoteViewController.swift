@@ -11,13 +11,13 @@ class NoteViewController: UIViewController {
     
     
     @IBOutlet weak var noteTableView: UITableView!
+    @IBOutlet weak var notetBarItem: UIBarButtonItem!
     
     let viewModel = NoteViewModel()
     private var tableHelper: NoteVCHelper!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print("a")
         setupUI()
         setupBinding()
         
@@ -44,11 +44,13 @@ extension NoteViewController: canGoNote {
     private func setupUI() {
         tableHelper = .init(tableView: noteTableView, viewModel: viewModel)
         tableHelper.delegate = self
+        notetBarItem.title = "Add Note".localized()
+        self.title = "Notes".localized()
     }
     
     func setupBinding() {
         viewModel.onErrorOccured = { [weak self] message in
-            let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Alert".localized(), message: message, preferredStyle: .alert)
             alertController.addAction(.init(title: "Ok", style: .default))
             self?.present(alertController, animated: true)
         }
@@ -69,15 +71,15 @@ extension NoteViewController: canGoNote {
     }
     
     func showAlert() {
-        let alertController = UIAlertController(title: "Delete All", message: "All notes will be deleted \n Are you sure?", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Delete All".localized(), message: "All notes will be deleted \n Are you sure?".localized(), preferredStyle: .alert)
         
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) {
+        let deleteAction = UIAlertAction(title: "Delete".localized(), style: .destructive) {
                 UIAlertAction in
             self.viewModel.deleteAll()
             }
         
         alertController.addAction(deleteAction)
-        alertController.addAction(.init(title: "Cancel", style: .default))
+        alertController.addAction(.init(title: "Cancel".localized(), style: .default))
         present(alertController, animated: true)
     }
 }

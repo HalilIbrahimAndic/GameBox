@@ -1,0 +1,57 @@
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "2Av-bY-UIw"; */
+"2Av-bY-UIw.title" = " ";
+
+/* Class = "UITextField"; placeholder = "Write your note here.."; ObjectID = "Bpq-57-clD"; */
+"Bpq-57-clD.placeholder" = "Write your note here..";
+
+/* Class = "UILabel"; text = "Tags"; ObjectID = "CPb-iT-lgd"; */
+"CPb-iT-lgd.text" = "Tags";
+
+/* Class = "UITabBarItem"; title = "Games"; ObjectID = "RJi-84-8Ra"; */
+"RJi-84-8Ra.title" = "Games";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "T8v-a6-324"; */
+"T8v-a6-324.normalTitle" = "Save";
+
+/* Class = "UITabBarItem"; title = "Favorites"; ObjectID = "Xmg-qW-P5l"; */
+"Xmg-qW-P5l.title" = "Favorites";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Xuy-W0-hgj"; */
+"Xuy-W0-hgj.title" = "Item";
+
+/* Class = "UILabel"; text = "About"; ObjectID = "dXN-PM-Qvy"; */
+"dXN-PM-Qvy.text" = "About";
+
+/* Class = "UISearchBar"; placeholder = "What are you looking for?"; ObjectID = "hxA-l4-OLf"; */
+"hxA-l4-OLf.placeholder" = "What are you looking for?";
+
+/* Class = "UINavigationItem"; title = "Game Box"; ObjectID = "i3b-zV-KQt"; */
+"i3b-zV-KQt.title" = "Game Box";
+
+/* Class = "UILabel"; text = "Game Name"; ObjectID = "rR7-1M-m6L"; */
+"rR7-1M-m6L.text" = "Game Name";
+
+/* Class = "UILabel"; text = "Note:"; ObjectID = "sGN-1X-XaY"; */
+"sGN-1X-XaY.text" = "Note:";
+
+/* Class = "UITabBarItem"; title = "Notes"; ObjectID = "uUH-EP-S1M"; */
+"uUH-EP-S1M.title" = "Notes";
+
+/* Class = "UINavigationItem"; title = "Notes"; ObjectID = "wuK-iS-oaA"; */
+"wuK-iS-oaA.title" = "Notes";
+
+/* Class = "UILabel"; text = "Platforms"; ObjectID = "yKv-YG-Op9"; */
+"yKv-YG-Op9.text" = "Platforms";
+
+/* Class = "UINavigationItem"; title = "Favorites"; ObjectID = "z7A-gl-VhC"; */
+"z7A-gl-VhC.title" = "Favorites";
+
+/* Class = "UIBarButtonItem"; title = "Add Note"; ObjectID = "zZF-6t-sEa"; */
+"zZF-6t-sEa.title" = "Add Note";
+
+/* Class = "UILabel"; text = "Genres"; ObjectID = "zno-ws-Cig"; */
+"zno-ws-Cig.text" = "Genres";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "zz5-Ya-36E"; */
+"zz5-Ya-36E.title" = "Item";

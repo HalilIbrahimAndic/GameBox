@@ -27,9 +27,10 @@ class GameListModel {
     
     weak var delegate: GameListModelProtocol?
     
-    func fetchData(_ pageNumber: Int) { //First check CoreData, if nil -> fetch from internet
+    func fetchData(_ api: String, _ pageNumber: Int) { //First check CoreData, if nil -> fetch from internet
+        print("\(api)&page=\(pageNumber)")
         if InternetManager.shared.isInternetActive() {
-            AF.request("https://api.rawg.io/api/games?key=\(Constants.apiKey)&page=\(pageNumber)").responseDecodable(of: ApiData.self) { (res) in
+            AF.request("\(api)&page=\(pageNumber)").responseDecodable(of: ApiData.self) { (res) in
                 guard
                     let response = res.value
                 else {

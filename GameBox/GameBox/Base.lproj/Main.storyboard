@@ -37,7 +37,13 @@
                             <constraint firstItem="Gjk-J2-Hec" firstAttribute="leading" secondItem="b6I-LU-PM7" secondAttribute="leading" id="r0X-Xb-4rA"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Favorites" id="z7A-gl-VhC"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="z7A-gl-VhC">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="trash" catalog="system" id="Fsf-uN-Kbv">
+                            <connections>
+                                <action selector="deleteAllFavorites:" destination="XaC-tV-SOU" id="kBX-em-5aJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="gQu-3W-AUo" id="0I3-vo-XpZ"/>
                         <outlet property="tableView" destination="Gjk-J2-Hec" id="fB4-P1-Xks"/>
@@ -59,7 +65,7 @@
                                 <rect key="frame" x="0.0" y="200" width="414" height="613"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Write at least 3 characters" translatesAutoresizingMaskIntoConstraints="NO" id="hxA-l4-OLf">
+                            <searchBar contentMode="redraw" placeholder="What are you looking for?" translatesAutoresizingMaskIntoConstraints="NO" id="hxA-l4-OLf">
                                 <rect key="frame" x="0.0" y="140" width="414" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="bp1-rv-1MF"/>
@@ -86,12 +92,17 @@
                     </view>
                     <navigationItem key="navigationItem" title="Game Box" id="i3b-zV-KQt">
                         <barButtonItem key="backBarButtonItem" title=" " id="2Av-bY-UIw"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="list.bullet.indent" catalog="system" id="zz5-Ya-36E"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.up.arrow.down" catalog="system" id="zz5-Ya-36E">
+                            <connections>
+                                <action selector="sortButtonPressed:" destination="5IA-0V-D1h" id="lLd-O7-E5X"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="gameActivityIndicator" destination="fjA-QH-ayD" id="MCg-Ro-L53"/>
                         <outlet property="gameSearchBar" destination="hxA-l4-OLf" id="gBp-FN-jhS"/>
                         <outlet property="gameTableView" destination="kxO-WH-dkP" id="Cyf-LD-NoM"/>
+                        <outlet property="sortButton" destination="zz5-Ya-36E" id="LsW-bW-KUf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JYy-i8-SNI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -317,15 +328,19 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="aboutTitle" destination="dXN-PM-Qvy" id="TjG-gQ-MIF"/>
                         <outlet property="commentLabel" destination="c2i-mY-g6u" id="wVd-45-FAL"/>
                         <outlet property="descriptionLabel" destination="2zy-Fm-9Ti" id="z3i-1w-7jL"/>
                         <outlet property="favButton" destination="Wfa-4f-CRm" id="M3R-mn-Rd2"/>
                         <outlet property="gameImage" destination="Bd2-Y8-tRq" id="HOz-eR-vDW"/>
                         <outlet property="gameNameLabel" destination="p49-Ok-grO" id="s4a-bs-lHQ"/>
                         <outlet property="genreLabel" destination="9ch-zJ-YqE" id="6Mz-cZ-1cG"/>
+                        <outlet property="genresTitle" destination="zno-ws-Cig" id="JfT-li-vaT"/>
                         <outlet property="platformLabel" destination="QZi-th-bQy" id="YUW-em-Phb"/>
+                        <outlet property="platformTitle" destination="yKv-YG-Op9" id="xYQ-6I-xz5"/>
                         <outlet property="ratingLabel" destination="BLI-P6-Icc" id="fwa-oV-leu"/>
                         <outlet property="tagLabel" destination="aC7-FT-C6A" id="cKR-Da-WYP"/>
+                        <outlet property="tagsTitle" destination="CPb-iT-lgd" id="M3x-ry-wgH"/>
                         <outlet property="timeLabel" destination="vtS-Ux-MZm" id="2un-QK-ZJF"/>
                     </connections>
                 </viewController>
@@ -389,6 +404,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="noteTableView" destination="IuF-QC-YBK" id="TPo-bc-A2g"/>
+                        <outlet property="notetBarItem" destination="zZF-6t-sEa" id="3W3-D7-Fdt"/>
                         <segue destination="RHY-VN-y1G" kind="show" identifier="noteSegue" id="8pS-7y-vzh"/>
                     </connections>
                 </viewController>
@@ -441,7 +457,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8v-a6-324">
-                                <rect key="frame" x="150" y="730" width="114" height="50"/>
+                                <rect key="frame" x="150" y="700" width="114" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="tq7-Qz-ly0"/>
@@ -468,7 +484,7 @@
                             <constraint firstItem="rR7-1M-m6L" firstAttribute="top" secondItem="nEa-ve-6XE" secondAttribute="top" constant="50" id="OqF-6A-pxl"/>
                             <constraint firstItem="nEa-ve-6XE" firstAttribute="trailing" secondItem="Bpq-57-clD" secondAttribute="trailing" constant="20" id="TaQ-y9-uvo"/>
                             <constraint firstItem="sGN-1X-XaY" firstAttribute="top" secondItem="1wG-lz-DDV" secondAttribute="bottom" constant="50" id="aEm-ct-s3O"/>
-                            <constraint firstItem="T8v-a6-324" firstAttribute="top" secondItem="Bpq-57-clD" secondAttribute="bottom" constant="100" id="abr-xF-XbG"/>
+                            <constraint firstItem="T8v-a6-324" firstAttribute="top" secondItem="Bpq-57-clD" secondAttribute="bottom" constant="70" id="abr-xF-XbG"/>
                             <constraint firstItem="sGN-1X-XaY" firstAttribute="leading" secondItem="nEa-ve-6XE" secondAttribute="leading" constant="20" id="goq-ta-IMP"/>
                             <constraint firstItem="1wG-lz-DDV" firstAttribute="top" secondItem="rR7-1M-m6L" secondAttribute="bottom" constant="15" id="gxo-ZE-jYi"/>
                             <constraint firstItem="1wG-lz-DDV" firstAttribute="leading" secondItem="nEa-ve-6XE" secondAttribute="leading" constant="20" id="sCR-mq-vub"/>
@@ -478,7 +494,9 @@
                     <navigationItem key="navigationItem" id="zYy-k7-sWh"/>
                     <connections>
                         <outlet property="gameNameField" destination="1wG-lz-DDV" id="Mp9-6Z-pI3"/>
+                        <outlet property="gameNameLabel" destination="rR7-1M-m6L" id="gx9-rl-IlW"/>
                         <outlet property="gameTextField" destination="Bpq-57-clD" id="LuE-sk-TR0"/>
+                        <outlet property="gameTextLabel" destination="sGN-1X-XaY" id="saq-dq-eeh"/>
                         <outlet property="saveButton" destination="T8v-a6-324" id="ggC-Cc-tGR"/>
                     </connections>
                 </viewController>
@@ -548,12 +566,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.up.arrow.down" catalog="system" width="128" height="98"/>
         <image name="book.fill" catalog="system" width="128" height="102"/>
         <image name="bubble.left" catalog="system" width="128" height="110"/>
         <image name="gamecontroller.fill" catalog="system" width="128" height="80"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
-        <image name="list.bullet.indent" catalog="system" width="128" height="74"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="timer" catalog="system" width="128" height="121"/>
         <image name="trash" catalog="system" width="121" height="128"/>

@@ -14,4 +14,3 @@ class NoteDetailViewModel {
         model.saveToCoreData(myNote)
     }
 }
-

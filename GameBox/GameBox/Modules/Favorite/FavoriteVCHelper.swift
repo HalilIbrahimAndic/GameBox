@@ -68,7 +68,7 @@ class FavoriteVCHelper: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [self] (contextualAction, view, boolValue) in
-            //viewModel?.deleteFav(items[indexPath.row].id)
+            viewModel?.deleteFav(items[indexPath.row].id)
         }
         
         deleteAction.image = UIImage(systemName: "heart.fill")
