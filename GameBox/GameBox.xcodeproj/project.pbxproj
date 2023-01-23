@@ -144,13 +144,10 @@
 		202CC5BA2972F87D003990A4 /* GameBox */ = {
 			isa = PBXGroup;
 			children = (
-				204012F3297EE6E400C73E1B /* Localizable */,
 				202CC5D32972F952003990A4 /* App */,
 				202CC5EF2974A130003990A4 /* Managers */,
-				202CC5D72972F9A0003990A4 /* Services */,
-				202CC5D62972F98C003990A4 /* CoreData */,
+				202CC5D72972F9A0003990A4 /* Extensions */,
 				202CC5D52972F985003990A4 /* Modules */,
-				202CC5C12972F87D003990A4 /* Main.storyboard */,
 			);
 			path = GameBox;
 			sourceTree = "<group>";
@@ -158,11 +155,14 @@
 		202CC5D32972F952003990A4 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				204012F3297EE6E400C73E1B /* Localizable */,
+				202CC5C12972F87D003990A4 /* Main.storyboard */,
 				202CC5C92972F883003990A4 /* LaunchScreen.storyboard */,
 				202CC5BB2972F87D003990A4 /* AppDelegate.swift */,
 				202CC5BD2972F87D003990A4 /* SceneDelegate.swift */,
 				202CC5C72972F883003990A4 /* Assets.xcassets */,
 				202CC5CC2972F883003990A4 /* Info.plist */,
+				202CC5C42972F87D003990A4 /* GameBox.xcdatamodeld */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -179,15 +179,7 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		202CC5D62972F98C003990A4 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				202CC5C42972F87D003990A4 /* GameBox.xcdatamodeld */,
-			);
-			path = CoreData;
-			sourceTree = "<group>";
-		};
-		202CC5D72972F9A0003990A4 /* Services */ = {
+		202CC5D72972F9A0003990A4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				200DA3782975CEA4004B037A /* RAWGModel.swift */,
@@ -196,9 +188,8 @@
 				203139F4297B1DD200481803 /* DetailCacheModel.swift */,
 				203139FB297B3CE500481803 /* DetailCommonModel.swift */,
 				20DEB093297C9AB5002F7140 /* NoteCellModel.swift */,
-				204E2505297E9D7E00AF802F /* Service.swift */,
 			);
-			path = Services;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		202CC5DB2974594F003990A4 /* GameList */ = {
@@ -220,6 +211,7 @@
 				200DA37C2975D64C004B037A /* InternetManager.swift */,
 				204E2502297E7A4300AF802F /* LocalNotificationManager.swift */,
 				20601C12297F308900A724CF /* CoreDataManager.swift */,
+				204E2505297E9D7E00AF802F /* Service.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
