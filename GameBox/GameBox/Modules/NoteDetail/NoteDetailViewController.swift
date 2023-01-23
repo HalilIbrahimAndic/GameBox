@@ -12,11 +12,17 @@ class NoteDetailViewController: UIViewController, UNUserNotificationCenterDelega
     @IBOutlet weak var gameNameField: UITextField!
     @IBOutlet weak var gameTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var gameNameLabel: UILabel!
+    @IBOutlet weak var gameTextLabel: UILabel!
     
     private let viewModel = NoteDetailViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        saveButton.titleLabel?.text = "Save".localized()
+        gameNameLabel.text = "Game Name".localized()
+        gameTextLabel.text = "Note:".localized()
+        gameTextField.placeholder = "Write your note here...".localized()
     }
  
     @IBAction func saveButtonPressed(_ sender: Any) {

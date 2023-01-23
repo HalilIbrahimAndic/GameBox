@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  GameBox
+
+  Created by Halil Ibrahim Andic on 23.01.2023.
+  
+*/
+
+"Released" = "Yayınlanma Tarihi";
+"Favorites" = "Favoriler";
+"Add Note" = "Not Ekle";
+"Notes" = "Notlar";
+"Save" = "Kaydet";
+"Game Name" = "Oyun Adı";
+"Note:" = "Notunuz:";
+"Write your note here..." = "Notunuzu buraya yazabilirsiniz...";
+"Favorites" = "Favoriler";
+"Favorites" = "Favoriler";
+

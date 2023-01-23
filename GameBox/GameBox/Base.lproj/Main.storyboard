@@ -394,6 +394,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="noteTableView" destination="IuF-QC-YBK" id="TPo-bc-A2g"/>
+                        <outlet property="notetBarItem" destination="zZF-6t-sEa" id="3W3-D7-Fdt"/>
                         <segue destination="RHY-VN-y1G" kind="show" identifier="noteSegue" id="8pS-7y-vzh"/>
                     </connections>
                 </viewController>
@@ -446,7 +447,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8v-a6-324">
-                                <rect key="frame" x="150" y="730" width="114" height="50"/>
+                                <rect key="frame" x="150" y="700" width="114" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="tq7-Qz-ly0"/>
@@ -473,7 +474,7 @@
                             <constraint firstItem="rR7-1M-m6L" firstAttribute="top" secondItem="nEa-ve-6XE" secondAttribute="top" constant="50" id="OqF-6A-pxl"/>
                             <constraint firstItem="nEa-ve-6XE" firstAttribute="trailing" secondItem="Bpq-57-clD" secondAttribute="trailing" constant="20" id="TaQ-y9-uvo"/>
                             <constraint firstItem="sGN-1X-XaY" firstAttribute="top" secondItem="1wG-lz-DDV" secondAttribute="bottom" constant="50" id="aEm-ct-s3O"/>
-                            <constraint firstItem="T8v-a6-324" firstAttribute="top" secondItem="Bpq-57-clD" secondAttribute="bottom" constant="100" id="abr-xF-XbG"/>
+                            <constraint firstItem="T8v-a6-324" firstAttribute="top" secondItem="Bpq-57-clD" secondAttribute="bottom" constant="70" id="abr-xF-XbG"/>
                             <constraint firstItem="sGN-1X-XaY" firstAttribute="leading" secondItem="nEa-ve-6XE" secondAttribute="leading" constant="20" id="goq-ta-IMP"/>
                             <constraint firstItem="1wG-lz-DDV" firstAttribute="top" secondItem="rR7-1M-m6L" secondAttribute="bottom" constant="15" id="gxo-ZE-jYi"/>
                             <constraint firstItem="1wG-lz-DDV" firstAttribute="leading" secondItem="nEa-ve-6XE" secondAttribute="leading" constant="20" id="sCR-mq-vub"/>
@@ -483,7 +484,9 @@
                     <navigationItem key="navigationItem" id="zYy-k7-sWh"/>
                     <connections>
                         <outlet property="gameNameField" destination="1wG-lz-DDV" id="Mp9-6Z-pI3"/>
+                        <outlet property="gameNameLabel" destination="rR7-1M-m6L" id="gx9-rl-IlW"/>
                         <outlet property="gameTextField" destination="Bpq-57-clD" id="LuE-sk-TR0"/>
+                        <outlet property="gameTextLabel" destination="sGN-1X-XaY" id="saq-dq-eeh"/>
                         <outlet property="saveButton" destination="T8v-a6-324" id="ggC-Cc-tGR"/>
                     </connections>
                 </viewController>

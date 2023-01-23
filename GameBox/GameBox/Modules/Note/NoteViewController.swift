@@ -11,13 +11,13 @@ class NoteViewController: UIViewController {
     
     
     @IBOutlet weak var noteTableView: UITableView!
+    @IBOutlet weak var notetBarItem: UIBarButtonItem!
     
     let viewModel = NoteViewModel()
     private var tableHelper: NoteVCHelper!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print("a")
         setupUI()
         setupBinding()
         
@@ -44,6 +44,8 @@ extension NoteViewController: canGoNote {
     private func setupUI() {
         tableHelper = .init(tableView: noteTableView, viewModel: viewModel)
         tableHelper.delegate = self
+        notetBarItem.title = "Add Note".localized()
+        self.title = "Notes".localized()
     }
     
     func setupBinding() {

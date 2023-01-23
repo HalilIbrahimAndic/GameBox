@@ -33,7 +33,8 @@
 		20313A05297BCA9A00481803 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20313A04297BCA9A00481803 /* FavoriteViewModel.swift */; };
 		20313A08297BCB3B00481803 /* FavoriteVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20313A07297BCB3B00481803 /* FavoriteVCHelper.swift */; };
 		20313A0B297BD62A00481803 /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20313A01297BCA8C00481803 /* FavoriteModel.swift */; };
-		204012F5297EE71700C73E1B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 204012F4297EE71700C73E1B /* Localizable.strings */; };
+		204012F8297EE76C00C73E1B /* LocalizableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204012F7297EE76C00C73E1B /* LocalizableExtension.swift */; };
+		20401302297EE8F700C73E1B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 20401304297EE8F700C73E1B /* Localizable.strings */; };
 		204E2503297E7A4300AF802F /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204E2502297E7A4300AF802F /* LocalNotificationManager.swift */; };
 		204E2506297E9D7E00AF802F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204E2505297E9D7E00AF802F /* Service.swift */; };
 		20DEB08D297C9718002F7140 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DEB08B297C9718002F7140 /* NoteCell.swift */; };
@@ -79,7 +80,11 @@
 		20313A01297BCA8C00481803 /* FavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModel.swift; sourceTree = "<group>"; };
 		20313A04297BCA9A00481803 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		20313A07297BCB3B00481803 /* FavoriteVCHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVCHelper.swift; sourceTree = "<group>"; };
-		204012F4297EE71700C73E1B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		204012F7297EE76C00C73E1B /* LocalizableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableExtension.swift; sourceTree = "<group>"; };
+		204012FC297EE89100C73E1B /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		204012FD297EE89200C73E1B /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Main.strings; sourceTree = "<group>"; };
+		20401303297EE8F700C73E1B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		20401306297EE8FC00C73E1B /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		204E2502297E7A4300AF802F /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		204E2505297E9D7E00AF802F /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		20DEB08B297C9718002F7140 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
@@ -246,7 +251,8 @@
 		204012F3297EE6E400C73E1B /* Localizable */ = {
 			isa = PBXGroup;
 			children = (
-				204012F4297EE71700C73E1B /* Localizable.strings */,
+				20401304297EE8F700C73E1B /* Localizable.strings */,
+				204012F7297EE76C00C73E1B /* LocalizableExtension.swift */,
 			);
 			path = Localizable;
 			sourceTree = "<group>";
@@ -321,6 +327,7 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
 			);
 			mainGroup = 202CC5AF2972F87D003990A4;
 			productRefGroup = 202CC5B92972F87D003990A4 /* Products */;
@@ -338,7 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20DEB08E297C9718002F7140 /* NoteCell.xib in Resources */,
-				204012F5297EE71700C73E1B /* Localizable.strings in Resources */,
+				20401302297EE8F700C73E1B /* Localizable.strings in Resources */,
 				202CC5CB2972F883003990A4 /* LaunchScreen.storyboard in Resources */,
 				202CC5C82972F883003990A4 /* Assets.xcassets in Resources */,
 				202CC5C32972F87D003990A4 /* Main.storyboard in Resources */,
@@ -419,6 +426,7 @@
 				202CC5EC2974A112003990A4 /* GameListCell.swift in Sources */,
 				202CC5BC2972F87D003990A4 /* AppDelegate.swift in Sources */,
 				201AACEE29782030008A2231 /* DetailViewModel.swift in Sources */,
+				204012F8297EE76C00C73E1B /* LocalizableExtension.swift in Sources */,
 				202CC5BE2972F87D003990A4 /* SceneDelegate.swift in Sources */,
 				20DEB098297C9B68002F7140 /* NoteViewModel.swift in Sources */,
 				200DA37D2975D64C004B037A /* InternetManager.swift in Sources */,
@@ -438,6 +446,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				202CC5C22972F87D003990A4 /* Base */,
+				204012FD297EE89200C73E1B /* tr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -446,8 +455,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				202CC5CA2972F883003990A4 /* Base */,
+				204012FC297EE89100C73E1B /* tr */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		20401304297EE8F700C73E1B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				20401303297EE8F700C73E1B /* en */,
+				20401306297EE8FC00C73E1B /* tr */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -457,6 +476,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -504,7 +524,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -518,6 +538,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -559,7 +580,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

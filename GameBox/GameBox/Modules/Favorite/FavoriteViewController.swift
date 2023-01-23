@@ -17,6 +17,9 @@ class FavoriteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Favorites".localized()
+        
         setupUI()
         setupBinding()
         //viewModel.didViewLoad()
