@@ -49,7 +49,7 @@ extension NoteDetailViewController {
     
     @objc func newNoteSaved() {
         let notificationManager: NotificationProtocol = LocalNotificationManager.shared
-        notificationManager.sendNotification(title: "New Note!", message: "Your note is saved and listed.")
+        notificationManager.sendNotification(title: "New Note!".localized(), message: "Your note is saved and listed.".localized())
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,
@@ -59,7 +59,7 @@ extension NoteDetailViewController {
     }
     
     func showAlert() {
-        let alertController = UIAlertController(title: "Empty Fields", message: "Please fill all fields before saving", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Empty Fields".localized(), message: "Please fill all fields before saving".localized(), preferredStyle: .alert)
         alertController.addAction(.init(title: "Ok", style: .default))
         present(alertController, animated: true)
     }

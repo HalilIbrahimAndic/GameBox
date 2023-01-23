@@ -88,6 +88,7 @@
                 <outlet property="contentImageView" destination="yjl-8G-hqJ" id="xJ4-R2-Gqg"/>
                 <outlet property="gameNameLabel" destination="BfB-a8-bbx" id="m7f-y0-yQj"/>
                 <outlet property="ratingLabel" destination="fZ8-Kc-I09" id="qa1-7J-gD3"/>
+                <outlet property="ratingText" destination="OiZ-is-EbT" id="5pO-ed-hYv"/>
                 <outlet property="releasedText" destination="E1f-BN-cUR" id="dMz-fa-xkq"/>
                 <outlet property="releasedValueLabel" destination="uem-Lw-rL2" id="27S-Cf-JVI"/>
             </connections>

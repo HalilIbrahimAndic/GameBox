@@ -40,9 +40,10 @@ extension GameListViewController: canAccessVC {
     private func setupUI() {
         tableHelper = .init(tableView: gameTableView, viewModel: viewModel, searchBar: gameSearchBar, navigationController: navigationController!, tabbarController: tabBarController!)
         tableHelper.delegate = self
+        gameSearchBar.placeholder = "What are you looking for?".localized()
         
         dropDown.anchorView = sortButton
-        dropDown.dataSource = ["Sort by Name","Sort by Rating","Filter by year: 2022","Filter by platform: Mac-OS","Clear filter"]
+        dropDown.dataSource = ["Sort by Name".localized(),"Sort by Rating".localized(),"Filter by year: 2022".localized(),"Filter by platform: Mac-OS".localized(),"Clear Filter".localized()]
     }
     
     func setupBinding() {

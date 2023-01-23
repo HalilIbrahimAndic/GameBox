@@ -322,15 +322,19 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="aboutTitle" destination="dXN-PM-Qvy" id="TjG-gQ-MIF"/>
                         <outlet property="commentLabel" destination="c2i-mY-g6u" id="wVd-45-FAL"/>
                         <outlet property="descriptionLabel" destination="2zy-Fm-9Ti" id="z3i-1w-7jL"/>
                         <outlet property="favButton" destination="Wfa-4f-CRm" id="M3R-mn-Rd2"/>
                         <outlet property="gameImage" destination="Bd2-Y8-tRq" id="HOz-eR-vDW"/>
                         <outlet property="gameNameLabel" destination="p49-Ok-grO" id="s4a-bs-lHQ"/>
                         <outlet property="genreLabel" destination="9ch-zJ-YqE" id="6Mz-cZ-1cG"/>
+                        <outlet property="genresTitle" destination="zno-ws-Cig" id="JfT-li-vaT"/>
                         <outlet property="platformLabel" destination="QZi-th-bQy" id="YUW-em-Phb"/>
+                        <outlet property="platformTitle" destination="yKv-YG-Op9" id="xYQ-6I-xz5"/>
                         <outlet property="ratingLabel" destination="BLI-P6-Icc" id="fwa-oV-leu"/>
                         <outlet property="tagLabel" destination="aC7-FT-C6A" id="cKR-Da-WYP"/>
+                        <outlet property="tagsTitle" destination="CPb-iT-lgd" id="M3x-ry-wgH"/>
                         <outlet property="timeLabel" destination="vtS-Ux-MZm" id="2un-QK-ZJF"/>
                     </connections>
                 </viewController>
