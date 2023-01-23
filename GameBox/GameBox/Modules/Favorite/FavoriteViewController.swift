@@ -28,8 +28,12 @@ class FavoriteViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.didViewLoad()
-        //viewModel.didFavDeleted()
     }
+    
+    @IBAction func deleteAllFavorites(_ sender: Any) {
+        showAlert()
+    }
+    
 }
 
 //MARK: - FavoriteVC Extension
@@ -49,5 +53,18 @@ extension FavoriteViewController {
             self?.tableHelper.setItems(items)
             self?.activityIndicator.stopAnimating()
         }
+    }
+    
+    func showAlert() {
+        let alertController = UIAlertController(title: "Delete All".localized(), message: "All notes will be deleted \n Are you sure?".localized(), preferredStyle: .alert)
+        
+        let deleteAction = UIAlertAction(title: "Delete".localized(), style: .destructive) {
+                UIAlertAction in
+            self.viewModel.deleteAll()
+            }
+        
+        alertController.addAction(deleteAction)
+        alertController.addAction(.init(title: "Cancel".localized(), style: .default))
+        present(alertController, animated: true)
     }
 }

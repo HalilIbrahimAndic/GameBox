@@ -10,7 +10,6 @@ import CoreData
 
 final class CoreDataManager {
  
-    
     static let shared = CoreDataManager()
     private let context: NSManagedObjectContext!
     

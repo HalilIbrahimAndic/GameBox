@@ -41,6 +41,18 @@ class FavoriteModel {
             delegate?.didDataCouldntFetch()
         }
     }
+    
+//    let context = appDelegate.persistentContainer.viewContext
+//    let request = NSFetchRequest<NoteEntity>(entityName: "NoteEntity")
+//
+//    do {
+//        let result = try context.fetch(request)
+//        print("note cache: \(result.count)")
+//        self.noteData = result
+//        delegate?.didCacheDataFetch()
+//    } catch {
+//        print("Error: Coredata fetching")
+//        delegate?.didDataCouldntFetch()
 
     func retrieveFromCoreData() {
         
@@ -59,20 +71,34 @@ class FavoriteModel {
         }
     }
     
-//    func deleteSelectedFav (_ favID: Int) {
-//        
-//        let context = appDelegate.persistentContainer.viewContext
-//        let request = NSFetchRequest<FavoriteEntity>(entityName: "FavoriteEntity")
-//        request.predicate = NSPredicate(format: "id = %@", favID)
-//        
-//        do {
-//            let objects = try context.fetch(request)
-//            for object in objects {
-//                context.delete(object)
-//            }
-//            try context.save()
-//        } catch {
-//            print ("There was an error")
-//        }
-//    }
+    func deleteSelectedFav (_ favID: Int) {
+        
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<FavoriteEntity>(entityName: "FavoriteEntity")
+        request.predicate = NSPredicate(format: "id = %@", String(favID))
+        
+        do {
+            let objects = try context.fetch(request)
+            for object in objects {
+                context.delete(object)
+            }
+            try context.save()
+        } catch {
+            print ("There was an error")
+        }
+    }
+    
+    func deleteAllRecords(entity: String) {
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        
+        do {
+            try managedContext.execute(deleteRequest)
+            try managedContext.save()
+        } catch {
+            print ("There was an error")
+        }
+    }
 }

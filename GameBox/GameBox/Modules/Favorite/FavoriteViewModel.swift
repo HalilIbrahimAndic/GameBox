@@ -25,11 +25,17 @@ class FavoriteViewModel{
         model.retrieveFromCoreData()
     }
     
-//    func deleteFav(_ favID: Int) {
-//        model.deleteSelectedFav(favID)
-//        model.retrieveFromFavoriteEntity()
-//        model.retrieveFromCoreData()
-//    }
+    func deleteFav(_ favID: Int) {
+        model.deleteSelectedFav(favID)
+        model.retrieveFromFavoriteEntity()
+        model.retrieveFromCoreData()
+    }
+    
+    func deleteAll() {
+        model.deleteAllRecords(entity: "FavoriteEntity")
+        model.retrieveFromFavoriteEntity()
+        model.retrieveFromCoreData()
+    }
 }
 
 //MARK: - FavoriteViewModel Extensions
