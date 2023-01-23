@@ -32,15 +32,19 @@ class GameListViewController: UIViewController{
         dropDown.show()
         dropDown.selectionAction =  { [unowned self] (index: Int, item: String) in
             switch item {
-            case "Top 20 Highest Rating":
+            case "Sort by Name":
                 print("opsion 1")
                 //viewModel.getHighestRating()
-            case "2022 Games":
+            case "Sort by Rating":
                 print("opsion 2")
                 //viewModel.upcomingGames()
-            case "Clear Filter":
+            case "Filter by year: 2022":
                 print("opsion 3")
                 //viewModel.fetchGames(page: 1)
+            case "Filter by platform: Mac-OS":
+                print("opsion 3")
+            case "Clear filter":
+                print("opsion 3")
             default:
                 print("")
             }

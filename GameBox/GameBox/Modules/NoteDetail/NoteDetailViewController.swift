@@ -14,11 +14,9 @@ class NoteDetailViewController: UIViewController, UNUserNotificationCenterDelega
     @IBOutlet weak var saveButton: UIButton!
     
     private let viewModel = NoteDetailViewModel()
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
  
     @IBAction func saveButtonPressed(_ sender: Any) {
@@ -34,12 +32,6 @@ class NoteDetailViewController: UIViewController, UNUserNotificationCenterDelega
         } else {
             showAlert()
         }
-    }
-    
-    func showAlert() {
-        let alertController = UIAlertController(title: "Empty Fields", message: "Please fill all fields before saving", preferredStyle: .alert)
-        alertController.addAction(.init(title: "Ok", style: .default))
-        present(alertController, animated: true)
     }
 }
 
@@ -58,5 +50,11 @@ extension NoteDetailViewController {
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.sound, .banner, .badge, .list])
+    }
+    
+    func showAlert() {
+        let alertController = UIAlertController(title: "Empty Fields", message: "Please fill all fields before saving", preferredStyle: .alert)
+        alertController.addAction(.init(title: "Ok", style: .default))
+        present(alertController, animated: true)
     }
 }

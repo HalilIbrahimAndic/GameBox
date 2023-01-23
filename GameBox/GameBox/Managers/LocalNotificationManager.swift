@@ -28,10 +28,7 @@ final class LocalNotificationManager: NotificationProtocol {
         notificationContent.sound = UNNotificationSound.default
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.5, repeats: false)
-        
-        //let request = UNNotificationRequest(identifier: "LintNotification", content: notificationContent, trigger: trigger)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: notificationContent, trigger: trigger)
-        
         
         self.notificationCenter.add(request) { error in
             if let error = error {

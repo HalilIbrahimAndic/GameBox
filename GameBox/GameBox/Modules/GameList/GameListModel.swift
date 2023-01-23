@@ -29,7 +29,7 @@ class GameListModel {
     
     func fetchData(_ pageNumber: Int) { //First check CoreData, if nil -> fetch from internet
         if InternetManager.shared.isInternetActive() {
-            AF.request("https://api.rawg.io/api/games?key=\(Constants.apiKey)&page=\(pageNumber)").responseDecodable(of: ApiData.self) { (res) in
+            AF.request("\(Service.gamesBaseUrl)&page=\(pageNumber)").responseDecodable(of: ApiData.self) { (res) in
                 guard
                     let response = res.value
                 else {
