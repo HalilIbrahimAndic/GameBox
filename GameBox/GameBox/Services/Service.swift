@@ -18,19 +18,14 @@ struct Service {
     func sortedAPI(_ choice: Int) -> String {
         switch choice {
         case 1:
-            print(baseURL + "&ordering=name")
-            return baseURL + "&ordering=name"
+            return baseURL + "&dates=2022-01-01,2023-01-31" //2022
         case 2:
-            print(baseURL + "&ordering=rating")
-            return baseURL + "&ordering=rating"
+            return baseURL + "&genres=5" //RPG
         case 3:
-            print(baseURL + "&dates=2022-01-01,2022-12-31")
-            return baseURL + "&dates=2022-01-01,2022-12-31"
+            return baseURL + "&tags=5" //Co-op
         case 4:
-            print(baseURL + "&platforms=5")
-            return baseURL + "&platforms=5"
-        case 5:
-            print("serviste clear'a geldim.")
+            return baseURL + "&platforms=5" //Mac-os
+        case 0:
             return baseURL
         default:
             return baseURL

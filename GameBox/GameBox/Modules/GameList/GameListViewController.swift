@@ -43,7 +43,7 @@ extension GameListViewController: canAccessVC {
         gameSearchBar.placeholder = "What are you looking for?".localized()
         
         dropDown.anchorView = sortButton
-        dropDown.dataSource = ["Sort by Name".localized(),"Sort by Rating".localized(),"Filter by year: 2022".localized(),"Filter by platform: Mac-OS".localized(),"Clear Filter".localized()]
+        dropDown.dataSource = ["Released in 2022".localized(),"RPG Games".localized(),"Co-op Games".localized(),"Mac-OS Games".localized(),"Clear Filter".localized()]
     }
     
     func setupBinding() {
@@ -56,6 +56,7 @@ extension GameListViewController: canAccessVC {
         viewModel.refreshItems = { [weak self] items in
             self?.tableHelper.setItems(items)
             self?.gameActivityIndicator.stopAnimating()
+            self?.gameTableView.isHidden = false
         }
     }
     
@@ -75,22 +76,33 @@ extension GameListViewController {
     func dropDownAPI() {
         dropDown.selectionAction =  { [unowned self] (index: Int, item: String) in
             switch item {
-            case "Sort by Name":
+            case "Released in 2022":
                 viewModel.apiFlag = 1
-            case "Sort by Rating":
+            case "RPG Games":
                 viewModel.apiFlag = 2
-            case "Filter by year: 2022":
+            case "Co-op Games":
                 viewModel.apiFlag = 3
-            case "Filter by platform: Mac-OS":
+            case "Mac-OS Games":
                 viewModel.apiFlag = 4
-            case "Clear filter":
+            case "Clear Filter":
+                viewModel.apiFlag = 0
+            case "2022'de Yayınlananlar":
+                viewModel.apiFlag = 1
+            case "RPG Oyunları":
+                viewModel.apiFlag = 2
+            case "Co-op Oyunları":
+                viewModel.apiFlag = 3
+            case "Mac-OS Oyunları":
+                viewModel.apiFlag = 4
+            case "Filtreleri Temizle":
                 viewModel.apiFlag = 0
             default:
-                print("default")
+                viewModel.apiFlag = 0
             }
+            //viewModel.pageNumber = 1
+            viewModel.didViewLoad()
+            gameActivityIndicator.startAnimating()
+            gameTableView.isHidden = true
         }
-        
-        viewModel.pageNumber = 1
-        viewModel.didViewLoad()
     }
 }

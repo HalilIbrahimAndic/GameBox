@@ -28,10 +28,10 @@
 "All notes will be deleted \n Are you sure?" = "Tüm notlarınız silinecek \n Emin misiniz?";
 "Delete" = "Sil";
 "Cancel" = "İptal";
-"Sort by Name" = "Sırala: İsme Göre";
-"Sort by Rating" = "Sırala: Reytinge Göre";
-"Filter by year: 2022" = "Filtrele: 2022 Yılında Çıkanlar";
-"Filter by platform: Mac-OS" = "Filtrele: Mac-OS Oyunları";
+"Released in 2022" = "2022'de Yayınlananlar";
+"RPG Games" = "RPG Oyunları";
+"Co-op Games" = "Co-op Oyunları";
+"Mac-OS Games" = "Mac-OS Oyunları";
 "Clear Filter" = "Filtreleri Temizle";
 "Rating" = "Reyting";
 
