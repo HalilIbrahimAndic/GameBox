@@ -26,7 +26,6 @@
 		202CC5E729749915003990A4 /* GameListVCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5E629749915003990A4 /* GameListVCHelper.swift */; };
 		202CC5EC2974A112003990A4 /* GameListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202CC5EA2974A112003990A4 /* GameListCell.swift */; };
 		202CC5ED2974A112003990A4 /* GameListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 202CC5EB2974A112003990A4 /* GameListCell.xib */; };
-		203139E829793B2600481803 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203139E729793B2600481803 /* UIViewController+extension.swift */; };
 		203139F12979E4F600481803 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203139F02979E4F600481803 /* FavoriteViewController.swift */; };
 		203139F8297B1E7100481803 /* DetailCacheModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203139F4297B1DD200481803 /* DetailCacheModel.swift */; };
 		203139FC297B3CE500481803 /* DetailCommonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203139FB297B3CE500481803 /* DetailCommonModel.swift */; };
@@ -37,6 +36,7 @@
 		20401302297EE8F700C73E1B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 20401304297EE8F700C73E1B /* Localizable.strings */; };
 		204E2503297E7A4300AF802F /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204E2502297E7A4300AF802F /* LocalNotificationManager.swift */; };
 		204E2506297E9D7E00AF802F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204E2505297E9D7E00AF802F /* Service.swift */; };
+		20601C13297F308900A724CF /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20601C12297F308900A724CF /* CoreDataManager.swift */; };
 		20DEB08D297C9718002F7140 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DEB08B297C9718002F7140 /* NoteCell.swift */; };
 		20DEB08E297C9718002F7140 /* NoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20DEB08C297C9718002F7140 /* NoteCell.xib */; };
 		20DEB094297C9AB5002F7140 /* NoteCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DEB093297C9AB5002F7140 /* NoteCellModel.swift */; };
@@ -72,7 +72,6 @@
 		202CC5E629749915003990A4 /* GameListVCHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListVCHelper.swift; sourceTree = "<group>"; };
 		202CC5EA2974A112003990A4 /* GameListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListCell.swift; sourceTree = "<group>"; };
 		202CC5EB2974A112003990A4 /* GameListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameListCell.xib; sourceTree = "<group>"; };
-		203139E729793B2600481803 /* UIViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
 		203139EC2979E48000481803 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		203139F02979E4F600481803 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		203139F4297B1DD200481803 /* DetailCacheModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCacheModel.swift; sourceTree = "<group>"; };
@@ -87,6 +86,7 @@
 		20401306297EE8FC00C73E1B /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		204E2502297E7A4300AF802F /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		204E2505297E9D7E00AF802F /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		20601C12297F308900A724CF /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		20DEB08B297C9718002F7140 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		20DEB08C297C9718002F7140 /* NoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteCell.xib; sourceTree = "<group>"; };
 		20DEB093297C9AB5002F7140 /* NoteCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCellModel.swift; sourceTree = "<group>"; };
@@ -218,8 +218,8 @@
 			isa = PBXGroup;
 			children = (
 				200DA37C2975D64C004B037A /* InternetManager.swift */,
-				203139E729793B2600481803 /* UIViewController+extension.swift */,
 				204E2502297E7A4300AF802F /* LocalNotificationManager.swift */,
+				20601C12297F308900A724CF /* CoreDataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -404,9 +404,9 @@
 			files = (
 				204E2503297E7A4300AF802F /* LocalNotificationManager.swift in Sources */,
 				20DEB09F297C9CCD002F7140 /* NoteViewController.swift in Sources */,
-				203139E829793B2600481803 /* UIViewController+extension.swift in Sources */,
 				20F11DDA297CAE8500C82131 /* NoteDetailViewModel.swift in Sources */,
 				20313A08297BCB3B00481803 /* FavoriteVCHelper.swift in Sources */,
+				20601C13297F308900A724CF /* CoreDataManager.swift in Sources */,
 				201AACE929781FF8008A2231 /* DetailModel.swift in Sources */,
 				202CC5E1297488E8003990A4 /* GameListViewModel.swift in Sources */,
 				20DEB0A2297C9D3D002F7140 /* NoteVCHelper.swift in Sources */,
