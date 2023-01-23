@@ -26,27 +26,6 @@ class FavoriteModel {
     
     weak var delegate: FavoriteModelProtocol?
     
-//    func deleteFromFavoriteEntity(_ deleteID: Int) {
-//        let context = appDelegate.persistentContainer.viewContext
-//        let request = NSFetchRequest<FavoriteEntity>(entityName: "FavoriteEntity")
-//
-//        request.predicate = NSPredicate(format: "id = %@", deleteID)
-//
-//        do {
-//            let test = try context.fetch(request)
-//            let objectToDelete = test[0] as NSManagedObject
-//            context.delete(objectToDelete)
-//
-//            do {
-//                try context.save()
-//            } catch {
-//                print("delete error: \(error)")
-//            }
-//        } catch {
-//            print("Favorite delete error: \(error)")
-//        }
-//    }
-    
     func retrieveFromFavoriteEntity() {
         
         let context = appDelegate.persistentContainer.viewContext
@@ -62,9 +41,19 @@ class FavoriteModel {
             delegate?.didDataCouldntFetch()
         }
     }
+    
+//    let context = appDelegate.persistentContainer.viewContext
+//    let request = NSFetchRequest<NoteEntity>(entityName: "NoteEntity")
+//
+//    do {
+//        let result = try context.fetch(request)
+//        print("note cache: \(result.count)")
+//        self.noteData = result
+//        delegate?.didCacheDataFetch()
+//    } catch {
+//        print("Error: Coredata fetching")
+//        delegate?.didDataCouldntFetch()
 
-    // favorilenen oyunun detay bilgilerini burada
-    // we can limit fetchedCD request with "Predicate?"
     func retrieveFromCoreData() {
         
         let context = appDelegate.persistentContainer.viewContext
@@ -79,6 +68,37 @@ class FavoriteModel {
         } catch {
             print("Error: Coredata fetching")
             delegate?.didDataCouldntFetch()
+        }
+    }
+    
+    func deleteSelectedFav (_ favID: Int) {
+        
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<FavoriteEntity>(entityName: "FavoriteEntity")
+        request.predicate = NSPredicate(format: "id = %@", String(favID))
+        
+        do {
+            let objects = try context.fetch(request)
+            for object in objects {
+                context.delete(object)
+            }
+            try context.save()
+        } catch {
+            print ("There was an error")
+        }
+    }
+    
+    func deleteAllRecords(entity: String) {
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        
+        do {
+            try managedContext.execute(deleteRequest)
+            try managedContext.save()
+        } catch {
+            print ("There was an error")
         }
     }
 }

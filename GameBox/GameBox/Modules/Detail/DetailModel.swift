@@ -21,7 +21,6 @@ protocol DetailModelProtocol: AnyObject {
 class DetailModel {
     
     weak var detailDelegate: DetailModelProtocol?
-    private let apiKey = "d04a8d582093458f9cc979cd66f2d71d"
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -29,7 +28,7 @@ class DetailModel {
     private(set) var databaseData: [DetailEntity] = []
     
     func fetchData(_ gameID: Int) { //First check CoreData, if nil -> fetch from internet
-        let api = "https://api.rawg.io/api/games/\(gameID)?key=\(Constants.apiKey)"
+        let api = "https://api.rawg.io/api/games/\(gameID)\(Service.apiKey)"
         
         if InternetManager.shared.isInternetActive() {
             AF.request(api).responseDecodable(of: DetailPageModel.self) { (res) in
@@ -94,6 +93,7 @@ class DetailModel {
             let listObject = NSManagedObject(entity: entity, insertInto: context)
             
             listObject.setValue(gameID, forKey: "id")
+            //listObject.setValue(true, forKey: "condition")
             
             do {
                 try context.save()

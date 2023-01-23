@@ -27,9 +27,10 @@ class GameListModel {
     
     weak var delegate: GameListModelProtocol?
     
-    func fetchData(_ pageNumber: Int) { //First check CoreData, if nil -> fetch from internet
+    func fetchData(_ api: String, _ pageNumber: Int) { //First check CoreData, if nil -> fetch from internet
+        print("\(api)&page=\(pageNumber)")
         if InternetManager.shared.isInternetActive() {
-            AF.request("https://api.rawg.io/api/games?key=\(Constants.apiKey)&page=\(pageNumber)").responseDecodable(of: ApiData.self) { (res) in
+            AF.request("\(api)&page=\(pageNumber)").responseDecodable(of: ApiData.self) { (res) in
                 guard
                     let response = res.value
                 else {
@@ -49,6 +50,7 @@ class GameListModel {
 //        deleteAllRecords(entity: "GameEntity")
 //        deleteAllRecords(entity: "FavoriteEntity")
 //        deleteAllRecords(entity: "DetailEntity")
+//        deleteAllRecords(entity: "NoteEntity")
     }
     
     private func saveToCoreData(_ data: RAWGModel) {
@@ -61,7 +63,6 @@ class GameListModel {
             listObject.setValue(data.id, forKey: "id")
             listObject.setValue(data.name, forKey: "name")
             listObject.setValue(data.rating, forKey: "rating")
-            listObject.setValue(data.rating_top, forKey: "rating_top")
             listObject.setValue(data.released, forKey: "released")
             
             do {
@@ -104,15 +105,16 @@ class GameListModel {
     }
     
     func deleteAllRecords(entity : String) {
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
-        
-        do {
-            try managedContext.execute(deleteRequest)
-            try managedContext.save()
-        } catch {
-            print ("There was an error")
-        }
-    }
+
+                let managedContext = appDelegate.persistentContainer.viewContext
+                let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+                let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+                
+                do {
+                    try managedContext.execute(deleteRequest)
+                    try managedContext.save()
+                } catch {
+                    print ("There was an error")
+                }
+            }
 }

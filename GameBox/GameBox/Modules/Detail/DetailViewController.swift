@@ -20,6 +20,10 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var favButton: UIButton!
+    @IBOutlet weak var platformTitle: UILabel!
+    @IBOutlet weak var genresTitle: UILabel!
+    @IBOutlet weak var tagsTitle: UILabel!
+    @IBOutlet weak var aboutTitle: UILabel!
     
     private var viewModel = DetailViewModel()
     private var items = DetailPageModel(id: 0, name: "", background_image: "", rating: 0.0, playtime: 0, reviews_count: 0, platforms: [], genres: [], tags: [], description_raw: "")
@@ -49,8 +53,8 @@ class DetailViewController: UIViewController {
         sender.isSelected = !sender.isSelected //By default sender.isSelected is false
         if sender.isSelected {
             viewModel.didFavPressed(gameID)
-            //sender.setTitle("Favorited", for: .selected)
             sender.setImage(UIImage(systemName: "heart.fill"), for: .selected)
+            //tabbarController?.selectedIndex = 1
         } else {
             sender.setTitle("Favorite", for: .normal)
             sender.setImage(UIImage(systemName: "heart"), for: .normal)
@@ -70,6 +74,10 @@ private extension DetailViewController {
         commentLabel.text = String(items.reviews_count)
         ratingLabel.text = String(items.rating)
         descriptionLabel.text = items.description_raw
+        platformTitle.text = "Platforms".localized()
+        genresTitle.text = "Genres".localized()
+        tagsTitle.text = "Tags".localized()
+        aboutTitle.text = "About".localized()
         
         let genreString = items.genres.map{$0.name}.joined(separator: ", ")
         let tagString = items.tags.map{$0.name}.joined(separator: ", ")

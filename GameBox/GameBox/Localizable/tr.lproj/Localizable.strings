@@ -1,0 +1,37 @@
+/* 
+  Localizable.strings
+  GameBox
+
+  Created by Halil Ibrahim Andic on 23.01.2023.
+  
+*/
+
+"Released" = "Yayınlanma Tarihi";
+"Favorites" = "Favoriler";
+"Add Note" = "Not Ekle";
+"Notes" = "Notlar";
+"Save" = "Kaydet";
+"Game Name" = "Oyun Adı";
+"Note:" = "Notunuz:";
+"Write your note here..." = "Notunuzu buraya yazabilirsiniz...";
+"What are you looking for?" = "Hangi oyuna bakmıştınız?";
+"Platforms" = "Platformlar";
+"Genres" = "Türler";
+"Tags" = "Etiketler";
+"About" = "Oyun Hakkında";
+"New Note!" = "Yeni Not!";
+"Your note is saved and listed." = "Notunuz kaydedildi ve listelendi.";
+"Empty Fields" = "Boş Alan Var";
+"Please fill all fields before saving" = "Kaydetmeden önce tüm alanların doldurulduğundan emin olunuz";
+"Alert" = "Uyarı";
+"Delete All" = "Hepsini Sil";
+"All notes will be deleted \n Are you sure?" = "Tüm notlarınız silinecek \n Emin misiniz?";
+"Delete" = "Sil";
+"Cancel" = "İptal";
+"Released in 2022" = "2022'de Yayınlananlar";
+"RPG Games" = "RPG Oyunları";
+"Co-op Games" = "Co-op Oyunları";
+"Mac-OS Games" = "Mac-OS Oyunları";
+"Clear Filter" = "Filtreleri Temizle";
+"Rating" = "Reyting";
+

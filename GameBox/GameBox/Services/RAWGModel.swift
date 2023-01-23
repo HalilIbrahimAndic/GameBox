@@ -16,8 +16,7 @@ struct ApiData: Decodable {
 // MARK: - Result
 struct RAWGModel: Decodable {
     let id: Int
-    let name, released: String
+    let name, released, slug: String
     let background_image: String
     let rating: Double
-    let rating_top: Int
 }

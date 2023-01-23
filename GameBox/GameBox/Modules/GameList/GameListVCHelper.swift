@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol canAccessVC: AnyObject {
+    func goToNote(_ noteName: String)
+}
+
 class GameListVCHelper: NSObject, UITableViewDelegate{
     
     typealias RowItem = GameListCellModel
@@ -14,6 +18,10 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
     private let cellIdentifier = "GameListCell"
     var gameID: Int = 0
     var favID = 0
+    var noteName = ""
+    var paginationFlag = 0 //To reset pagination setup
+    
+    weak var delegate: canAccessVC?
     
     weak var tableView: UITableView?
     weak var searchBar: UISearchBar?
@@ -30,6 +38,7 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
         self.searchBar = searchBar
         self.navigationController = navigationController
         self.tabbarController = tabbarController
+        
         super.init()
         setupTableView()
     }
@@ -43,7 +52,14 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
     }
     
     func setItems(_ newItems: [RowItem]){
-        self.items.append(contentsOf: newItems)
+        // add newcomings to the end of the list
+        if paginationFlag == 0 {
+            self.items.append(contentsOf: newItems)
+        } else { // triggers when new sorting requested
+            self.items = newItems
+        }
+        
+        // transfers items for search tool
         filteredItems = items
         print(filteredItems.count)
         tableView?.reloadData()
@@ -69,15 +85,18 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
         favoriteAction.backgroundColor = .red
         
         // Note Action
-        // TODO:
+        let noteAction = UIContextualAction(style: .normal, title: "Note") { [self]  (contextualAction, view, boolValue) in
+            noteName = filteredItems[indexPath.row].name
+            goToNotePage(noteName)
+        }
+        noteAction.image = UIImage(systemName: "book.fill")
+        noteAction.backgroundColor = .blue
 
-        
-        let swipeActions = UISwipeActionsConfiguration(actions: [favoriteAction])
+        let swipeActions = UISwipeActionsConfiguration(actions: [favoriteAction, noteAction])
         return swipeActions
     }
 }
 
-// -------------------
 // --- Data Source ---
 extension GameListVCHelper: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -92,25 +111,28 @@ extension GameListVCHelper: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == filteredItems.count - 1 {
+        if (indexPath.row == filteredItems.count - 1) && indexPath.row >= 10 {
             viewModel?.pageNumber += 1
+            print("Viewmodel pageNumber: \(viewModel?.pageNumber ?? 10)")
             viewModel?.didViewLoad()
         }
     }
 }
 
+// --- Search Bar ---
 extension GameListVCHelper: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
             filteredItems = items
         } else {
             filteredItems = items.filter{ ($0.name).localizedCaseInsensitiveContains(searchText) }
+            
         }
-        
         tableView?.reloadData()
     }
 }
 
+// --- Go Other Pages ---
 extension GameListVCHelper {
     func goToDetailPage(_ gameID: Int) {
         guard let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as? DetailViewController
@@ -123,5 +145,9 @@ extension GameListVCHelper {
     func goToFavoritePage(_ favID: Int) {
         viewModel?.didFavPressed(favID)
         tabbarController?.selectedIndex = 1
+    }
+    
+    func goToNotePage(_ noteName: String) {
+        delegate?.goToNote(noteName)
     }
 }
