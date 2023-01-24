@@ -7,14 +7,15 @@
 
 import UIKit
 import DropDown
+import NVActivityIndicatorView
 
 class GameListViewController: UIViewController{
 
     // Outlets
     @IBOutlet private weak var gameSearchBar: UISearchBar!
     @IBOutlet private weak var gameTableView: UITableView!
-    @IBOutlet private weak var gameActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var sortButton: UIBarButtonItem!
+    @IBOutlet weak var activityIndicatorView: NVActivityIndicatorView!
     
     // Instances
     private let viewModel = GameListViewModel()
@@ -23,7 +24,6 @@ class GameListViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
         setupBinding()
         viewModel.didViewLoad()
@@ -44,6 +44,10 @@ extension GameListViewController: canAccessVC {
         tableHelper.delegate = self
         gameSearchBar.placeholder = "What are you looking for?".localized()
         
+        //Activity Indicator setup
+        activityIndicatorView.type = NVActivityIndicatorType.pacman
+        activityIndicatorView.startAnimating()
+        
         // Arranges sort menu items in the beginning
         dropDown.anchorView = sortButton
         dropDown.dataSource = ["Released in 2022".localized(),"RPG Games".localized(),"Co-op Games".localized(),"Mac-OS Games".localized(),"Clear Filter".localized()]
@@ -61,7 +65,7 @@ extension GameListViewController: canAccessVC {
         viewModel.refreshItems = { [weak self] items in
             // what happens when new fetch arrives from ViewModel?
             self?.tableHelper.setItems(items)
-            self?.gameActivityIndicator.stopAnimating()
+            self?.activityIndicatorView.stopAnimating()
             self?.gameTableView.isHidden = false
             // resets paginations
             self?.tableHelper.paginationFlag = 0
@@ -112,7 +116,7 @@ extension GameListViewController {
             viewModel.pageNumber = 1
             tableHelper.paginationFlag = 1
             viewModel.didViewLoad()
-            gameActivityIndicator.startAnimating()
+            activityIndicatorView.startAnimating()
             gameTableView.isHidden = true
         }
     }

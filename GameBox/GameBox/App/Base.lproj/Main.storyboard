@@ -95,20 +95,31 @@
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="fjA-QH-ayD">
-                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
-                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jAP-az-5kS" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="157" y="398" width="100" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="F8K-aH-Lx4"/>
+                                    <constraint firstAttribute="height" constant="100" id="JFU-sz-GAe"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="pacman"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" systemColor="systemGray2Color"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="beW-q9-Mss"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="kxO-WH-dkP" firstAttribute="leading" secondItem="beW-q9-Mss" secondAttribute="leading" id="0AX-ww-TlF"/>
-                            <constraint firstItem="fjA-QH-ayD" firstAttribute="centerY" secondItem="5be-8J-rEp" secondAttribute="centerY" id="2Uq-9s-bvH"/>
                             <constraint firstItem="hxA-l4-OLf" firstAttribute="leading" secondItem="beW-q9-Mss" secondAttribute="leading" id="8hT-FD-JBW"/>
-                            <constraint firstItem="fjA-QH-ayD" firstAttribute="centerX" secondItem="5be-8J-rEp" secondAttribute="centerX" id="V91-JZ-81x"/>
+                            <constraint firstItem="jAP-az-5kS" firstAttribute="centerY" secondItem="5be-8J-rEp" secondAttribute="centerY" id="Gej-Ln-Eol"/>
                             <constraint firstItem="kxO-WH-dkP" firstAttribute="top" secondItem="hxA-l4-OLf" secondAttribute="bottom" id="XOS-EA-bfh"/>
                             <constraint firstItem="beW-q9-Mss" firstAttribute="bottom" secondItem="kxO-WH-dkP" secondAttribute="bottom" id="iKs-Q9-v6b"/>
                             <constraint firstItem="hxA-l4-OLf" firstAttribute="top" secondItem="beW-q9-Mss" secondAttribute="top" id="l8q-Es-vaF"/>
+                            <constraint firstItem="jAP-az-5kS" firstAttribute="centerX" secondItem="5be-8J-rEp" secondAttribute="centerX" id="mfQ-rz-U29"/>
                             <constraint firstItem="hxA-l4-OLf" firstAttribute="trailing" secondItem="beW-q9-Mss" secondAttribute="trailing" id="qE0-eY-IAk"/>
                             <constraint firstItem="beW-q9-Mss" firstAttribute="trailing" secondItem="kxO-WH-dkP" secondAttribute="trailing" id="r0K-3e-LPZ"/>
                         </constraints>
@@ -123,7 +134,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="gameActivityIndicator" destination="fjA-QH-ayD" id="MCg-Ro-L53"/>
+                        <outlet property="activityIndicatorView" destination="jAP-az-5kS" id="x9X-4h-rnK"/>
                         <outlet property="gameSearchBar" destination="hxA-l4-OLf" id="gBp-FN-jhS"/>
                         <outlet property="gameTableView" destination="kxO-WH-dkP" id="Cyf-LD-NoM"/>
                         <outlet property="sortButton" destination="zz5-Ya-36E" id="LsW-bW-KUf"/>
@@ -646,6 +657,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
