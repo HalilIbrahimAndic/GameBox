@@ -9,9 +9,11 @@ import UIKit
 
 class NoteViewController: UIViewController {
     
-    
+    // Outlets
     @IBOutlet weak var noteTableView: UITableView!
     @IBOutlet weak var notetBarItem: UIBarButtonItem!
+    @IBOutlet weak var bookLabel: UILabel!
+    @IBOutlet weak var bigBookImage: UIImageView!
     
     let viewModel = NoteViewModel()
     private var tableHelper: NoteVCHelper!
@@ -20,7 +22,6 @@ class NoteViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupBinding()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +35,7 @@ class NoteViewController: UIViewController {
     }
     
     @IBAction func addNote(_ sender: UIBarButtonItem) {
+        // Goes to NoteDetail page.
         self.performSegue(withIdentifier: "noteSegue", sender: self)
     }
 }
@@ -44,8 +46,12 @@ extension NoteViewController: canGoNote {
     private func setupUI() {
         tableHelper = .init(tableView: noteTableView, viewModel: viewModel)
         tableHelper.delegate = self
-        notetBarItem.title = "Add Note".localized()
+        
         self.title = "Notes".localized()
+        notetBarItem.title = "Add Note".localized()
+        bookLabel.text = "No Note Taken Yet".localized()
+        bookLabel.alpha = 0.5
+        bigBookImage.alpha = 0.5
     }
     
     func setupBinding() {
@@ -57,6 +63,17 @@ extension NoteViewController: canGoNote {
 
         viewModel.refreshItems = { [weak self] items in
             self?.tableHelper.setItems(items)
+            
+            // Arranges the objects for empty page
+            if items.count != 0 {
+                self?.bigBookImage.isHidden = true
+                self?.bookLabel.isHidden = true
+                self?.noteTableView.isHidden = false
+            } else {
+                self?.bigBookImage.isHidden = false
+                self?.bookLabel.isHidden = false
+                self?.noteTableView.isHidden = true
+            }
         }
     }
     
@@ -64,6 +81,7 @@ extension NoteViewController: canGoNote {
         guard let noteDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: NoteDetailViewController.self)) as? NoteDetailViewController
                 else { return }
         
+        // tried to send data inside closure
         present(noteDetailVC, animated: true, completion: {
             noteDetailVC.gameNameField.text = noteData.name
             noteDetailVC.gameTextField.text = noteData.note

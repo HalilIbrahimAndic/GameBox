@@ -27,9 +27,9 @@ class GameListModel {
     
     weak var delegate: GameListModelProtocol?
     
-    func fetchData(_ api: String, _ pageNumber: Int) { //First check CoreData, if nil -> fetch from internet
-        print("\(api)&page=\(pageNumber)")
+    func fetchData(_ api: String, _ pageNumber: Int) {
         if InternetManager.shared.isInternetActive() {
+            //customized API
             AF.request("\(api)&page=\(pageNumber)").responseDecodable(of: ApiData.self) { (res) in
                 guard
                     let response = res.value
@@ -40,6 +40,7 @@ class GameListModel {
                 self.data = response.results
                 self.delegate?.didLiveDataFetch()
                 
+                // save live fetched items
                 for item in self.data {
                     self.saveToCoreData(item)
                 }
@@ -47,14 +48,9 @@ class GameListModel {
         } else {
             retrieveFromCoreData()
         }
-//        deleteAllRecords(entity: "GameEntity")
-//        deleteAllRecords(entity: "FavoriteEntity")
-//        deleteAllRecords(entity: "DetailEntity")
-//        deleteAllRecords(entity: "NoteEntity")
     }
     
     private func saveToCoreData(_ data: RAWGModel) {
-        
         let context = appDelegate.persistentContainer.viewContext
         if let entity = NSEntityDescription.entity(forEntityName: "GameEntity", in: context) {
             let listObject = NSManagedObject(entity: entity, insertInto: context)
@@ -68,53 +64,39 @@ class GameListModel {
             do {
                 try context.save()
             } catch  {
-                print("Hata: \(error)")
+                print(error)
             }
         }
     }
 
+    // No internet connection
     private func retrieveFromCoreData() {
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<GameEntity>(entityName: "GameEntity")
         
         do {
             let result = try context.fetch(request)
-            print("gamelistden cache'lenen: \(result.count)")
             self.databaseData = result
             delegate?.didCacheDataFetch()
         } catch {
-            print("Error: Coredata fetching")
             delegate?.didDataCouldntFetch()
         }
     }
     
+    // When faved by swipeAction
     func saveToFavData(_ gameID: Int) {
         let context = appDelegate.persistentContainer.viewContext
         if let entity = NSEntityDescription.entity(forEntityName: "FavoriteEntity", in: context) {
             let listObject = NSManagedObject(entity: entity, insertInto: context)
             
             listObject.setValue(gameID, forKey: "id")
+            listObject.setValue(true, forKey: "condition")
             
             do {
                 try context.save()
-                print("saved in FavData from gamelist")
             } catch  {
-                print("Hata: \(error)")
+                print(error)
             }
         }
     }
-    
-    func deleteAllRecords(entity : String) {
-
-                let managedContext = appDelegate.persistentContainer.viewContext
-                let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
-                let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
-                
-                do {
-                    try managedContext.execute(deleteRequest)
-                    try managedContext.save()
-                } catch {
-                    print ("There was an error")
-                }
-            }
 }

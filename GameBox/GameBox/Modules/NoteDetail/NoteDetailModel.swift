@@ -12,6 +12,7 @@ class NoteDetailModel {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
+    // Saves taken notes in CoreData
     func saveToCoreData(_ data: NoteCellModel) {
         let context = appDelegate.persistentContainer.viewContext
         if let entity = NSEntityDescription.entity(forEntityName: "NoteEntity", in: context) {

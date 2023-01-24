@@ -7,6 +7,8 @@
 
 import Foundation
 
+// Model for 2nd screen
+
 // MARK: - DetailPageModel
 struct DetailPageModel: Decodable {
     let id: Int

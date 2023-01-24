@@ -16,7 +16,9 @@ class GameListViewModel{
     var onErrorOccured: ((String) -> ())?
     var refreshItems: (([GameListCellModel]) -> ())?
     
+    // Controls pagination
     var pageNumber = 1
+    // Controls different api requests from Sort Menu
     var apiFlag = 0
     
     init() {
@@ -24,6 +26,7 @@ class GameListViewModel{
     }
     
     func didViewLoad() {
+        // send request to model by customized api components
         model.fetchData(service.sortedAPI(apiFlag),pageNumber)
     }
     

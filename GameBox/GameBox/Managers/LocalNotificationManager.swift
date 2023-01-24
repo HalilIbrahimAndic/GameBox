@@ -27,6 +27,8 @@ final class LocalNotificationManager: NotificationProtocol {
         notificationContent.subtitle = message
         notificationContent.sound = UNNotificationSound.default
         
+        // I preferred to send notification when note is taken.
+        // So notification must be sent immediately. 0.5 seconds later action is OK.
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.5, repeats: false)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: notificationContent, trigger: trigger)
         

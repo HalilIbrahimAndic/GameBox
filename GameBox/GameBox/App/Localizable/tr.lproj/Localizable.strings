@@ -6,7 +6,7 @@
   
 */
 
-"Released" = "Yayınlanma Tarihi";
+"Released:" = "Yayınlanma Tarihi:";
 "Favorites" = "Favoriler";
 "Add Note" = "Not Ekle";
 "Notes" = "Notlar";
@@ -14,7 +14,7 @@
 "Game Name" = "Oyun Adı";
 "Note:" = "Notunuz:";
 "Write your note here..." = "Notunuzu buraya yazabilirsiniz...";
-"What are you looking for?" = "Hangi oyuna bakmıştınız?";
+"What are you looking for?" = "Hangi oyunu aramak istersin?";
 "Platforms" = "Platformlar";
 "Genres" = "Türler";
 "Tags" = "Etiketler";
@@ -33,5 +33,12 @@
 "Co-op Games" = "Co-op Oyunları";
 "Mac-OS Games" = "Mac-OS Oyunları";
 "Clear Filter" = "Filtreleri Temizle";
-"Rating" = "Reyting";
+"Rating:" = "Reyting:";
+"No Favorited Game Yet" = "Henüz Favorilediğin Bir Oyun Yok";
+"No Note Taken Yet" = "Henüz Aldığın Bir Not Yok";
+"Favorite" = "Favorile";
+"Note" = "Not Al";
+"Delete" = "Sil";
+
+
 

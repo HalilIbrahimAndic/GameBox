@@ -10,6 +10,7 @@ import Kingfisher
 
 class DetailViewController: UIViewController {
     
+    // Outlets
     @IBOutlet weak var gameNameLabel: UILabel!
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -44,19 +45,15 @@ class DetailViewController: UIViewController {
     }
     
     func setCacheItems(_ cacheItems: DetailCacheModel){
-        //print(cacheItems) //array veriyo
         self.cacheItems = cacheItems
-        //setupUI()
     }
     
     @IBAction func favButtonPressed(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected //By default sender.isSelected is false
         if sender.isSelected {
-            viewModel.didFavPressed(gameID)
             sender.setImage(UIImage(systemName: "heart.fill"), for: .selected)
-            //tabbarController?.selectedIndex = 1
+            viewModel.didFavPressed(gameID)
         } else {
-            sender.setTitle("Favorite", for: .normal)
             sender.setImage(UIImage(systemName: "heart"), for: .normal)
         }
     }
@@ -79,6 +76,8 @@ private extension DetailViewController {
         tagsTitle.text = "Tags".localized()
         aboutTitle.text = "About".localized()
         
+        //Platforms, genres and tags came in arrays. To show them inside view, first
+        //converted them into strings.
         let genreString = items.genres.map{$0.name}.joined(separator: ", ")
         let tagString = items.tags.map{$0.name}.joined(separator: ", ")
         let platformString = items.platforms.map{($0.platform.name)}.joined(separator: ", ")
@@ -101,15 +100,9 @@ private extension DetailViewController {
             self?.present(alertController, animated: true)
         }
         
-        if InternetManager.shared.isInternetActive() {
-            viewModel.refreshItems = { [weak self] items in
-                self?.setItems(items)
+        viewModel.refreshItems = { [weak self] items in
+            self?.setItems(items)
             }
-        } else {
-            //            viewModel.refreshCacheItems = { [weak self] items2 in
-            //                //self?.setCacheItems(items2)
-            //                print(items2)
-            //            }
         }
     }
-}
+
