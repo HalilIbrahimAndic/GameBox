@@ -12,6 +12,8 @@ class NoteViewController: UIViewController {
     
     @IBOutlet weak var noteTableView: UITableView!
     @IBOutlet weak var notetBarItem: UIBarButtonItem!
+    @IBOutlet weak var bookLabel: UILabel!
+    @IBOutlet weak var bigBookImage: UIImageView!
     
     let viewModel = NoteViewModel()
     private var tableHelper: NoteVCHelper!
@@ -44,8 +46,12 @@ extension NoteViewController: canGoNote {
     private func setupUI() {
         tableHelper = .init(tableView: noteTableView, viewModel: viewModel)
         tableHelper.delegate = self
-        notetBarItem.title = "Add Note".localized()
+        
         self.title = "Notes".localized()
+        notetBarItem.title = "Add Note".localized()
+        bookLabel.text = "No Note Taken Yet".localized()
+        bookLabel.alpha = 0.5
+        bigBookImage.alpha = 0.5
     }
     
     func setupBinding() {
@@ -57,6 +63,16 @@ extension NoteViewController: canGoNote {
 
         viewModel.refreshItems = { [weak self] items in
             self?.tableHelper.setItems(items)
+            
+            if items.count != 0 {
+                self?.bigBookImage.isHidden = true
+                self?.bookLabel.isHidden = true
+                self?.noteTableView.isHidden = false
+            } else {
+                self?.bigBookImage.isHidden = false
+                self?.bookLabel.isHidden = false
+                self?.noteTableView.isHidden = true
+            }
         }
     }
     

@@ -77,7 +77,7 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         // Favorite Action
-        let favoriteAction = UIContextualAction(style: .normal, title: "Favorite") { [self]  (contextualAction, view, boolValue) in
+        let favoriteAction = UIContextualAction(style: .normal, title: "Favorite".localized()) { [self]  (contextualAction, view, boolValue) in
             favID = filteredItems[indexPath.row].id
             goToFavoritePage(favID)
         }
@@ -85,7 +85,7 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
         favoriteAction.backgroundColor = .red
         
         // Note Action
-        let noteAction = UIContextualAction(style: .normal, title: "Note") { [self]  (contextualAction, view, boolValue) in
+        let noteAction = UIContextualAction(style: .normal, title: "Note".localized()) { [self]  (contextualAction, view, boolValue) in
             noteName = filteredItems[indexPath.row].name
             goToNotePage(noteName)
         }

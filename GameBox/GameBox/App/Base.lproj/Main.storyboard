@@ -22,6 +22,19 @@
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.slash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tPt-wg-8kR">
+                                <rect key="frame" x="40" y="190.5" width="334" height="454.5"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.94999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Favorited Game Yet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkI-6B-vN0">
+                                <rect key="frame" x="0.0" y="576" width="414" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="N3u-Ev-Rcg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Damascus" family="Damascus" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="gQu-3W-AUo">
                                 <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                             </activityIndicatorView>
@@ -29,12 +42,19 @@
                         <viewLayoutGuide key="safeArea" id="b6I-LU-PM7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="IkI-6B-vN0" firstAttribute="leading" secondItem="b6I-LU-PM7" secondAttribute="leading" id="1ZM-DA-iFJ"/>
                             <constraint firstItem="gQu-3W-AUo" firstAttribute="centerX" secondItem="Lwo-XB-6QT" secondAttribute="centerX" id="4GT-Lk-Wlk"/>
                             <constraint firstItem="b6I-LU-PM7" firstAttribute="bottom" secondItem="Gjk-J2-Hec" secondAttribute="bottom" id="HNo-xA-ThK"/>
+                            <constraint firstItem="tPt-wg-8kR" firstAttribute="leading" secondItem="Lwo-XB-6QT" secondAttribute="leading" constant="40" id="LoY-x7-dUC"/>
+                            <constraint firstAttribute="trailing" secondItem="tPt-wg-8kR" secondAttribute="trailing" constant="40" id="OYa-kP-sWH"/>
                             <constraint firstItem="b6I-LU-PM7" firstAttribute="trailing" secondItem="Gjk-J2-Hec" secondAttribute="trailing" id="P6Y-1t-yZv"/>
+                            <constraint firstItem="b6I-LU-PM7" firstAttribute="trailing" secondItem="IkI-6B-vN0" secondAttribute="trailing" id="R5p-rO-mzx"/>
+                            <constraint firstAttribute="bottom" secondItem="tPt-wg-8kR" secondAttribute="bottom" constant="250" id="ftm-Ff-HhJ"/>
                             <constraint firstItem="gQu-3W-AUo" firstAttribute="centerY" secondItem="Lwo-XB-6QT" secondAttribute="centerY" id="oWG-f8-PrK"/>
                             <constraint firstItem="Gjk-J2-Hec" firstAttribute="top" secondItem="b6I-LU-PM7" secondAttribute="top" id="qjw-N2-haf"/>
                             <constraint firstItem="Gjk-J2-Hec" firstAttribute="leading" secondItem="b6I-LU-PM7" secondAttribute="leading" id="r0X-Xb-4rA"/>
+                            <constraint firstItem="tPt-wg-8kR" firstAttribute="top" secondItem="Gjk-J2-Hec" secondAttribute="top" constant="50" id="wyu-FS-XBR"/>
+                            <constraint firstAttribute="bottom" secondItem="IkI-6B-vN0" secondAttribute="bottom" constant="220" id="yO5-9x-Nyw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="z7A-gl-VhC">
@@ -46,6 +66,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="gQu-3W-AUo" id="0I3-vo-XpZ"/>
+                        <outlet property="bigHeartImage" destination="tPt-wg-8kR" id="O3j-Dp-vxQ"/>
+                        <outlet property="heartLabel" destination="IkI-6B-vN0" id="4is-x5-Tzz"/>
                         <outlet property="tableView" destination="Gjk-J2-Hec" id="fB4-P1-Xks"/>
                     </connections>
                 </viewController>
@@ -379,13 +401,33 @@
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="books.vertical" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZeT-fV-u7S">
+                                <rect key="frame" x="40" y="269" width="334" height="294"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.94999998807907104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Note Taken Yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1w-hT-kQ4">
+                                <rect key="frame" x="0.0" y="626" width="414" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Y9u-Zi-DE2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Damascus" family="Damascus" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IuF-QC-YBK" secondAttribute="trailing" id="4Id-AM-s2P"/>
+                            <constraint firstAttribute="bottom" secondItem="x1w-hT-kQ4" secondAttribute="bottom" constant="220" id="7Pl-Ow-4gz"/>
                             <constraint firstItem="IuF-QC-YBK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AXR-2R-zVK"/>
+                            <constraint firstAttribute="trailing" secondItem="x1w-hT-kQ4" secondAttribute="trailing" id="AfZ-GP-gZp"/>
+                            <constraint firstItem="ZeT-fV-u7S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="BJR-Tv-seb"/>
+                            <constraint firstItem="ZeT-fV-u7S" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="130" id="FZ5-GT-hdV"/>
                             <constraint firstItem="IuF-QC-YBK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="LPt-t9-F9j"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZeT-fV-u7S" secondAttribute="bottom" constant="250" id="Yqt-l6-hyL"/>
+                            <constraint firstItem="x1w-hT-kQ4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="c6L-b6-qfc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZeT-fV-u7S" secondAttribute="trailing" constant="40" id="dTG-o2-DGC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IuF-QC-YBK" secondAttribute="bottom" id="fJ0-Rn-AWP"/>
                         </constraints>
                     </view>
@@ -403,6 +445,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bigBookImage" destination="ZeT-fV-u7S" id="uCl-dq-yiG"/>
+                        <outlet property="bookLabel" destination="x1w-hT-kQ4" id="mfH-X0-XCd"/>
                         <outlet property="noteTableView" destination="IuF-QC-YBK" id="TPo-bc-A2g"/>
                         <outlet property="notetBarItem" destination="zZF-6t-sEa" id="3W3-D7-Fdt"/>
                         <segue destination="RHY-VN-y1G" kind="show" identifier="noteSegue" id="8pS-7y-vzh"/>
@@ -568,10 +612,12 @@
     <resources>
         <image name="arrow.up.arrow.down" catalog="system" width="128" height="98"/>
         <image name="book.fill" catalog="system" width="128" height="102"/>
+        <image name="books.vertical" catalog="system" width="128" height="103"/>
         <image name="bubble.left" catalog="system" width="128" height="110"/>
         <image name="gamecontroller.fill" catalog="system" width="128" height="80"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="heart.slash" catalog="system" width="128" height="115"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="timer" catalog="system" width="128" height="121"/>
         <image name="trash" catalog="system" width="121" height="128"/>

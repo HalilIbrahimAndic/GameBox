@@ -150,7 +150,6 @@
 				202CC5EF2974A130003990A4 /* Managers */,
 				202CC5D72972F9A0003990A4 /* Extensions */,
 				202CC5D52972F985003990A4 /* Modules */,
-				202CC5C12972F87D003990A4 /* Main.storyboard */,
 			);
 			path = GameBox;
 			sourceTree = "<group>";
@@ -160,6 +159,7 @@
 			children = (
 				204012F3297EE6E400C73E1B /* Localizable */,
 				202CC5C42972F87D003990A4 /* GameBox.xcdatamodeld */,
+				202CC5C12972F87D003990A4 /* Main.storyboard */,
 				202CC5C92972F883003990A4 /* LaunchScreen.storyboard */,
 				202CC5BB2972F87D003990A4 /* AppDelegate.swift */,
 				202CC5BD2972F87D003990A4 /* SceneDelegate.swift */,

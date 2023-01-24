@@ -67,7 +67,7 @@ class NoteVCHelper: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [self] (contextualAction, view, boolValue) in
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete".localized()) { [self] (contextualAction, view, boolValue) in
             viewModel?.deleteNote(items[indexPath.row].name)
         }
         

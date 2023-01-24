@@ -26,7 +26,8 @@ class GameListCell: UITableViewCell {
         contentImageView.kf.setImage(with: URL.init(string: model.background_image))
         gameNameLabel.text = model.name
         releasedValueLabel.text = model.released
-        releasedText.text = "Released".localized()
+        releasedText.text = "Released:".localized()
+        ratingText.text = "Rating:".localized()
         
         cosmosView.rating = model.rating
         cosmosView.text = "\(model.rating)"

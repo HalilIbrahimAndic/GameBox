@@ -11,6 +11,9 @@ class FavoriteViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var bigHeartImage: UIImageView!
+    @IBOutlet weak var heartLabel: UILabel!
+    
     
     private let viewModel = FavoriteViewModel()
     private var tableHelper: FavoriteVCHelper!
@@ -22,7 +25,6 @@ class FavoriteViewController: UIViewController {
         
         setupUI()
         setupBinding()
-        //viewModel.didViewLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +42,9 @@ class FavoriteViewController: UIViewController {
 extension FavoriteViewController {
     private func setupUI() {
         tableHelper = .init(tableView: tableView, VC: self, viewModel: viewModel, navigationController: navigationController!)
+        heartLabel.text = "No Favorited Game Yet".localized()
+        heartLabel.alpha = 0.5
+        bigHeartImage.alpha = 0.5
     }
     
     func setupBinding() {
@@ -52,6 +57,16 @@ extension FavoriteViewController {
         viewModel.refreshItems = { [weak self] items in
             self?.tableHelper.setItems(items)
             self?.activityIndicator.stopAnimating()
+            
+            if items.count != 0 {
+                self?.bigHeartImage.isHidden = true
+                self?.heartLabel.isHidden = true
+                self?.tableView.isHidden = false
+            } else {
+                self?.bigHeartImage.isHidden = false
+                self?.heartLabel.isHidden = false
+                self?.tableView.isHidden = true
+            }
         }
     }
     
