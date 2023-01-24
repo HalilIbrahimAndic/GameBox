@@ -15,7 +15,6 @@ protocol DetailModelProtocol: AnyObject {
     func didLiveDataFetch()
     func didCacheDataFetch()
     func didDataCouldntFetch()
-    func didFavCache()
 }
 
 //MARK: - Delegator of DetailModelProtocol
@@ -102,20 +101,6 @@ class DetailModel {
             detailDelegate?.didCacheDataFetch()
         } catch {
             print("Error: Coredata fetching")
-            detailDelegate?.didDataCouldntFetch()
-        }
-    }
-    
-    func retrieveFromFavData() {
-        let context = appDelegate.persistentContainer.viewContext
-        let request = NSFetchRequest<FavoriteEntity>(entityName: "FavoriteEntity")
-        
-        do {
-            let result = try context.fetch(request)
-            self.favData = result
-            detailDelegate?.didFavCache()
-        } catch {
-            print("Error: FavData fetching")
             detailDelegate?.didDataCouldntFetch()
         }
     }
