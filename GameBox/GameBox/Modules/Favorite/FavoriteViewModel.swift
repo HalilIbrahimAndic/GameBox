@@ -33,6 +33,7 @@ class FavoriteViewModel{
     
     func deleteAll() {
         model.deleteAllRecords(entity: "FavoriteEntity")
+        //CoreDataManager.deleteAllRecords(<#T##self: CoreDataManager##CoreDataManager#>)
         model.retrieveFromFavoriteEntity()
         model.retrieveFromCoreData()
     }
