@@ -12,15 +12,14 @@ class FavoriteVCHelper: NSObject, UITableViewDelegate, UITableViewDataSource {
     typealias RowItem = GameListCellModel
     private let cellIdentifier = "GameListCell"
     
-    weak var VC: UIViewController?
+    // Outlets
     weak var tableView: UITableView?
     weak var viewModel: FavoriteViewModel?
     weak var navigationController: UINavigationController?
     
     private var items: [RowItem] = []
     
-    init(tableView: UITableView, VC: FavoriteViewController, viewModel: FavoriteViewModel, navigationController: UINavigationController) {
-        self.VC = VC
+    init(tableView: UITableView, viewModel: FavoriteViewModel, navigationController: UINavigationController) {
         self.tableView = tableView
         self.viewModel = viewModel
         self.navigationController = navigationController
@@ -48,6 +47,7 @@ class FavoriteVCHelper: NSObject, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let gameId = items[indexPath.row].id
         
+        // Open game detail page with selected ID
         guard let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as? DetailViewController
         else { return }
         
@@ -66,6 +66,7 @@ class FavoriteVCHelper: NSObject, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    // Swipe Action
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete".localized()) { [self] (contextualAction, view, boolValue) in
             viewModel?.deleteFav(items[indexPath.row].id)

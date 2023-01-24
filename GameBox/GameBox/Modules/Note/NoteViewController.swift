@@ -9,7 +9,7 @@ import UIKit
 
 class NoteViewController: UIViewController {
     
-    
+    // Outlets
     @IBOutlet weak var noteTableView: UITableView!
     @IBOutlet weak var notetBarItem: UIBarButtonItem!
     @IBOutlet weak var bookLabel: UILabel!
@@ -22,7 +22,6 @@ class NoteViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupBinding()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +35,7 @@ class NoteViewController: UIViewController {
     }
     
     @IBAction func addNote(_ sender: UIBarButtonItem) {
+        // Goes to NoteDetail page.
         self.performSegue(withIdentifier: "noteSegue", sender: self)
     }
 }
@@ -64,6 +64,7 @@ extension NoteViewController: canGoNote {
         viewModel.refreshItems = { [weak self] items in
             self?.tableHelper.setItems(items)
             
+            // Arranges the objects for empty page
             if items.count != 0 {
                 self?.bigBookImage.isHidden = true
                 self?.bookLabel.isHidden = true
@@ -80,6 +81,7 @@ extension NoteViewController: canGoNote {
         guard let noteDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: NoteDetailViewController.self)) as? NoteDetailViewController
                 else { return }
         
+        // tried to send data inside closure
         present(noteDetailVC, animated: true, completion: {
             noteDetailVC.gameNameField.text = noteData.name
             noteDetailVC.gameTextField.text = noteData.note

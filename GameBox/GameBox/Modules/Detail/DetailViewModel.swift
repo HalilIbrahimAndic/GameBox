@@ -27,7 +27,6 @@ class DetailViewModel {
     func didFavPressed(_ gameID: Int) {
         model.saveToFavData(gameID)
     }
-    
 }
 
 //MARK: - Extensions

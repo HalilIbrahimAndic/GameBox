@@ -7,22 +7,26 @@
 
 import UIKit
 
+//MARK: - Protocol
 protocol canAccessVC: AnyObject {
     func goToNote(_ noteName: String)
 }
 
+//MARK: - Delegator
 class GameListVCHelper: NSObject, UITableViewDelegate{
     
     typealias RowItem = GameListCellModel
     
-    private let cellIdentifier = "GameListCell"
+    // Flag for Detail Page
     var gameID: Int = 0
+    // Flag for Favorites Page
     var favID = 0
+    // Flag for Notes Page
     var noteName = ""
-    var paginationFlag = 0 //To reset pagination setup
+    // Flag for Pagination
+    var paginationFlag = 0
     
     weak var delegate: canAccessVC?
-    
     weak var tableView: UITableView?
     weak var searchBar: UISearchBar?
     weak var viewModel: GameListViewModel?
@@ -31,6 +35,7 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
     
     private var items: [RowItem] = []
     private var filteredItems: [RowItem] = []
+    private let cellIdentifier = "GameListCell"
     
     init(tableView: UITableView, viewModel: GameListViewModel, searchBar: UISearchBar, navigationController: UINavigationController, tabbarController: UITabBarController) {
         self.tableView = tableView
@@ -61,7 +66,6 @@ class GameListVCHelper: NSObject, UITableViewDelegate{
         
         // transfers items for search tool
         filteredItems = items
-        print(filteredItems.count)
         tableView?.reloadData()
         tableView?.separatorStyle = .singleLine
     }
@@ -110,18 +114,35 @@ extension GameListVCHelper: UITableViewDataSource {
         return cell
     }
     
+    // ---- Pagination ----
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        /*
+         To prevent uncontrolled pagination, I wrote below logic with pageNumber flag.
+         This controls the Home Page of the whole Application. So, I have to be careful.
+         
+         My Home Page contains:
+            - Initial game list request
+            - Search request
+            - Different sort requests
+            - Pagination request
+         
+         where, all 4 of them calls viewmodel and reloads tableview.
+         Not sure if this is the correect way but I know it works :)
+         
+         P.S.: I intentionally avoid using global search request.
+         */
         if (indexPath.row == filteredItems.count - 1) && indexPath.row >= 10 {
             viewModel?.pageNumber += 1
-            print("Viewmodel pageNumber: \(viewModel?.pageNumber ?? 10)")
             viewModel?.didViewLoad()
         }
     }
+    // ---- Pagination ----
 }
 
 // --- Search Bar ---
 extension GameListVCHelper: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // when user deletes search text, initial page comes back.
         if searchText == "" {
             filteredItems = items
         } else {

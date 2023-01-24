@@ -11,6 +11,14 @@ import CoreData
 class CoreDataManager {
     static let shared = CoreDataManager()
     
+    /* I had trouble about Singleton structure here and didn't have much time to
+     spend on it. After project deadline, I'll focus to write this page clearly.
+     For now, the 'Model' pages of my modules contains all core data fetch and
+     retrieve operations. My aim is to handle all of them here with re-usable code.
+     
+     Regards,
+     Halil
+     */
     private init() {}
 
     lazy var persistentContainer: NSPersistentContainer = {

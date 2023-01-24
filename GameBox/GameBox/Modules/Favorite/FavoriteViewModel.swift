@@ -33,7 +33,6 @@ class FavoriteViewModel{
     
     func deleteAll() {
         model.deleteAllRecords(entity: "FavoriteEntity")
-        //CoreDataManager.deleteAllRecords(<#T##self: CoreDataManager##CoreDataManager#>)
         model.retrieveFromFavoriteEntity()
         model.retrieveFromCoreData()
     }
@@ -42,7 +41,6 @@ class FavoriteViewModel{
 //MARK: - FavoriteViewModel Extensions
 extension FavoriteViewModel: FavoriteModelProtocol {
     
-    // cache'den gelen veriyi VC'ye yolla
     func didCacheDataFetch() {
         let cellModels: [GameListCellModel] = model.databaseData.map{ .init(id: Int($0.id), name: $0.name ?? "", released: $0.released ?? "", rating: $0.rating, background_image: $0.background_image ?? "") }
         refreshItems?(cellModels)

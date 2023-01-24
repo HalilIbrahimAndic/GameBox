@@ -9,12 +9,13 @@ import UIKit
 
 class FavoriteViewController: UIViewController {
     
+    // Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var bigHeartImage: UIImageView!
     @IBOutlet weak var heartLabel: UILabel!
     
-    
+    // instances of VM and helper
     private let viewModel = FavoriteViewModel()
     private var tableHelper: FavoriteVCHelper!
     
@@ -22,7 +23,6 @@ class FavoriteViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "Favorites".localized()
-        
         setupUI()
         setupBinding()
     }
@@ -35,13 +35,12 @@ class FavoriteViewController: UIViewController {
     @IBAction func deleteAllFavorites(_ sender: Any) {
         showAlert()
     }
-    
 }
 
 //MARK: - FavoriteVC Extension
 extension FavoriteViewController {
     private func setupUI() {
-        tableHelper = .init(tableView: tableView, VC: self, viewModel: viewModel, navigationController: navigationController!)
+        tableHelper = .init(tableView: tableView, viewModel: viewModel, navigationController: navigationController!)
         heartLabel.text = "No Favorited Game Yet".localized()
         heartLabel.alpha = 0.5
         bigHeartImage.alpha = 0.5
@@ -58,6 +57,7 @@ extension FavoriteViewController {
             self?.tableHelper.setItems(items)
             self?.activityIndicator.stopAnimating()
             
+            // Arranges the objects for empty page
             if items.count != 0 {
                 self?.bigHeartImage.isHidden = true
                 self?.heartLabel.isHidden = true

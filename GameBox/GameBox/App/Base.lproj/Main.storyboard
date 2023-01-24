@@ -59,6 +59,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="z7A-gl-VhC">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="trash" catalog="system" id="Fsf-uN-Kbv">
+                            <color key="tintColor" red="0.98424929380000004" green="0.54474174980000001" blue="0.11994481830000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="deleteAllFavorites:" destination="XaC-tV-SOU" id="kBX-em-5aJ"/>
                             </connections>
@@ -115,6 +116,7 @@
                     <navigationItem key="navigationItem" title="Game Box" id="i3b-zV-KQt">
                         <barButtonItem key="backBarButtonItem" title=" " id="2Av-bY-UIw"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.up.arrow.down" catalog="system" id="zz5-Ya-36E">
+                            <color key="tintColor" red="0.98424929380000004" green="0.54474174980000001" blue="0.11994481830000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="sortButtonPressed:" destination="5IA-0V-D1h" id="lLd-O7-E5X"/>
                             </connections>
@@ -378,6 +380,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.98424929380000004" green="0.54474174980000001" blue="0.11994481830000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.98424929380000004" green="0.54474174980000001" blue="0.11994481830000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="Xy9-GS-vCJ" kind="relationship" relationship="viewControllers" id="SRg-QH-Kba"/>
@@ -406,7 +410,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.94999998807907104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Note Taken Yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1w-hT-kQ4">
-                                <rect key="frame" x="0.0" y="626" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="606" width="414" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Y9u-Zi-DE2"/>
                                 </constraints>
@@ -419,7 +423,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IuF-QC-YBK" secondAttribute="trailing" id="4Id-AM-s2P"/>
-                            <constraint firstAttribute="bottom" secondItem="x1w-hT-kQ4" secondAttribute="bottom" constant="220" id="7Pl-Ow-4gz"/>
+                            <constraint firstAttribute="bottom" secondItem="x1w-hT-kQ4" secondAttribute="bottom" constant="240" id="7Pl-Ow-4gz"/>
                             <constraint firstItem="IuF-QC-YBK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AXR-2R-zVK"/>
                             <constraint firstAttribute="trailing" secondItem="x1w-hT-kQ4" secondAttribute="trailing" id="AfZ-GP-gZp"/>
                             <constraint firstItem="ZeT-fV-u7S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="BJR-Tv-seb"/>
@@ -433,12 +437,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Notes" id="wuK-iS-oaA">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="trash" catalog="system" id="Xuy-W0-hgj">
+                            <color key="tintColor" red="0.98424929380000004" green="0.54474174980000001" blue="0.11994481830000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="deleteAllNotes:" destination="BYZ-38-t0r" id="CUO-KJ-U3E"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Add Note" style="done" id="zZF-6t-sEa">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="zZF-6t-sEa">
+                            <color key="tintColor" red="0.98424929380000004" green="0.54474174980000001" blue="0.11994481830000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="addNote:" destination="BYZ-38-t0r" id="zPU-uh-xV2"/>
                             </connections>
@@ -472,6 +477,11 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rR7-1M-m6L">
                                 <rect key="frame" x="20" y="190" width="374" height="30"/>
@@ -490,6 +500,11 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGN-1X-XaY">
                                 <rect key="frame" x="20" y="335" width="374" height="30"/>
@@ -510,6 +525,11 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="saveButtonPressed:" destination="RHY-VN-y1G" eventType="touchUpInside" id="Ab6-FZ-AEU"/>
                                 </connections>

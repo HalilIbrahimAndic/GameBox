@@ -10,6 +10,7 @@ import Kingfisher
 
 class DetailViewController: UIViewController {
     
+    // Outlets
     @IBOutlet weak var gameNameLabel: UILabel!
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -50,7 +51,6 @@ class DetailViewController: UIViewController {
     @IBAction func favButtonPressed(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected //By default sender.isSelected is false
         if sender.isSelected {
-            
             sender.setImage(UIImage(systemName: "heart.fill"), for: .selected)
             viewModel.didFavPressed(gameID)
         } else {
@@ -76,6 +76,8 @@ private extension DetailViewController {
         tagsTitle.text = "Tags".localized()
         aboutTitle.text = "About".localized()
         
+        //Platforms, genres and tags came in arrays. To show them inside view, first
+        //converted them into strings.
         let genreString = items.genres.map{$0.name}.joined(separator: ", ")
         let tagString = items.tags.map{$0.name}.joined(separator: ", ")
         let platformString = items.platforms.map{($0.platform.name)}.joined(separator: ", ")

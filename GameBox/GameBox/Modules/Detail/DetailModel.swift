@@ -26,7 +26,6 @@ class DetailModel {
     
     private(set) var data = DetailPageModel(id: 0, name: "", background_image: "", rating: 0.0, playtime: 0, reviews_count: 0, platforms: [], genres: [], tags: [], description_raw: "")
     private(set) var databaseData: [DetailEntity] = []
-    private(set) var favData: [FavoriteEntity] = []
     
     func fetchData(_ gameID: Int) { //First check CoreData, if nil -> fetch from internet
         let api = "https://api.rawg.io/api/games/\(gameID)\(Service.apiKey)"
@@ -66,9 +65,8 @@ class DetailModel {
             
             do {
                 try context.save()
-                print("saved in Detail CoreData")
             } catch  {
-                print("Hata: \(error)")
+                print(error)
             }
         }
     }
@@ -83,9 +81,8 @@ class DetailModel {
             
             do {
                 try context.save()
-                print("saved in FavData from detail")
             } catch  {
-                print("Hata: \(error)")
+                print(error)
             }
         }
     }
@@ -96,11 +93,9 @@ class DetailModel {
         
         do {
             let result = try context.fetch(request)
-            print("detailden cache'lenen: \(result.count)")
             self.databaseData = result
             detailDelegate?.didCacheDataFetch()
         } catch {
-            print("Error: Coredata fetching")
             detailDelegate?.didDataCouldntFetch()
         }
     }
