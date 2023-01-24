@@ -23,10 +23,11 @@ class NoteDetailViewController: UIViewController, UNUserNotificationCenterDelega
         gameNameLabel.text = "Game Name".localized()
         gameTextLabel.text = "Note:".localized()
         gameTextField.placeholder = "Write your note here...".localized()
+        
+        localNotification()
     }
  
     @IBAction func saveButtonPressed(_ sender: Any) {
-        localNotification()
         
         UNUserNotificationCenter.current().delegate = self
         if gameNameField.text != "" && gameTextField.text != "" {
