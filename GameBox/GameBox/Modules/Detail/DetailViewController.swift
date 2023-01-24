@@ -58,13 +58,12 @@ class DetailViewController: UIViewController {
     @IBAction func favButtonPressed(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected //By default sender.isSelected is false
         if sender.isSelected {
-
-            viewModel.didFavPressed(gameID)
             
             sender.setImage(UIImage(systemName: "heart.fill"), for: .selected)
-            navigationController?.popViewController(animated: true)
+            viewModel.didFavPressed(gameID)
+            
+            //navigationController?.popViewController(animated: true)
         } else {
-            sender.setTitle("Favorite", for: .normal)
             sender.setImage(UIImage(systemName: "heart"), for: .normal)
         }
     }

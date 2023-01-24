@@ -82,8 +82,6 @@ class DetailModel {
             listObject.setValue(gameID, forKey: "id")
             listObject.setValue(true, forKey: "condition")
             
-            //game model'de değiştirmeyi unutma condition'ı
-            
             do {
                 try context.save()
                 print("saved in FavData from detail")
