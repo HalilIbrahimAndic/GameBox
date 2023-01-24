@@ -94,6 +94,7 @@ class GameListModel {
             let listObject = NSManagedObject(entity: entity, insertInto: context)
             
             listObject.setValue(gameID, forKey: "id")
+            listObject.setValue(true, forKey: "condition")
             
             do {
                 try context.save()

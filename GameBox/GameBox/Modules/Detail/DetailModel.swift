@@ -15,6 +15,7 @@ protocol DetailModelProtocol: AnyObject {
     func didLiveDataFetch()
     func didCacheDataFetch()
     func didDataCouldntFetch()
+    func didFavCache()
 }
 
 //MARK: - Delegator of DetailModelProtocol
@@ -26,6 +27,7 @@ class DetailModel {
     
     private(set) var data = DetailPageModel(id: 0, name: "", background_image: "", rating: 0.0, playtime: 0, reviews_count: 0, platforms: [], genres: [], tags: [], description_raw: "")
     private(set) var databaseData: [DetailEntity] = []
+    private(set) var favData: [FavoriteEntity] = []
     
     func fetchData(_ gameID: Int) { //First check CoreData, if nil -> fetch from internet
         let api = "https://api.rawg.io/api/games/\(gameID)\(Service.apiKey)"
@@ -47,45 +49,30 @@ class DetailModel {
         }
     }
     
-        private func saveToCoreData(_ data: DetailPageModel) {
-            let context = appDelegate.persistentContainer.viewContext
-            if let entity = NSEntityDescription.entity(forEntityName: "DetailEntity", in: context) {
-              let listObject = NSManagedObject(entity: entity, insertInto: context)
-    
-                listObject.setValue(data.id, forKey: "id")
-                listObject.setValue(data.name, forKey: "name")
-                listObject.setValue(data.background_image, forKey: "background_image")
-                listObject.setValue(data.rating, forKey: "rating")
-                listObject.setValue(data.playtime, forKey: "playtime")
-                listObject.setValue(data.reviews_count, forKey: "reviews_count")
-                listObject.setValue(data.description_raw, forKey: "description_raw")
-                listObject.setValue(data.genres.map{$0.name}.joined(separator: ", "), forKey: "genre_name")
-                listObject.setValue(data.tags.map{$0.name}.joined(separator: ", "), forKey: "tag_name")
-                listObject.setValue(data.platforms.map{$0.platform.name}.joined(separator: ", "), forKey: "platform_name")
-    
-                do {
-                    try context.save()
-                    print("saved in Detail CoreData")
-                } catch  {
-                    print("Hata: \(error)")
-                }
-            }
-        }
-    
-        private func retrieveFromCoreData() {
-            let context = appDelegate.persistentContainer.viewContext
-            let request = NSFetchRequest<DetailEntity>(entityName: "DetailEntity")
-    
+    private func saveToCoreData(_ data: DetailPageModel) {
+        let context = appDelegate.persistentContainer.viewContext
+        if let entity = NSEntityDescription.entity(forEntityName: "DetailEntity", in: context) {
+            let listObject = NSManagedObject(entity: entity, insertInto: context)
+            
+            listObject.setValue(data.id, forKey: "id")
+            listObject.setValue(data.name, forKey: "name")
+            listObject.setValue(data.background_image, forKey: "background_image")
+            listObject.setValue(data.rating, forKey: "rating")
+            listObject.setValue(data.playtime, forKey: "playtime")
+            listObject.setValue(data.reviews_count, forKey: "reviews_count")
+            listObject.setValue(data.description_raw, forKey: "description_raw")
+            listObject.setValue(data.genres.map{$0.name}.joined(separator: ", "), forKey: "genre_name")
+            listObject.setValue(data.tags.map{$0.name}.joined(separator: ", "), forKey: "tag_name")
+            listObject.setValue(data.platforms.map{$0.platform.name}.joined(separator: ", "), forKey: "platform_name")
+            
             do {
-                let result = try context.fetch(request)
-                print("detailden cache'lenen: \(result.count)")
-                self.databaseData = result
-                detailDelegate?.didCacheDataFetch()
-            } catch {
-                print("Error: Coredata fetching")
-                detailDelegate?.didDataCouldntFetch()
+                try context.save()
+                print("saved in Detail CoreData")
+            } catch  {
+                print("Hata: \(error)")
             }
         }
+    }
     
     func saveToFavData(_ gameID: Int) {
         let context = appDelegate.persistentContainer.viewContext
@@ -93,7 +80,9 @@ class DetailModel {
             let listObject = NSManagedObject(entity: entity, insertInto: context)
             
             listObject.setValue(gameID, forKey: "id")
-            //listObject.setValue(true, forKey: "condition")
+            listObject.setValue(true, forKey: "condition")
+            
+            //game model'de değiştirmeyi unutma condition'ı
             
             do {
                 try context.save()
@@ -101,6 +90,35 @@ class DetailModel {
             } catch  {
                 print("Hata: \(error)")
             }
+        }
+    }
+    
+    private func retrieveFromCoreData() {
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<DetailEntity>(entityName: "DetailEntity")
+        
+        do {
+            let result = try context.fetch(request)
+            print("detailden cache'lenen: \(result.count)")
+            self.databaseData = result
+            detailDelegate?.didCacheDataFetch()
+        } catch {
+            print("Error: Coredata fetching")
+            detailDelegate?.didDataCouldntFetch()
+        }
+    }
+    
+    func retrieveFromFavData() {
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<FavoriteEntity>(entityName: "FavoriteEntity")
+        
+        do {
+            let result = try context.fetch(request)
+            self.favData = result
+            detailDelegate?.didFavCache()
+        } catch {
+            print("Error: FavData fetching")
+            detailDelegate?.didDataCouldntFetch()
         }
     }
 }

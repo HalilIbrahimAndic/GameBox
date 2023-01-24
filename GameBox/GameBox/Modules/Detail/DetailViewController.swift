@@ -28,6 +28,7 @@ class DetailViewController: UIViewController {
     private var viewModel = DetailViewModel()
     private var items = DetailPageModel(id: 0, name: "", background_image: "", rating: 0.0, playtime: 0, reviews_count: 0, platforms: [], genres: [], tags: [], description_raw: "")
     private var cacheItems = DetailCacheModel(id: 0, name: "", background_image: "", rating: 0.0, playtime: 0, reviews_count: 0, platform_name: "", genre_name: "", tag_name: "", description_raw: "")
+    private var favItems = FavButtonModel(id: 0, condition: false)
     
     var gameID: Int = 0
     
@@ -43,6 +44,11 @@ class DetailViewController: UIViewController {
         setupUI()
     }
     
+    func setFavItems(_ favItems: FavButtonModel){
+        self.favItems = favItems
+        setupFavUI()
+    }
+    
     func setCacheItems(_ cacheItems: DetailCacheModel){
         //print(cacheItems) //array veriyo
         self.cacheItems = cacheItems
@@ -52,9 +58,11 @@ class DetailViewController: UIViewController {
     @IBAction func favButtonPressed(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected //By default sender.isSelected is false
         if sender.isSelected {
+
             viewModel.didFavPressed(gameID)
+            
             sender.setImage(UIImage(systemName: "heart.fill"), for: .selected)
-            //tabbarController?.selectedIndex = 1
+            navigationController?.popViewController(animated: true)
         } else {
             sender.setTitle("Favorite", for: .normal)
             sender.setImage(UIImage(systemName: "heart"), for: .normal)
@@ -94,6 +102,10 @@ private extension DetailViewController {
         }
     }
     
+    func setupFavUI() {
+        favButton.isSelected = favItems.condition
+    }
+    
     func setupBinding() {
         viewModel.onErrorOccured = { [weak self] message in
             let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
@@ -101,15 +113,21 @@ private extension DetailViewController {
             self?.present(alertController, animated: true)
         }
         
-        if InternetManager.shared.isInternetActive() {
+//        if InternetManager.shared.isInternetActive() {
             viewModel.refreshItems = { [weak self] items in
                 self?.setItems(items)
             }
-        } else {
-            //            viewModel.refreshCacheItems = { [weak self] items2 in
-            //                //self?.setCacheItems(items2)
-            //                print(items2)
-            //            }
+        
+        viewModel.refreshFavItems = { [weak self] items in
+            self?.setFavItems(items)
         }
+        
+        
+//        } else {
+//            //            viewModel.refreshCacheItems = { [weak self] items2 in
+//            //                //self?.setCacheItems(items2)
+//            //                print(items2)
+//            //            }
+//        }
     }
 }
