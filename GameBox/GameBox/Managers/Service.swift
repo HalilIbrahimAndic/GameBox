@@ -15,6 +15,7 @@ struct Service {
     
     let baseURL = gamesBaseUrl
     
+    // Customizes required APIs here.
     func sortedAPI(_ choice: Int) -> String {
         switch choice {
         case 1:

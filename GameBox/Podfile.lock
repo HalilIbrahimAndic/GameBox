@@ -1,24 +1,28 @@
 PODS:
   - Alamofire (5.6.4)
+  - Cosmos (23.0.0)
   - DropDown (2.3.13)
   - Kingfisher (6.3.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.6)
+  - Cosmos (~> 23.0)
   - DropDown (~> 2.3)
   - Kingfisher (~> 6.3.1)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Cosmos
     - DropDown
     - Kingfisher
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
 
-PODFILE CHECKSUM: 771f247e952179d32b7ff06c26f81df1483eed82
+PODFILE CHECKSUM: ec3653e5f101fe99f682c3850f2a86c533bf7799
 
 COCOAPODS: 1.11.3

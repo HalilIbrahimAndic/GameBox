@@ -10,11 +10,13 @@ import DropDown
 
 class GameListViewController: UIViewController{
 
+    // Outlets
     @IBOutlet private weak var gameSearchBar: UISearchBar!
     @IBOutlet private weak var gameTableView: UITableView!
     @IBOutlet private weak var gameActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var sortButton: UIBarButtonItem!
     
+    // Instances
     private let viewModel = GameListViewModel()
     private var tableHelper: GameListVCHelper!
     let dropDown = DropDown()
@@ -26,15 +28,15 @@ class GameListViewController: UIViewController{
         setupBinding()
         viewModel.didViewLoad()
     }
-    
-    
+
     @IBAction func sortButtonPressed(_ sender: Any) {
         dropDown.show()
         dropDownAPI()
     }
 }
 
-//MARK: - Extension
+//MARK: - Delegate of ViewController-Helper
+// Protocol pattern applied between VCHelper & VC
 extension GameListViewController: canAccessVC {
     
     private func setupUI() {
@@ -42,10 +44,12 @@ extension GameListViewController: canAccessVC {
         tableHelper.delegate = self
         gameSearchBar.placeholder = "What are you looking for?".localized()
         
+        // Arranges sort menu items in the beginning
         dropDown.anchorView = sortButton
         dropDown.dataSource = ["Released in 2022".localized(),"RPG Games".localized(),"Co-op Games".localized(),"Mac-OS Games".localized(),"Clear Filter".localized()]
     }
     
+    // Creates binding between View-ViewModel
     func setupBinding() {
         viewModel.onErrorOccured = { [weak self] message in
             let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
@@ -53,14 +57,19 @@ extension GameListViewController: canAccessVC {
             self?.present(alertController, animated: true)
         }
         
+        // VM reaches here
         viewModel.refreshItems = { [weak self] items in
+            // what happens when new fetch arrives from ViewModel?
             self?.tableHelper.setItems(items)
             self?.gameActivityIndicator.stopAnimating()
             self?.gameTableView.isHidden = false
+            // resets paginations
             self?.tableHelper.paginationFlag = 0
         }
     }
     
+    // Protocol Function
+    // triggers when swipe action is activated for notes
     func goToNote(_ noteName: String){
         guard let noteDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: NoteDetailViewController.self)) as? NoteDetailViewController
                 else { return }

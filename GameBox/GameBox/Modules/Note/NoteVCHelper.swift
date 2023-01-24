@@ -7,6 +7,11 @@
 
 import UIKit
 
+/*
+ Used protocol design pattern (learned in HW#1) to send the data of Notes.
+ I wrote an article about this homework topic in medium.com. You can reach from here:
+ https://medium.com/@hiandic/a-brief-example-to-delegate-design-pattern-invigilator-162f455daab4
+*/
 protocol canGoNote: AnyObject {
     func goToNoteDetail(_ noteData: NoteCellModel)
 }
@@ -52,6 +57,7 @@ class NoteVCHelper: NSObject, UITableViewDelegate, UITableViewDataSource {
         let index = items[indexPath.row]
         let noteData = NoteCellModel(name: index.name, note: index.note, date: index.date)
         
+        // transfer data with protocol pattern
         delegate?.goToNoteDetail(noteData)
     }
     
@@ -66,8 +72,9 @@ class NoteVCHelper: NSObject, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    // Swipe Action
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [self] (contextualAction, view, boolValue) in
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete".localized()) { [self] (contextualAction, view, boolValue) in
             viewModel?.deleteNote(items[indexPath.row].name)
         }
         

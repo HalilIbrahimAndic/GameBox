@@ -14,7 +14,6 @@ class DetailViewModel {
     
     var onErrorOccured: ((String) -> ())?
     var refreshItems: ((DetailPageModel) -> ())?
-    var refreshFavItems: ((FavButtonModel) -> ())?
     var refreshCacheItems: (([DetailCacheModel]) -> ())?
     
     init() {
@@ -23,16 +22,10 @@ class DetailViewModel {
 
     func didViewLoad(_ gameID: Int) {
         model.fetchData(gameID)
-        model.retrieveFromFavData()
-
     }
     
     func didFavPressed(_ gameID: Int) {
         model.saveToFavData(gameID)
-    }
-    
-    func didFavRemoved(_ gameID:Int) {
-        
     }
 }
 
@@ -46,13 +39,6 @@ extension DetailViewModel: DetailModelProtocol {
     func didCacheDataFetch() {      
         let DCModel: [DetailCacheModel] = model.databaseData.map{.init(id: Int($0.id), name: $0.name ?? "", background_image: $0.background_image ?? "", rating: $0.rating, playtime: Int($0.playtime), reviews_count: Int($0.reviews_count), platform_name: $0.platform_name ?? "", genre_name: $0.genre_name ?? "", tag_name: $0.tag_name ?? "", description_raw: $0.description_raw ?? "")}
         refreshCacheItems?(DCModel)
-        
-    }
-    
-    func didFavCache() {
-        //let favButtonModel: [FavButtonModel] = model.favData.map{ .init(id: Int($0.id), condition: $0.condition)}
-        let favButtonModel = FavButtonModel(id: 0, condition: false)
-        refreshFavItems?(favButtonModel)
     }
     
     func didDataCouldntFetch() {

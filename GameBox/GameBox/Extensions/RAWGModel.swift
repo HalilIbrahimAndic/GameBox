@@ -7,6 +7,8 @@
 
 import Foundation
 
+// My main Fetch model.
+
 // MARK: - GameModel
 struct ApiData: Decodable {
     let results: [RAWGModel]

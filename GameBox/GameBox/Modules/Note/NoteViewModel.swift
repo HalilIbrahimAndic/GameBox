@@ -13,7 +13,6 @@ class NoteViewModel{
     
     var onErrorOccured: ((String) -> ())?
     var refreshItems: (([NoteCellModel]) -> ())?
-    var deleteID = 0
     
     init() {
         model.delegate = self
