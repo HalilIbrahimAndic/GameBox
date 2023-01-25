@@ -11,11 +11,11 @@
 <img src="https://img.shields.io/badge/Cosmos-23.0-blackblue" />
 <img src="https://img.shields.io/badge/NVActivityIndicatorView-5.1.1-pink" />
 
-This project is prepared within the scope of SIMPRA iOS Bootcamp by Halil Ibrahim Andiç.
-
+This project is prepared within the scope of SIMPRA iOS Bootcamp by Halil Ibrahim Andiç. You can browse between thousands of games, search, favorite or take notes about them. 
 
 ## Table of Contents
 
+* [Movie](https://github.com/HalilIbrahimAndic/GameBox#Movie)
 * [App Features](https://github.com/HalilIbrahimAndic/GameBox#App-Features)
 * [Technical Content](https://github.com/HalilIbrahimAndic/GameBox#Technical-Content)
 * [Libraries](https://github.com/HalilIbrahimAndic/GameBox#Libraries)
@@ -23,6 +23,9 @@ This project is prepared within the scope of SIMPRA iOS Bootcamp by Halil Ibrahi
 * [Screenshots](https://github.com/HalilIbrahimAndic/GameBox#Screenshots)
 * [Storyboard Map](https://github.com/HalilIbrahimAndic/GameBox#Storyboard-Map)
 
+
+## Movie
+https://user-images.githubusercontent.com/77022411/214521269-6ab4aebc-2ca2-4107-9d91-3cb137654743.mov
 
 
 ## App Features
