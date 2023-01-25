@@ -11,7 +11,9 @@
 <img src="https://img.shields.io/badge/Cosmos-23.0-blackblue" />
 <img src="https://img.shields.io/badge/NVActivityIndicatorView-5.1.1-pink" />
 
-This project is prepared within the scope of SIMPRA iOS Bootcamp by Halil Ibrahim Andiç. You can browse between thousands of games, search, favorite or take notes about them. 
+This project is prepared within the scope of SIMPRA iOS Bootcamp by Halil Ibrahim Andiç. You can browse between thousands of games and search, favorite or take notes about them. API Credit: https://rawg.io/apidocs
+
+
 
 ## Table of Contents
 
@@ -25,7 +27,7 @@ This project is prepared within the scope of SIMPRA iOS Bootcamp by Halil Ibrahi
 
 
 ## Movie
-https://user-images.githubusercontent.com/77022411/214521269-6ab4aebc-2ca2-4107-9d91-3cb137654743.mov
+https://user-images.githubusercontent.com/77022411/214522417-5f6e436f-d648-4fb1-8540-ddd76011d43f.mov
 
 
 ## App Features
