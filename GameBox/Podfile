@@ -10,5 +10,6 @@ target 'GameBox' do
 pod 'Kingfisher', '~> 6.3.1'
 pod 'DropDown', '~> 2.3'
 pod 'Cosmos', '~> 23.0'
+pod 'NVActivityIndicatorView'
 
 end
