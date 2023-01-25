@@ -3,12 +3,16 @@ PODS:
   - Cosmos (23.0.0)
   - DropDown (2.3.13)
   - Kingfisher (6.3.1)
+  - NVActivityIndicatorView (5.1.1):
+    - NVActivityIndicatorView/Base (= 5.1.1)
+  - NVActivityIndicatorView/Base (5.1.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.6)
   - Cosmos (~> 23.0)
   - DropDown (~> 2.3)
   - Kingfisher (~> 6.3.1)
+  - NVActivityIndicatorView
 
 SPEC REPOS:
   trunk:
@@ -16,13 +20,15 @@ SPEC REPOS:
     - Cosmos
     - DropDown
     - Kingfisher
+    - NVActivityIndicatorView
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
+  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
 
-PODFILE CHECKSUM: ec3653e5f101fe99f682c3850f2a86c533bf7799
+PODFILE CHECKSUM: b9f14ca6bbf43c3b009a19bafa68846631f9f192
 
 COCOAPODS: 1.11.3
